@@ -6,14 +6,13 @@
     <title>Login</title>
 
     <script type="text/javascript" src="../controladores/funcion.js"></script>
-    <link href="../controladores/css/estilo.css" rel="stylesheet">
-
 </head>
 
 <body>
 
     <?php
     $_SESSION['isLogged'] = FALSE;
+    $_SESSION['isLoggedAdmin'] = FALSE;
     ?>
 
 
@@ -35,8 +34,17 @@
    
     <footer>
         <p>Diego Rodríguez A</p>
-        <p>e-mail:<a href="mailto:drodrigueza@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a></p>
-        <p>Teléfono:<a href="tel:+593984053639">0984053639</a></p>
+        e-mail:<a href="mailto:drodrigueza@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
+        Teléfono:<a href="tel:+593984053639">0984053639</a>
+        <p>Marco Cobos F</p>
+        e-mail:<a href="mailto:mcobosf@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
+        Teléfono:<a href="tel:+593984053639">0984053639</a>
+        <p>Malki Yupanki M</p>
+        e-mail:<a href="mailto:gchuchucaa@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
+        Teléfono:<a href="tel:+593984053639">0984053639</a></p>
+        <p>Gabriel Chuchuca A</p>
+        e-mail:<a href="mailto:myupanki@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
+        Teléfono:<a href="tel:+593984053639">0984053639</a>
         <p>© Todos los derechos reservados</p>
     </footer>
 

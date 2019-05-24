@@ -4,7 +4,7 @@
 	$servername = "localhost";
 	$username = "root"; 
 	$password = '';
-	$dbname = "email";
+	$dbname = "final";
 
 
 	//Create connection
@@ -15,6 +15,6 @@
 	if ($conn->connect_error){
 		die("Connection failed: " . $conn->connect_error);
 	}else{
-		
+		echo "Conexion exitosa";
 	}
 ?>
