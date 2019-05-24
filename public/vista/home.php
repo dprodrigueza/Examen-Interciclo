@@ -43,6 +43,9 @@ body, html {
     <div class="w3-col s3">
       <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
     </div>
+    <div class="w3-col s3">
+      <a href="../../login/login.php" class="w3-button w3-block w3-black">INICIAR SESION</a>
+    </div>
   </div>
 </div>
 
