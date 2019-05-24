@@ -1,20 +1,20 @@
 <?php
 
+$servername="localhost";
+$username="root";
+$passsword="";
+$dbname="final";
+//crear conexiom
 
-	$servername = "localhost";
-	$username = "root"; 
-	$password = '';
-	$dbname = "final";
+$conn = new mysqli($servername,$username,$passsword,$dbname);
+
+// verificar conecxion
+if ($conn->connect_error){
+    die("Connection failed: ". $conn->connect_error);
+    echo "error";
+}else{
+ //   echo "conexion exitosa";
+}
 
 
-	//Create connection
-
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	
-	//Check connection
-	if ($conn->connect_error){
-		die("Connection failed: " . $conn->connect_error);
-	}else{
-		echo "Conexion exitosa";
-	}
 ?>
