@@ -29,7 +29,7 @@
                 header("Location: ../admin/vista/index.php?mail=".$email);
             }else if($rol["usu_rol"]== 'USER'){
                 $_SESSION['isLogged'] = TRUE;
-                header("Location: ../public/vista/index.php?mail=".$email);
+                header("Location: ../public/vista/home.html?mail=".$email);
             }
             
         } else {
