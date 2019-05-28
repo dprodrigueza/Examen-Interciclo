@@ -10,10 +10,7 @@
 
 <body>
 
-    <?php
-    $_SESSION['isLogged'] = FALSE;
-    $_SESSION['isLoggedAdmin'] = FALSE;
-    ?>
+    
 
 
     <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../controladores/loginUser.php">

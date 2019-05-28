@@ -10,7 +10,7 @@
 
 <body>
 
-    <h1>Normal</h1>>
+    <h1>Normal</h1>
 
 </body>
 
