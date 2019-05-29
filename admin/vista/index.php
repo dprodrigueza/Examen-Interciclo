@@ -34,6 +34,6 @@ if ($usurol == 'user'){
 
 <?php
 } else {
-	header("Location: ../../../config/acceso.html")
+	header("Location: ../../config/acceso.html");
 }
 ?>
