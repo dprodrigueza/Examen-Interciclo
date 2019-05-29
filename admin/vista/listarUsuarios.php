@@ -40,7 +40,7 @@
                 echo ("<td>" . $row["usu_nombre"] . "</td>");
                 echo ("<td>" . $row["usu_apellido"] . "</td>");
                 echo ("<td>" . $row["usu_mail"] . "</td>");
-                echo ("<td>" . $row["usu_rol"] . "</td>");
+                echo ("<td>" . "<img src=../../imagenes/$row[usu_foto] width='80' height='80'>" . "</td>");
                 echo ("<td>" . $row["usu_rol"] . "</td>");
                 echo ("<td> <a href = ../controladores/eliminarUsu.php?mail=" . $row["usu_mail"] . "&adm=". $_GET['mail'] . ">ELIMINAR</a>" . " </td>");
                 echo ("<td> <a href=actualizarUsuario.php?mail=" . $row["usu_mail"] . "&adm=". $_GET['mail'] . ">Modificar</a> </td>");

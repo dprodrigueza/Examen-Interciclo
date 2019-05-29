@@ -6,9 +6,9 @@ $apellidosui =  explode(" ", $_SESSION['ape']);
 $correoui = $_SESSION['cor'];
 $usurol = $_SESSION['rol'];
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
-    header("Location: /SistemaDeGestion/public/vista/login.html");
+	header("Location: /SistemaDeGestion/public/vista/login.html");
 }
-if ($usurol == 'user'){
+if ($usurol == 'user') {
 	?>
 	<!DOCTYPE html>
 	<html>
@@ -20,19 +20,19 @@ if ($usurol == 'user'){
 	</head>
 
 	<body>
-		<?php  
+		<?php
 		include '../../config/conexionDB.php'
 
 		?>
 
-    	<h1>ADMIN</h1>
-    	<h1>ADMIN</h1>
+		<h1>ADMIN</h1>
+		<h1>ADMIN</h1>
 
 	</body>
 
 	</html>
 
-  <?php
+<?php
 } else {
 	header("Location: ../../config/acceso.html");
 }

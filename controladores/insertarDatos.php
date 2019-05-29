@@ -24,7 +24,7 @@ if ($conn->query($mail) === TRUE) {
     mailRepetido();
     header("Location: ../login/crear.html");
 }else{
-    $sql = "INSERT INTO usuarios (usu_id, usu_nombre, usu_apellido, usu_mail, usu_constrasena, usu_direccion, usu_rol) VALUES ('$cod', '$nombre', '$apellido', '$email', '$contrasena', '' ,'USER');";
+    $sql = "INSERT INTO usuarios (usu_id, usu_nombre, usu_apellido, usu_mail, usu_constrasena, usu_direccion, usu_rol, usu_foto) VALUES ('$cod', '$nombre', '$apellido', '$email', '$contrasena', '' ,'USER', 'user.png');";
 
     $result = $conn->query($sql);
     
