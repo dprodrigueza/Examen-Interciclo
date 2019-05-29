@@ -90,7 +90,7 @@
         </div>
 
         <img src="/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <p><strong>Horarios</strong> Lunes a Sabad desde 9am hasta 7pm y Domingos desde 9 am hasta 1pm</p>
+        <p><strong>Horarios</strong> Lunes a Sabado desde 9am hasta 7pm y Domingos desde 9 am hasta 1pm</p>
         <p><strong>Address:</strong> Tomas Ordoñes y Presidente Cordova</p>
       </div>
     </div>
@@ -118,23 +118,13 @@
       <hr style="width:200px" class="w3-opacity">
 
       <div class="w3-section">
-        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> ECUADOR, EC</p>
+        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> CUENCA-ECUADOR, EC</p>
         <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Telefono: +593 984053639</p>
-        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: drodriguesa@mail.com</p>
-      </div><br>
-      <p>Enviar un mensaje</p>
+        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: drodrigueza@est.ups.edu.ec</p>
+        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Desarrolladores</p>
 
-      <form action="/action_page.php" target="_blank">
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-        <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
-        <p>
-          <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-            <i class="fa fa-paper-plane"></i> Enviar
-          </button>
-        </p>
-      </form>
+      </div><br>
+
       <!-- End Contact Section -->
     </div>
 
@@ -143,7 +133,7 @@
 
   <!-- Footer -->
   <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+     <p>UPS Hipermedial<a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">© Todos los derechos reservados</a></p>
   </footer>
 
   <script>
