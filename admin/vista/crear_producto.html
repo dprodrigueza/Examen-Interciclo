@@ -2,9 +2,7 @@
 <html lang="es">
 
 <head>
-    <!--  Practica01 – Mi Blog  
-          Author: Malki Yupanki  
-          Date:   Abril 2019 -->
+
     <meta charset="utf-8" />
     <title>CrearProducto</title>
 
@@ -12,15 +10,10 @@
 </head>
 
 <body class="fondo">
-    <section id="bota">
-        <div id="mih">
-            <header>
-                <MARQUEE>
-                    <h1>Crear Producto</h1>
-                </MARQUEE>
-            </header>
-        </div>
-   
+    <MARQUEE>
+        <h1>Crear Producto</h1>
+    </MARQUEE>
+
     <form action="../../controladores/crear_producto.php" enctype="multipart/form-data" method="POST">
 
         <legend>Datos del Producto</legend>
@@ -32,31 +25,22 @@
         <label id="Descripcionproducto">Descripcion producto</label>
         <input type="text" name="descripcionproducto" />
         <br>
-        <label id="Caracteristicas">Caracteristicas</label>
-        <input type="text" name="caracteristicas" width='20px' height='20px'/>
-        <br>
+
         <label id="Cantidad">Cantidad</label>
         <input type="text" name="cantidad" />
         <br>
         <label id="Precio">Precio</label>
         <input type="text" name="precio" />
         <br>
-        <label for="imagen">Imagen:</label>
+        <label for="Imagen">Imagen:</label>
         <input id="imagen" name="imagen" size="30" type="file" />
         <br>
         <div id="mdv">
-        <input class="btn" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
-        <input class="btn" id="borrar" name="borrar" type="Reset" value="Borrar">
+            <input class="btn" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
+            <input class="btn" id="borrar" name="borrar" type="Reset" value="Borrar">
         </div>
     </form>
-    <footer id="ft">
-        <span> Medina Malki Katari &nbsp;
-            &#8226; Universidad Pilitecnica salesiana &#8226; <br />
-            <a href="mailto:malkiyupanki12@hotmail.com">malkiyupanki12@hotmail.com</a>&nbsp;&nbsp;Telefono:&nbsp;<a
-                href="tel:098-286-5431">098-286-5431 </a>
-            &nbsp; &copy; Todos los derechos Reservados.</span>
-    </footer>
-    </section>
+
 </body>
 
 </html>
