@@ -33,7 +33,7 @@
         <br />
         <br> ¿No tienes un usuario?<a class="creacion" href="crear.html">CREAR USUARIO</a> -->
 
-                            <span class="btn btn-primary btn-sm" id="btnLogin">Entrar</span>
+                            <button class="btn btn-primary btn-sm" id="btnLogin">Entrar</button>
                             <a href="crear.html" class="btn btn-danger btn-sm">Registrarse</a>
                         </form>
                     </div>

@@ -6,7 +6,7 @@ $apellidosui =  explode(" ", $_SESSION['ape']);
 $correoui = $_SESSION['cor'];
 $usurol = $_SESSION['rol'];
 if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
-    header("Location: /SistemaDeGestion/public/vista/login.html");
+    header("Location: /Examen-Interciclo/public/vista/index.php");
 }
 if ($usurol == 'user'){
 	?>
@@ -33,7 +33,7 @@ if ($usurol == 'user'){
 	</html>
 
   <?php
-} else {
-	header("Location: ../../config/acceso.html");
-}
+} //else {
+	//header("Location: ../../config/acceso.html");
+//}
 ?>
