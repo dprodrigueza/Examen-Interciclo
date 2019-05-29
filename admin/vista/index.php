@@ -1,16 +1,4 @@
-<?php
-session_start();
-$codigoui = $_SESSION['cod'];
-$nombresui = explode(" ", $_SESSION['nom']);
-$apellidosui =  explode(" ", $_SESSION['ape']);
-$correoui = $_SESSION['cor'];
-$usurol = $_SESSION['rol'];
-if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
-	header("Location: /SistemaDeGestion/public/vista/login.html");
-}
-if ($usurol == 'user') {
-	?>
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html>
 
 	<head>
@@ -32,8 +20,3 @@ if ($usurol == 'user') {
 
 	</html>
 
-<?php
-} else {
-	header("Location: ../../config/acceso.html");
-}
-?>
