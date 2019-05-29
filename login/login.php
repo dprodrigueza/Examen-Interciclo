@@ -29,9 +29,9 @@
                             <span id="mensajePassword" class="error"></span>
                             <br />
 
-                            <button type="submit" id="btnLogin"> INGRESAR </button>
+                            <!--<button type="submit" id="btnLogin"> INGRESAR </button>-->
                           
-                            
+                            <button type="submit" class="btn btn-primary btn-sm" id="btnLogin">Entrar</button>
 
                             <a href="crear.html" class="btn btn-danger btn-sm">Registrarse</a>
                         </form>

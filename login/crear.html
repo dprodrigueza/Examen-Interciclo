@@ -5,51 +5,57 @@
     <meta charset="utf-8">
     <title>Formulario</title>
     <script type="text/javascript" src="../controladores/funcion.js"></script>
+    <link rel="stylesheet" type="text/css" href="../librerias/bootstrap/css/bootstrap.css">
+    <script src="../librerias/jquery-3.2.1.min.js"></script>
 </head>
 
-<body>
-    <form id="creacion" method="POST" onsubmit="return validarCamposObligatorios()" action="../controladores/insertarDatos.php">
-        <h1>Formulario.</h1>
-        <p>Nombre (*):
-            <input type="text" id="nombre" name="nombre" placeholder="Ingrese nombre.">
-            <span id="mensajeNombre" class="error"></span>
-        </p>
-        <br/>
-        <p>Apellido (*):
-            <input type="text" id="apellido" name="apellido" placeholder="Ingrese apellido.">
-            <span id="mensajeApellido" class="error"></span>
-        </p>
-        <br/>
-        <p>E-Mail (*):
-            <input type="email" id="email" name="email" placeholder="Ingrese un email valido." onblur="validarMail(this)">
-            <span id="mensajeEmail" class="error"></span>
-        </p>
-        <br/>
-        <p>Contraseña (*):
-            <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese una contraseña.">
-            <span id="mensajePassword" class="error"></span>
-        </p>
-        <br/>
-        <button type="submit" id="btnGuardar"> GUARDAR </button>
-        <br>
-        <p>Ya tienes una cuenta? <a href="login.php">Inicia Sesión</a> </p>
-    </form>
+<body style="background-color: gray">
+    
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="panel panel-danger">
+                    <div class="panel panel-heading">Registrar Nuevo</div>
+                    <div class="panel panel-body">
 
+                        <form id="creacion" method="POST" onsubmit="return validarCamposObligatorios()" action="../controladores/insertarDatos.php">
+                        <!--<h1>Formulario.</h1>-->
+                        <label>Nombre (*):</label>
+                        <input type="text" class="form-control input-sm" id="nombre" name="nombre" placeholder="Ingrese nombre.">
+                        <span id="mensajeNombre" class="error"></span>
+                        <br/>
+
+                        <label>Apellido (*):</label>
+                        <input type="text" class="form-control input-sm" id="apellido" name="apellido" placeholder="Ingrese apellido.">
+                        <span id="mensajeApellido" class="error"></span>
+                        <br/>
+
+                        <label>E-Mail (*):</label>
+                        <input type="email" class="form-control input-sm" id="email" name="email" placeholder="Ingrese un email valido." onblur="validarMail(this)">
+                        <span id="mensajeEmail" class="error"></span>  
+                        <br/>
+
+                        <label>Contraseña (*):</label>
+                        <input type="password" id="contrasena" class="form-control input-sm" name="contrasena" placeholder="Ingrese una contraseña.">
+                        <span id="mensajePassword" class="error"></span>
+                        
+                        <br/>
+                        <button class="btn btn-primary" type="submit" id="btnGuardar"> GUARDAR </button>
+                        <br>
+                        <p>Ya tienes una cuenta? <a href="login.php" class="btn btn-default">Inicia Sesión</a> </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
 
 
     <footer>
-        <p>Diego Rodríguez A</p>
-        e-mail:<a href="mailto:drodrigueza@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
-        <a href="tel:+593984053639">0984053639</a>
-        <p>Marco Cobos F</p>
-        e-mail:<a href="mailto:mcobosf@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
-        <a href="tel:+593984053639">0984053639</a>
-        <p>Malki Yupanki M</p>
-        e-mail:<a href="mailto:gchuchucaa@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
-        <a href="tel:+593984053639">0984053639</a></p>
-        <p>Gabriel Chuchuca A</p>
-        e-mail:<a href="mailto:myupanki@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
-        <a href="tel:+593984053639">0984053639</a>
+       <p>UPS Hipermedial 2019</p>
         <p>© Todos los derechos reservados</p>
     </footer>
 
