@@ -51,7 +51,7 @@
     }
 
 
-    $sql = "INSERT INTO productos VALUES(0,'$nombre','$descripcion','$pr','$cd','$nombre_img')";
+    $sql = "INSERT INTO productos VALUES(0,'$nombre','$descripcion','$pr','$cd','$nombre_img','NO')";
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";

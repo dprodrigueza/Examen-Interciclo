@@ -19,7 +19,7 @@
     $ciudad = $_POST["selCombo"];
    
         echo "$ciudad";
-    $sql = "INSERT INTO sucursal VALUES(0,'$nombre','$direccion','$ciudad')";
+    $sql = "INSERT INTO sucursal VALUES(0,'$nombre','$direccion','$ciudad','NO')";
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
