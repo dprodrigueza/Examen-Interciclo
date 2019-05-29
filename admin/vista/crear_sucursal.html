@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>CrearProducto</title>
+</head>
+
+<body>
+    <header>
+        <MARQUEE>
+            <h1>Crear Sucursal</h1>
+        </MARQUEE>
+    </header>
+    <form action="../../controladores/crear_sucursal.php" enctype="multipart/form-data" method="POST">
+
+        <label id="Nombresucursal">NOMBRE (*)</label>
+        <input type="text" name="nombresucursal" />
+        <br>
+        <label id="Direccionsucursal">DIRECCION (*)</label>
+        <input type="text" name="direccionsucursal" />
+        <br>
+        <label id="Descripcionproducto">CIUDAD (*)</label>
+        <SELECT id="selCombo" NAME="selCombo" >
+            <OPTION VALUE="cuenca">CUENCA</OPTION>
+            <OPTION VALUE="guayaquil">GUAYAQUIL</OPTION>
+            <OPTION VALUE="quito">QUITO</OPTION>
+            <OPTION VALUE="loja">LOJA</OPTION>
+        </SELECT>
+        <br>
+        
+        <div id="mdv">
+            <input class="btn" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
+            <input class="btn" id="borrar" name="borrar" type="Reset" value="Borrar">
+        </div>
+    </form>
+</body>
+
+</html>
