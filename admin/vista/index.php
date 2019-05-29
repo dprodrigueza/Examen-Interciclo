@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!DOCTYPE html>
 =======
 <?php
@@ -16,12 +17,14 @@ if ($usurol == 'user') {
 ?>
 	<!DOCTYPE html>
 >>>>>>> 89e8da55b8bcce18fe938e7ad09867e513dc99b5
+=======
+<!DOCTYPE html>
+	
+>>>>>>> 5593e06806e41882adbdee0b0cd6a4f8b30c37fc
 	<html>
-
 	<head>
 		<meta charset="utf-8" />
 		<title>Home</title>
-
 	</head>
 
 	<body>
@@ -35,6 +38,7 @@ if ($usurol == 'user') {
 
 	</body>
 
+<<<<<<< HEAD
 </html>
 
 <<<<<<< HEAD
@@ -47,3 +51,6 @@ if ($usurol == 'user') {
 	}*/
 ?>-->
 >>>>>>> 89e8da55b8bcce18fe938e7ad09867e513dc99b5
+=======
+</html>
+>>>>>>> 5593e06806e41882adbdee0b0cd6a4f8b30c37fc
