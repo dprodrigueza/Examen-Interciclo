@@ -48,9 +48,3 @@ $conn->close();
 
 
 
-
-
-
-</body>
-
-</html>
