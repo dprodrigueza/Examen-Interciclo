@@ -32,17 +32,19 @@
     }
 
 
-    if($nombre_img!=""){
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_foto = '$nombre_img' where usu_mail = '$mail';";
+
+    if ($nombre_img != "") {
+        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' , usu_foto = '$nombre_img' where usu_mail = '$mail';";
         echo $sql;
         $result = $conn->query($sql);
-    }else{
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' where usu_mail = '$mail';";
+    } else {
+        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' where usu_mail = '$mail';";
         echo $sql;
         $result = $conn->query($sql);
     }
 
-    
+
+
 
 
     if ($conn->query($sql) === TRUE) {
