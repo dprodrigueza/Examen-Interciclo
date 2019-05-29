@@ -4,6 +4,7 @@
 
     $nombre = strtoupper($_POST['nombres']);
     $apellido = strtoupper($_POST['apellidos']);
+    $direccion = $_POST['direccion'];
     $mail = $_GET['mail'];
 
     $nombre_img = $_FILES["imagen"]["name"];
@@ -33,11 +34,11 @@
 
 
     if($nombre_img!=""){
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_foto = '$nombre_img' where usu_mail = '$mail';";
+        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' , usu_foto = '$nombre_img' where usu_mail = '$mail';";
         echo $sql;
         $result = $conn->query($sql);
     }else{
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' where usu_mail = '$mail';";
+        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' where usu_mail = '$mail';";
         echo $sql;
         $result = $conn->query($sql);
     }

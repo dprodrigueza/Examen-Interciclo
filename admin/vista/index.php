@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 	<html>
 	<head>
 		<meta charset="utf-8" />
@@ -15,4 +16,6 @@
 		<h1>ADMIN</h1>
 
 	</body>
+
 </html>
+

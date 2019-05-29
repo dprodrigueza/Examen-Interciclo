@@ -36,6 +36,9 @@
                 <label for="apellidos">Apelido: </label>
                 <input type="text" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
                 <br>
+                <label for="lbldireccion">Direccion: </label>
+                <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
+                <br>
                 <label for="correo">Correo electrónico: </label>
                 <input type="email" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
                 <br>
