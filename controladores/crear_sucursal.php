@@ -23,6 +23,7 @@
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
+        header("Location:../admin/vista/listar_sucursal.php?");
 
     } else {
         if ($conn->ermo == 1062) {

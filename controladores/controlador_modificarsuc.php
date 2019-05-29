@@ -27,6 +27,7 @@
 
         if ($conn->query($sql) === TRUE) {
             echo "Se ha actualizado MISMA CIUDAD!!!<br>";
+            header("Location:../admin/vista/listar_sucursal.php?");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
         }
@@ -39,6 +40,7 @@
 
         if ($conn->query($sql) === TRUE) {
             echo "Se ha actualizado OTRA CIUDAD!!!<br>";
+            header("Location:../admin/vista/listar_sucursal.php?");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
         }
