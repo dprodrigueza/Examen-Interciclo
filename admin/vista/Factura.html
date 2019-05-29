@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>CrearUsuario</title>
+    <link rel=stylesheet type="text/css" href="estilos.css">
+
+
+
+</head>
+
+<body>
+    <section>
+
+        <header align="center">
+            <h1>Crear Usuarios</h1>
+        </header>
+        <form action="controladorfactura.php" method="POST" align="center">
+            <label id="Cedula">Fecha</label>
+            <input type="text" name="cedula" />
+            <br>
+            <label id="nombre">Direccion</label>
+            <input type="text" name="nombre" />
+            <br>
+            <label id="Apellido">Cedula</label>
+            <input type="text" name="apellido" />
+            <br>
+            <label id="Direccion">Sucursal</label>
+            <input type="text" name="direccion" />
+            <br>
+            <br>
+            <label id="Telefono">Cantidad</label>
+            <input type="text" name="telefono" />
+            <br>
+            <label id="Fecha">Producto</label>
+            <input type="date" name="fecha" />
+            <br>
+            <label id="Correo">Correo</label>
+            <input type="email" name="correo" />
+            <br>
+            <label id="Contrasena">Contraseña</label>
+            <input type="password" name="contrasena" />
+            <br>
+            <label id="Rol2">(User)</label>
+            <input type="checkbox" name="rol2" value="user" />
+            <label id="Rol3">(Admin)</label>
+            <input type="checkbox" name="rol3" value="admin" />
+            <br>
+            <label for="imagen">Imagen:</label>
+
+            <input id="imagen" name="imagen" size="50" type="file" />
+            <br>
+            <div id="mdv">
+                <input class="btn" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
+                <input class="btn" id="borrar" name="borrar" type="Reset" value="Borrar">
+            </div>
+        </form>
+        <footer>
+            Gabriel Leonardo Chuchuca Arevalo &#8226; Universidad Politecnica Salesiana &#8226; <a
+                href="mailto:gchuchucaa@est.ups.edu.ec">gchuchucaa@est.ups.edu.ec</a> &#8226; <a
+                href="tel:+593-969375242">0969375242</a>
+            <br>© Todos los derechos reservados
+        </footer>
+
+    </section>
+</body>
+
+</html>

@@ -21,7 +21,7 @@ if ($usurol == 'user'){
 
 	<body>
 		<?php  
-		include '../../../config/conexionDB.php'
+		include '../../config/conexionDB.php'
 
 		?>
 
@@ -32,7 +32,7 @@ if ($usurol == 'user'){
 
 	</html>
 
-<?php
+  <?php
 } else {
 	header("Location: ../../config/acceso.html");
 }

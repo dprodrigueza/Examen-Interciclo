@@ -1,50 +1,51 @@
 <!doctype html>
-<html>
+<html lang="es">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Login</title>
-
+    <link rel="stylesheet" type="text/css" href="../librerias/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="../librerias/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="../controladores/funcion.js"></script>
 </head>
 
-<body>
+<body style="background-color: gray">
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="panel panel-primary">
+                    <div class="panel panel-heading">Sistema UPS Computadoras</div>
+                    <div class="panel panel-body">
+                        <p>
+                            <img src="../imagenes/compu.png"  height="190">
+                        </p>
+                        <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../controladores/loginUser.php">
+                            <label>E-Mail (*): </label><input type="email" id="email" name="email" class="form-control input-sm" placeholder="Ingrese su email." onblur="validarMail(this)">
+                            <span id="mensajeEmail" class="error"></span>
+                            <br/>
+                            <label>Password (*): </label> <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña." class="form-control input-sm">
+                            <span id="mensajePassword" class="error"></span>
+                            <br />
 
-    <?php
-    $_SESSION['isLogged'] = FALSE;
-    $_SESSION['isLoggedAdmin'] = FALSE;
-    ?>
-
-
-    <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../controladores/loginUser.php">
-        <h1>INGRESAR.</h1>
-        <p>E-Mail (*): <input type="email" id="email" name="email" placeholder="Ingrese su email." onblur="validarMail(this)"></p>
-        <span id="mensajeEmail" class="error"></span>
+       <!-- <button type="submit" id="btnLogin"> INGRESAR </button>
         <br />
-        <p>Contraseña (*): <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña."></p>
-        <span id="mensajePassword" class="error"></span>
-        <br />
+        <br> ¿No tienes un usuario?<a class="creacion" href="crear.html">CREAR USUARIO</a> -->
 
-        <button type="submit" id="btnLogin"> INGRESAR </button>
-        <br />
-        <br> ¿No tienes un usuario?<a class="creacion" href="crear.html">CREAR USUARIO</a>
-
-    </form>
+                            <span class="btn btn-primary btn-sm" id="btnLogin">Entrar</span>
+                            <a href="crear.html" class="btn btn-danger btn-sm">Registrarse</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+    </div>
 
    
     <footer>
-        <p>Diego Rodríguez A</p>
-        e-mail:<a href="mailto:drodrigueza@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
-        Teléfono:<a href="tel:+593984053639">0984053639</a>
-        <p>Marco Cobos F</p>
-        e-mail:<a href="mailto:mcobosf@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
-        Teléfono:<a href="tel:+593984053639">0984053639</a>
-        <p>Malki Yupanki M</p>
-        e-mail:<a href="mailto:gchuchucaa@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
-        Teléfono:<a href="tel:+593984053639">0984053639</a></p>
-        <p>Gabriel Chuchuca A</p>
-        e-mail:<a href="mailto:myupanki@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a>
-        Teléfono:<a href="tel:+593984053639">0984053639</a>
+        <p>UPS Hipermedial 2019</p>
         <p>© Todos los derechos reservados</p>
     </footer>
 
