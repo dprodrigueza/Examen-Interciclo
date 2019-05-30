@@ -52,7 +52,13 @@
       echo "<div class='w3-col s3'>";
       echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       echo " </div>";
+      $ref = $_GET["mail"];
+      echo $ref;
+
       ?>
+      <div class="w3-col s3">
+        <a href="comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
+      </div>
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
