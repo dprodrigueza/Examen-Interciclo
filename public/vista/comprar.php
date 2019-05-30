@@ -13,18 +13,26 @@
         <tr>
         <?php 
 $mail =$_GET["mail"];
+<<<<<<< HEAD
 //echo $mail;
 //echo '<br>';
+=======
+echo $mail;
+echo '<br>';
+>>>>>>> 0e9cc6fba4a573f552416e31d86f91e198e81521
 include '../../config/conexionDB.php';
         $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
         $result2 = $conn->query($sql2);
         $rl = mysqli_fetch_assoc($result2);
         $rlt = $rl["usu_id"];
+<<<<<<< HEAD
         
         $rlt1 = $rl["usu_nombre"];
         $rlt2 = $rl["usu_apellido"];
         echo 'Username: '. $rlt1 . ' '. $rlt2;
         echo '<br>';
+=======
+>>>>>>> 0e9cc6fba4a573f552416e31d86f91e198e81521
 
         $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt';";
         $result3 = $conn->query($sql3);
@@ -34,9 +42,13 @@ include '../../config/conexionDB.php';
         while ($row = $result3->fetch_assoc()) {
         $cont += 1;
         }
+<<<<<<< HEAD
         echo '<br>';
         echo 'Productos añadidos : '. $cont;
         echo '<br>';
+=======
+        echo $cont;
+>>>>>>> 0e9cc6fba4a573f552416e31d86f91e198e81521
         } else {
             echo 'no vale consulta';
     
@@ -44,10 +56,15 @@ include '../../config/conexionDB.php';
 
 $conn->close();
  ?>
+<<<<<<< HEAD
 <br>
  <a href="../factura.php?codio=<?php echo $rlt;?>" >Continuar Compra a factura</a>
  <br>
  <a href="vercarrito.php?codio=<?php echo $rlt;?>&mail=<?php echo $mail;?>" >Ver Productos añadidos al carrito</a>
+=======
+ <a href="../factura.php?codio=<?php echo $rlt;?>" >Continuar Compra</a>
+ <a href="vercarrito.php?codio=<?php echo $rlt;?>&mail=<?php echo $mail;?>" >Ver</a>
+>>>>>>> 0e9cc6fba4a573f552416e31d86f91e198e81521
 
 
             
