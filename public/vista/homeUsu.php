@@ -49,10 +49,26 @@
 
 
 
-      echo "<div class='w3-col s3'>";
-      echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
-      echo " </div>";
+      //echo "<div class='w3-col s3'>";
+      //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
+      //echo " </div>";
+      include '../../config/conexionDB.php';
+      $ref = $_GET["mail"];
+      $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
+        $result2 = $conn->query($sql2);
+        $rl = mysqli_fetch_assoc($result2);
+        $rlt = $rl["usu_id"];
+        $rlt1 = $rl["usu_nombre"];
+        $rlt2 = $rl["usu_apellido"];
+        echo 'Username: '. $rlt1 . ' '. $rlt2;
+        echo '<br>';
+        $conn->close();
+     
+
       ?>
+      <div class="w3-col s3">
+        <a href="comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
+      </div>
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
