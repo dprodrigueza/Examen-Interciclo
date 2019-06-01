@@ -18,6 +18,7 @@
 		<a href="crear_sucursal.html">CREAR SUCURSAL</a>
 		<a href="listar_productos.php">VER PRODUCTOS</a>
 		<a href="listar_sucursal.php">VER SUCURSALES</a>
+		<a href="crear_pedido.html">VER PEDIDO</a>
 
 
 	</body>

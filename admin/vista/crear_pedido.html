@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>CrearProducto</title>
+
+
+</head>
+
+<body class="fondo">
+    <MARQUEE>
+        <h1>Crear Producto</h1>
+    </MARQUEE>
+
+    <form action="../../controladores/crear_producto.php" enctype="multipart/form-data" method="POST">
+
+        <legend>Datos del Pedido</legend>
+        <label id="Descripcionproducto">Estado</label>
+        <input type="text" name="descripcionproducto" />
+        <br>
+
+        <label id="Cantidad">Feca de Emision</label>
+        <input type="date" name="cantidad" />
+        <br>
+        <label id="Cantidad">Feca de Envio</label>
+        <input type="date" name="cantidad" />
+        <br>
+        <label id="Cantidad">Feca Final de Envio</label>
+        <input type="date" name="cantidad" />
+        <br>
+        <label id="Cantidad">Codio de Usuarioo</label>
+        <input type="date" name="cantidad" />
+        <br>
+        <label id="Precio">Codio De Factura</label>
+        <input type="text" name="precio" />
+        <br>
+        <label for="Imagen">Imagen:</label>
+        <input id="imagen" name="imagen" size="30" type="file" />
+        <br>
+        <div id="mdv">
+            <input class="btn" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
+            <input class="btn" id="borrar" name="borrar" type="Reset" value="Borrar">
+        </div>
+    </form>
+
+</body>
+
+</html>
