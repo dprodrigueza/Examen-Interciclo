@@ -45,6 +45,10 @@
       <div class="w3-col s3">
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
       </div>
+
+      <div class="w3-col s3">
+        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+      </div>
       <?php
 
 
@@ -81,7 +85,7 @@
 
     <!-- About Container -->
     <div class="w3-container" id="about">
-      <div class="w3-content" style="max-width:700px">
+      <div class="w3-content" style="max-width:700px" >
         <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">Nosotros</span></h5>
         <p>Somos una empresa dedicada a la venta de equipos de cómputo, así como accesorios, complementos y reparación de los mismos. Actualmente somos una de las empresas más consultadas a la hora de adquirir un equipo de cómputo para la oficina y/o el hogar. En Computadoras Garco nos preocupamos por cubrir perfectamente tus necesidades por lo que ofrecemos un valor agregado, excelente servicio y los productos de mejor calidad en el mercado. El éxito de nuestra empresa se debe a la comunicación de nuestros clientes y amigos, puesto que son ellos nuestra mejor recomendación y es por eso que nos ponemos a sus órdenes para brindarle el producto que usted necesita.</p>
 
@@ -89,9 +93,9 @@
           <p><i>Tus necesidades son nuestra prioridad</p>
         </div>
 
-        <img src="/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <p><strong>Horarios</strong> Lunes a Sabado desde 9am hasta 7pm y Domingos desde 9 am hasta 1pm</p>
-        <p><strong>Address:</strong> Tomas Ordoñes y Presidente Cordova</p>
+        <img src="../../imagenes/logo.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p><strong>Atención:</strong> Lunes a Sabado desde 9am hasta 7pm y Domingos desde 9 am hasta 1pm</p>
+        <p><strong>Dirección:</strong> Tomas Ordoñes y Presidente Cordova</p>
       </div>
     </div>
 
@@ -122,7 +126,18 @@
         <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Telefono: +593 984053639</p>
         <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: drodrigueza@est.ups.edu.ec</p>
         <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Desarrolladores</p>
-
+        <p>Diego Rodríguez A</p>
+        e-mail:<a href="mailto:drodrigueza@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
+        <a href="tel:+593984053639">0984053639</a>
+        <p>Marco Cobos F</p>
+        e-mail:<a href="mailto:mcobosf@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
+        <a href="tel:+593984053639">0979743801</a>
+        <p>Malki Yupanki M</p>
+        e-mail:<a href="mailto:gchuchucaa@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
+        <a href="tel:+593984053639">0969375242</a></p>
+        <p>Gabriel Chuchuca A</p>
+        e-mail:<a href="mailto:myupanki@est.ups.edu.ec">drodrigueza@est.ups.edu.ec </a> Teléfono:
+        <a href="tel:+593984053639">0982865431</a>
       </div><br>
 
       <!-- End Contact Section -->

@@ -84,9 +84,9 @@
           <p><i>Tus necesidades son nuestra prioridad.</p>
         </div>
 
-        <img src="/w3images/coffeeshop.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-        <p><strong>Horarios</strong> Lunes a Sabado desde 9am hasta 7pm y Domingos desde 9 am hasta 1pm</p>
-        <p><strong>Address:</strong> Tomas Ordoñes y Presidente Cordova</p>
+        <img src="../../imagenes/logo.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p><strong>Atención:</strong> Lunes a Sabado desde 9am hasta 7pm y Domingos desde 9 am hasta 1pm</p>
+        <p><strong>Dirección:</strong> Tomas Ordoñes y Presidente Cordova</p>
       </div>
     </div>
 
