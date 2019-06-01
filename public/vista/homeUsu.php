@@ -49,7 +49,6 @@
 
 
 
-<<<<<<< HEAD
       //echo "<div class='w3-col s3'>";
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       //echo " </div>";
@@ -65,17 +64,10 @@
         echo '<br>';
         $conn->close();
      
-=======
-      echo "<div class='w3-col s3'>";
-      echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
-      echo " </div>";
-      $ref = $_GET["mail"];
-      echo $ref;
->>>>>>> 0e9cc6fba4a573f552416e31d86f91e198e81521
 
       ?>
       <div class="w3-col s3">
-        <a href="comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
+        <a href="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
       </div>
 
       <div class="w3-col s3">

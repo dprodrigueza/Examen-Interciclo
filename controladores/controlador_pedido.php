@@ -14,10 +14,18 @@
 <body>
     <?php
     include '../config/conexionDB.php';
-    $mail = $_GET['mail'];
-    $codio =(int)$_GET['codigo'];
-    $producto = (int)$_GET['producto'];
-    $sql = "INSERT INTO pedidos VALUES(0,'$producto','$codio')";
+    //$mail = $_GET['mail'];
+    //$codio =(int)$_GET['codigo'];
+    //$producto = (int)$_GET['producto'];
+
+    $mail = $_POST['mail'];
+    $codio =(int)$_POST['codigo'];
+    $producto = (int)$_POST['producto'];
+    $cantidad = (int)$_POST['cantidad'];
+
+
+
+    $sql = "INSERT INTO pedidos VALUES(0,'$producto','$codio','$cantidad','CREADO')";
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
