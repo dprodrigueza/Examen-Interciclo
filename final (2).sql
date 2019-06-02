@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2019 a las 04:57:58
+-- Tiempo de generación: 02-06-2019 a las 02:08:57
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -73,30 +73,23 @@ INSERT INTO `facturadet` (`fdet_id`, `fdet_cantidad`, `fdet_total`, `fcab_id`, `
 CREATE TABLE `pedidos` (
   `ped_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL,
-  `cod_usuario` int(11) NOT NULL
+  `cod_usuario` int(11) NOT NULL,
+  `ped_cantidad` int(11) NOT NULL,
+  `ped_estado` varchar(11) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`ped_id`, `pro_id`, `cod_usuario`) VALUES
-(4, 11, 3),
-(5, 4, 3),
-(6, 4, 3),
-(7, 8, 3),
-(8, 4, 3),
-(9, 10, 3),
-(10, 9, 3),
-(11, 10, 3),
-(12, 9, 3),
-(13, 4, 3),
-(14, 10, 3),
-(15, 9, 3),
-(16, 8, 3),
-(17, 8, 3),
-(19, 4, 4),
-(20, 8, 4);
+INSERT INTO `pedidos` (`ped_id`, `pro_id`, `cod_usuario`, `ped_cantidad`, `ped_estado`) VALUES
+(8, 4, 3, 1, 'CREADO'),
+(11, 10, 3, 1, 'CREADO'),
+(19, 4, 4, 1, 'CONFIRMADO'),
+(20, 8, 4, 1, 'CREADO'),
+(25, 8, 3, 1, 'CREADO'),
+(30, 6, 3, 3, 'CREADO'),
+(31, 10, 4, 1, 'CREADO');
 
 -- --------------------------------------------------------
 
@@ -223,7 +216,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
