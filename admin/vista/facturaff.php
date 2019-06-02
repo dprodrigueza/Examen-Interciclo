@@ -27,12 +27,56 @@
         </header>
 
 
-        <form id="formulario01" method="POST" action="../controladores/controlador_pedido.php" align="center">
-        
-        <label for='cedula'>CANTIDAD                             </label>
-        <label for='nombres'>CARACTERISTICAS</label>
-        <label for="apellidos">VALOR UNITARIO</label>
-        <label for="Cantidad">IMPORTE</label>
+        <form id="formulario01" method="POST" action="../controladores/controlador_pedido.php" align="left">
+
+            <?php
+            $mail = $_GET["mail"];
+            $codio = $_GET["codio"];
+            //$producto =$_GET["producto"];
+
+
+
+            // echo $cone;
+            include '../../config/conexionDB.php';
+            echo "</br>";
+            $sql = "SELECT * FROM usuarios WHERE usu_id = '$codio' ";
+
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    ?>
+                    <br>
+                    <label align="left" for='nombres'>Cliente</label>
+                    <input align="left" type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];echo "&nbsp;";echo $row["usu_apellido"]; ?>" disabled />
+                    <br>
+                    <br>
+                    <label align="left" for='direccion'>Direccion</label>
+                    <input align="left" type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"];?>" disabled />
+                    <br>
+                    <br>
+                    <label align="left" for='direccion'>Sucursal</label>
+                    <input align="left" type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"];?>" disabled />
+                    <br>
+                    <br>
+                    <label align="left" for='fecha'>Fecha</label>
+                    <input align="left" ype="date" id="fecha" name="fecha" value="<?php echo date("Y-m-d");?>"/>
+                    <br>
+                    <br>
+                <?php
+            }
+        } else {
+            echo " <p> colspan='10'> EROORRRRR!!!!!! </p>";
+            echo "<p>" . mysqli_error($conn) . "</p>";
+        }
+
+        $conn->close();
+        ?>
+
+
+            <label for='cedula'>CANTIDAD</label>
+            <label for='nombres'>CARACTERISTICAS</label>
+            <label for="apellidos">VALOR UNITARIO</label>
+            <label for="Cantidad">IMPORTE</label>
             <?php
             $mail = $_GET["mail"];
             $codio = $_GET["codio"];
@@ -68,7 +112,7 @@
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codio; ?>" />
                     <br>
                     <input type="hidden" id="mail" name="mail.<?php echo $cont; ?>" value="<?php echo $mail; ?>" />
-                    <br>             
+                    <br>
                     <input size=1 type="text" id="cantidad" name="cantidad" value="<?php echo $rlt3; ?>" disabled />
                     <input size=160 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
                     <input size=4 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
