@@ -35,3 +35,4 @@ if ($conn->query($mail) === TRUE) {
 
 
 $conn->close();
+?>
