@@ -122,9 +122,12 @@
                     <input type="hidden" id="mail" name="mail.<?php echo $cont; ?>" value="<?php echo $mail; ?>" />
 
                     <input size=7 type="text" id="cantidad" name="cantidad" value="<?php echo $rlt3; ?>" disabled />
+                    <input type="hidden" id="cant<?php echo $cont;?>" name="cant<?php echo $cont;?>" value="<?php echo $rlt3; ?>" />
+
                     <input size=17 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
                     <input size=8 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
                     <input size=5 type="text" id="valortotal" name="valortotal" value="<?php echo $importe; ?>" disabled />
+                    <input type="hidden" id="tot<?php echo $cont;?>" name="tot<?php echo $cont;?>" value="<?php echo $importe; ?>" />
                 <?php
             }
         } else {
