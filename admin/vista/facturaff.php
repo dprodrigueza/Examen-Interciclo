@@ -27,7 +27,7 @@
         </header>
 
 
-        <form id="formulario01" method="POST" action="../controladores/controlador_pedido.php">
+        <form id="formulario01" method="POST" action="../../controladores/controlador_factura.php">
 
             <?php
             $mail = $_GET["mail"];
@@ -84,14 +84,12 @@
             $codio = $_GET["codio"];
             //$producto = $_GET["producto"];
 
-
-
             // echo $cone;
             $codio = $_GET['codio'];
             include '../../config/conexionDB.php';
             $sql    = "SELECT * FROM pedidos WHERE cod_usuario = '$codio' and ped_estado='CREADO';";
             $result = $conn->query($sql);
-            $subt=0;
+            $subt = 0;
             $cont = 0;
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -102,11 +100,11 @@
                     $rlt = $rl["prod_caracteristica"];
                     $rlt2 = $rl["prod_precio"];
                     $rlt3 = $row["ped_cantidad"];
-                    $importe = $rlt2 * $rlt3;    
+                    $importe = $rlt2 * $rlt3;
                     //subtotal
                     $subt += $rlt2;
                     //iva12
-                    $iva = ($subt*12)/100;
+                    $iva = ($subt * 12) / 100;
                     echo "</br>";
                     $cont += 1;
                     echo $cont;
@@ -115,12 +113,14 @@
                     //$sql2 = "UPDATE  productos set prod_stock = '$stock';";
                     ?>
                     <br>
+
                     <input type="hidden" id="producto" name="producto" value="<?php echo $row["prod_id"]; ?>" />
-                    
+                    <input type="hidden" id="pro<?php echo $cont;?>" name="pro<?php echo $cont;?>" value="<?php echo $pro; ?>" />
+
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codio; ?>" />
-                    
+
                     <input type="hidden" id="mail" name="mail.<?php echo $cont; ?>" value="<?php echo $mail; ?>" />
-                    
+
                     <input size=7 type="text" id="cantidad" name="cantidad" value="<?php echo $rlt3; ?>" disabled />
                     <input size=17 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
                     <input size=8 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
@@ -136,19 +136,22 @@
         $conn->close();
         ?>
             <br>
-            <div>
+            <input type="hidden" id="contador" name="contador" value="<?php echo $cont; ?>" />
             <label for="subto">SUBTOTAL</label>
             <input size=5 type="text" id="subtotal" name="subtotal" value="<?php echo $subt; ?>" disabled />
+            <input type="hidden" id="subtotal" name="subtotal" value="<?php echo $subt; ?>"/>
             <br>
             <label for="ivaa">IVA 12%</label>
             <input size=5 type="text" id="iva" name="iva" value="<?php echo $iva; ?>" disabled />
+            <input type="hidden" id="iva" name="iva" value="<?php echo $iva; ?>"/>
             <br>
             <label for="totpagar">TOTAL A PAGAR</label>
             <input size=5 type="text" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>" disabled />
+            <input type="hidden" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>"/>
             <br>
-                <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
-                <button type="button" class="btn btn-default"> <a href="index_usuario.php?cone='<?php echo $cone; ?>'">ATRAS</a></button>
-            </div>
+            <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
+            <button type="button" class="btn btn-default"> <a href="index_usuario.php?cone='<?php echo $cone; ?>'">ATRAS</a></button>
+
         </form>
     </section>
 </body>

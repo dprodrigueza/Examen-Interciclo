@@ -14,22 +14,38 @@
 <body>
     <?php
     include '../config/conexionDB.php';
-    $nombre = isset($_POST["cliente"]) ? mb_strtoupper(trim($_POST["cliente"]), 'UTF-8') : null;
-    $direccion = isset($_POST["direccion"]) ? mb_strtoupper(trim($_POST["descripcionproducto"]), 'UTF-8') : null;
-    $caracteristica = isset($_POST["caracteristicas"]) ? mb_strtoupper(trim($_POST["caracteristicas"]), 'UTF-8') : null;
-    $cantidad = isset($_POST["cantidad"]) ? trim($_POST["cantidad"]) : null;
-    $precio = isset($_POST["precio"]) ? trim($_POST["precio"]) : null;
-    $cd = (int) $cantidad;
-    $pr = (int) $precio;
- 
+    $cont= $_POST["contador"];
+   
+    $codigo = isset($_POST["codigo"]) ? mb_strtoupper(trim($_POST["codigo"]), 'UTF-8') : null;
+    $fecha = isset($_POST["fecha"]) ? mb_strtoupper(trim($_POST["fecha"]), 'UTF-8') : null;
+    $sub= $_POST["subtotal"];
+    $iva = isset($_POST["iva"]) ? trim($_POST["iva"]) : null;
+    $totalpagar = isset($_POST["totalpagar"]) ? trim($_POST["totalpagar"]) : null;
 
-
-    $sql = "INSERT INTO productos VALUES(0,'$nombre','$descripcion','$pr','$cd','$nombre_img','NO')";
+    echo $codigo;
+    echo "<br> fexha";
+    echo $fecha;
+    echo "<br>";
+    echo $sub;
+    echo "<br>";
+    echo $iva;
+    echo "<br>";
+    echo $totalpagar;
+    echo "<br>";
+    echo "contador = ".$cont;
+    echo "<br>";
+    
+    for ($i = 1; $i <= $cont; $i++) {
+        $var = $_POST["pro$i"];
+      //  echo "pro$i";
+        echo $var;
+    }
+   
+   // $sql = "INSERT INTO productos VALUES(0,'$nombre','$descripcion','$pr','$cd','$nombre_img','NO')";
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
-        header("Location:../admin/vista/listar_productos.php?");
-
+    //    header("Location:../admin/vista/listar_productos.php?");
     } else {
         if ($conn->ermo == 1062) {
             echo "<p class='error'>La perosona con la cedula $cedula ya esta</p>";
