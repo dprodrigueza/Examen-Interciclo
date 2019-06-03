@@ -138,7 +138,8 @@
                 <?php
             }
         } else {
-            echo " <p> colspan='10'> EROORRRRR!!!!!! </p>";
+            echo "
+            <p> colspan='10'> EROORRRRR!!!!!! </p>";
             echo "<p>" . mysqli_error($conn) . "</p>";
         }
         $total = $subt + $iva;
