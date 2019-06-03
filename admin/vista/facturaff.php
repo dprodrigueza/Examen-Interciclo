@@ -104,7 +104,7 @@
                     $rlt3 = $row["ped_cantidad"];
                     $importe = $rlt2 * $rlt3;
                     //subtotal
-                    $subt += $rlt2;
+                    $subt += $importe;
                     //iva12
                     $iva = ($subt * 12) / 100;
                     echo "</br>";
@@ -121,7 +121,7 @@
 
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codio; ?>" />
 
-                    <input type="hidden" id="mail" name="mail.<?php echo $cont; ?>" value="<?php echo $mail; ?>" />
+                    <input type="hidden" id="mail" name="mail" value="<?php echo $mail; ?>" />
 
                     <input size=7 type="text" id="cantidad" name="cantidad" value="<?php echo $rlt3; ?>" disabled />
                     <input type="hidden" id="cant<?php echo $cont;?>" name="cant<?php echo $cont;?>" value="<?php echo $rlt3; ?>" />
