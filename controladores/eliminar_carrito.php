@@ -19,7 +19,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado MISMA CIUDAD!!!<br>";
-        header("Location:../public/vista/vercarrito.php?mail=$mail");
+        header("Location:../admin/vista/vercarrito.php?mail=$mail&codio=$codigo");
 
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";

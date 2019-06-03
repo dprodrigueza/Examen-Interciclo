@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2019 a las 04:57:58
+-- Tiempo de generación: 03-06-2019 a las 02:40:26
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -30,18 +30,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `facturacab` (
   `fcab_id` int(11) NOT NULL,
-  `fcab_fecha` date NOT NULL,
-  `fcab_direccion` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
-  `fcab_cedula` varchar(13) COLLATE latin1_spanish_ci NOT NULL,
+  `cod_id` int(11) NOT NULL,
+  `fcab_fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `fcab_subtotal` double(11,2) NOT NULL,
+  `fcab_iva` double(11,2) NOT NULL,
+  `fcab_total` double(11,2) NOT NULL,
   `suc_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Volcado de datos para la tabla `facturacab`
---
-
-INSERT INTO `facturacab` (`fcab_id`, `fcab_fecha`, `fcab_direccion`, `fcab_cedula`, `suc_id`) VALUES
-(1, '2019-05-24', 'CULEBRILLAS Y MANTENSE', '0106630999', 1);
 
 -- --------------------------------------------------------
 
@@ -52,17 +47,10 @@ INSERT INTO `facturacab` (`fcab_id`, `fcab_fecha`, `fcab_direccion`, `fcab_cedul
 CREATE TABLE `facturadet` (
   `fdet_id` int(11) NOT NULL,
   `fdet_cantidad` int(11) NOT NULL,
-  `fdet_total` decimal(10,2) NOT NULL,
+  `fdet_total` double(11,2) NOT NULL,
   `fcab_id` int(11) NOT NULL,
-  `prod_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Volcado de datos para la tabla `facturadet`
---
-
-INSERT INTO `facturadet` (`fdet_id`, `fdet_cantidad`, `fdet_total`, `fcab_id`, `prod_id`) VALUES
-(1, 1, '1250.99', 1, 1);
+  `pro_Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -73,30 +61,23 @@ INSERT INTO `facturadet` (`fdet_id`, `fdet_cantidad`, `fdet_total`, `fcab_id`, `
 CREATE TABLE `pedidos` (
   `ped_id` int(11) NOT NULL,
   `pro_id` int(11) NOT NULL,
-  `cod_usuario` int(11) NOT NULL
+  `cod_usuario` int(11) NOT NULL,
+  `ped_cantidad` int(11) NOT NULL,
+  `ped_estado` varchar(11) COLLATE latin1_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `pedidos`
 --
 
-INSERT INTO `pedidos` (`ped_id`, `pro_id`, `cod_usuario`) VALUES
-(4, 11, 3),
-(5, 4, 3),
-(6, 4, 3),
-(7, 8, 3),
-(8, 4, 3),
-(9, 10, 3),
-(10, 9, 3),
-(11, 10, 3),
-(12, 9, 3),
-(13, 4, 3),
-(14, 10, 3),
-(15, 9, 3),
-(16, 8, 3),
-(17, 8, 3),
-(19, 4, 4),
-(20, 8, 4);
+INSERT INTO `pedidos` (`ped_id`, `pro_id`, `cod_usuario`, `ped_cantidad`, `ped_estado`) VALUES
+(8, 4, 3, 1, 'CREADO'),
+(11, 10, 3, 1, 'CREADO'),
+(19, 4, 4, 1, 'CONFIRMADO'),
+(20, 8, 4, 1, 'CREADO'),
+(25, 8, 3, 1, 'CREADO'),
+(30, 6, 3, 3, 'CREADO'),
+(31, 10, 4, 1, 'CREADO');
 
 -- --------------------------------------------------------
 
@@ -120,13 +101,17 @@ CREATE TABLE `productos` (
 
 INSERT INTO `productos` (`prod_id`, `prod_descripcion`, `prod_caracteristica`, `prod_precio`, `prod_stock`, `prod_foto`, `prod_eliminado`) VALUES
 (3, 'PC-GAMER', 'I3', '1200.00', 30, 'perfil.jpg', 'SI'),
-(4, 'PC', 'PC DE ESCRITORIO I3 8VA', '1200.00', 30, 'juegos.jpg', ''),
+(4, 'PC', 'PC DE ESCRITORIO I3 8VA', '1200.30', 30, 'juegos.jpg', ''),
 (6, 'MEMORIA', 'MEMORIA KINGSTON 120 GB', '150.00', 89, 'torneosp.jpg', ''),
 (7, 'COMPUTADORA', 'ACER PREDATOR HELIOS 300 GAMING LAPTOP PC, 15.6', '1700.00', 5, 'acerpredator.jpg', 'SI'),
 (8, 'COMPUTADORA', 'ACER PREDATOR HELIOS 300 GAMING LAPTOP PC, 15.6\"', '1750.00', 6, 'acerpredator.jpg', 'NO'),
 (9, 'COMPUTADORA', 'APPLE MACBOOK PRO (13\" RETINA, 2.3GHZ DUAL-CORE INTEL CORE I5, 8GB RAM, 128GB SSD)', '2000.00', 7, 'macbook.jpg', 'NO'),
 (10, 'PC', 'CYBERPOWERPC GAMER XTREME VR GXIVR8060A7 GAMING PC (INTEL I5-9400F 2.9GHZ 8GB DDR4)', '1800.00', 4, 'cyberpower.jpg', 'NO'),
-(11, 'COMPUTADORA', 'ASUS ROG ZEPHYRUS S ULTRA SLIM GAMING LAPTOP, 15.6â€ 144HZ IPS TYPE FHD, GEFORCE RTX 2070, INTEL CORE I7-9750H, 16GB DDR4', '1900.00', 5, 'asus.jpg', 'NO');
+(11, 'COMPUTADORA', 'ASUS ROG ZEPHYRUS S ULTRA SLIM GAMING LAPTOP, 15.6â€ 144HZ IPS TYPE FHD, GEFORCE RTX 2070, INTEL CORE I7-9750H, 16GB DDR4', '1900.00', 5, 'asus.jpg', 'NO'),
+(12, '', '', '0.00', 0, '', 'NO'),
+(13, '', '', '0.00', 0, '', 'NO'),
+(14, '', '', '0.00', 0, '', 'NO'),
+(15, '', '', '0.00', 0, '', 'NO');
 
 -- --------------------------------------------------------
 
@@ -176,7 +161,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`usu_id`, `usu_nombre`, `usu_apellido`, `usu_mail`, `usu_constrasena`, `usu_direccion`, `usu_rol`, `usu_foto`) VALUES
 (1, 'DIEGO', 'RODRIGUEZ', 'drodrigueza@est.ups.edu.ec', 'cuenca', '', 'ADMIN', ''),
 (2, 'MARCO', 'COBOS', 'mcobosf@est.ups.edu.ec', 'cuenca', '', 'USER', ''),
-(3, 'GABRIEL', 'CHUCHUCA', 'gchuchuca@est.ups.edu.ec', 'cuenca', '', 'USER', ''),
+(3, 'GABRIEL', 'CHUCHUCA', 'gchuchuca@est.ups.edu.ec', 'cuenca', 'Pasaje Nicanor Cobos ', 'USER', ''),
 (4, 'MALKI', 'YUPANKI', 'myupanki@est.ups.edu.ec', 'cuenca', '', 'USER', ''),
 (5, 'ELISABETH', 'ALVARADO', 'ealvarado@est.ups.edu.ec', 'cuenca', '', 'USER', '');
 
@@ -223,13 +208,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `ped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ped_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `sucursal`

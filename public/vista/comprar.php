@@ -29,10 +29,11 @@
     <div class="w3-top">
      <div class="w3-row w3-padding w3-black">
         <div class="w3-col s3">
-            <a href="homeUsu" class="w3-button w3-block w3-black">INICIO</a>
+            <a href="#" class="w3-button w3-block w3-black">INICIO</a>
         </div>
 
-      <?php
+        <?php
+
       include '../../config/conexionDB.php';
       $ref = $_GET["mail"];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
@@ -45,11 +46,11 @@
       echo '<br>';
       $conn->close();
      
+
       echo "<div class='w3-col s3'>";
       echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       echo " </div>";
       ?>
-
      </div>
     </div>
 
@@ -59,7 +60,11 @@
     <table style="width:100%" border>
         <tr>
         <?php 
+            $mail =$_GET["mail"];
+            echo $mail;
+            echo '<br>';
 
+        include '../../config/conexionDB.php';       
         $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt';";
         $result3 = $conn->query($sql3);
 

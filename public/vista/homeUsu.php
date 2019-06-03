@@ -45,7 +45,9 @@
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
       </div>
 
+
       <?php
+
       include '../../config/conexionDB.php';
       $ref = $_GET["mail"];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
@@ -58,11 +60,12 @@
       echo '<br>';
       $conn->close();
      
+
       echo "<div class='w3-col s3'>";
       echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       echo " </div>";
       ?>
-
+      
     </div>
   </div>
 
