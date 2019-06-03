@@ -48,8 +48,9 @@
         echo "<br>";
         echo $var2;
     }
+    
 
-    $sql = "INSERT INTO productos VALUES(0,'$nombre','$descripcion','$pr','$cd','$nombre_img','NO')";
+    //$sql = "INSERT INTO productos VALUES(0,'$nombre','$descripcion','$pr','$cd','$nombre_img','NO')";
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
