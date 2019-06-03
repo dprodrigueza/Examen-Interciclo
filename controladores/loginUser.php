@@ -32,7 +32,7 @@
         }
             
     }else{
-        echo "<h1> Este Correo no existe, intentalo nuevamente. <a href= ../login/login.php>Inicia Sesion </a> </h1>";
+        echo "<h1> El correo o la contraseña es invalido, intentalo nuevamente. <a href= ../login/login.php>Inicia Sesion </a> </h1>";
         echo "<h1> Create una Cuenta! Es gratis. <a href= ../login/crear.html>Crear Cuenta</a> </h1>";
     }
 
