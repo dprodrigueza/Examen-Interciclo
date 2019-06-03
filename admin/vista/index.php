@@ -17,8 +17,9 @@
 	<a href="crear_sucursal.html">CREAR SUCURSAL</a>
 	<a href="listar_productos.php">VER PRODUCTOS</a>
 	<a href="listar_sucursal.php">VER SUCURSALES</a>
-	<a href="listar_facturas.php">VER EN CAMINO</a>
+	<a href="listar_facturas.php">VER PEDIDOS EN CAMINO</a>
 	<a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
+	<a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
 </body>
 <table style="width:100%" border>
 	<tr>
@@ -41,9 +42,13 @@
 			$result2 = $conn->query($sql2);
 			$rl      = mysqli_fetch_assoc($result2);
 			$rlt = $rl["usu_nombre"];
+			$crt = $rl["usu_mail"];
 			echo "   <td>" . $rlt . "</td>";
 			echo "   <td>" . $row['fcab_total'] . "</td>";
+			echo "   <td><a href='ver_factura.php?codigo=$codigo2&usuario=$codigo&mail=$crt'>VER PEDIDO</a></td>";
 			echo "   <td><a href='../../controladores/controlador_modificarfactura.php?codigo=$codigo2' >ENVIAR PEDIDO</a></td>";
+			echo "   <td><a href='../../controladores/cancelar_pedido.php?codigo=$codigo2' >CANCELAR PEDIDO</a></td>";
+
 			// echo "   <td ><a  href='modificar_sucursal.php?codigo=" . $row['suc_id'] . "'>MODIFICAR<a/></td>";
 			echo "</tr>";
 		}
