@@ -38,6 +38,8 @@
 
             // echo $cone;
             include '../../config/conexionDB.php';
+            date_default_timezone_set("America/Guayaquil");
+    $fecha = date('Y-m-d H:i:s', time());
             echo "</br>";
             $sql = "SELECT * FROM usuarios WHERE usu_id = '$codio' ";
 
@@ -61,7 +63,7 @@
                     <br>
                     <br>
                     <label for='fecha'>Fecha</label>
-                    <input type="date" id="fecha" name="fecha" value="<?php echo date("Y-m-d"); ?>" />
+                    <input type="text" id="fecha" name="fecha" value="<?php echo $fecha; ?>" />
                     <br>
                     <br>
                 <?php
