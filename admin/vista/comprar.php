@@ -60,8 +60,10 @@
             <br>
             <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Continuar Compra a factura</a>
             <br>
-            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Ver Productos añadidos al carrito</a>
-            <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Ver MIS compras</a>
+            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Ver carrito</a>
+            <br>
+            <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">MIS COMPRAS</a>
+            <br>
 
 
 
