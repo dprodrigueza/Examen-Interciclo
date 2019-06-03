@@ -3,7 +3,6 @@ session_start();
 $ref = $_GET["mail"];
 ?>
 <!DOCTYPE html>
-
 	<html>
 	<head>
 		<meta charset="utf-8" />
@@ -108,8 +107,6 @@ $ref = $_GET["mail"];
     document.getElementById("myLink").click();
   </script>
 
-
-	</body>
+</body>
 
 </html>
-
