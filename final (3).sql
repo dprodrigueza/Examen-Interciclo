@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2019 a las 02:23:49
+-- Tiempo de generación: 03-06-2019 a las 02:40:26
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
@@ -47,17 +47,10 @@ CREATE TABLE `facturacab` (
 CREATE TABLE `facturadet` (
   `fdet_id` int(11) NOT NULL,
   `fdet_cantidad` int(11) NOT NULL,
-  `fdet_total` decimal(10,2) NOT NULL,
+  `fdet_total` double(11,2) NOT NULL,
   `fcab_id` int(11) NOT NULL,
-  `prod_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
---
--- Volcado de datos para la tabla `facturadet`
---
-
-INSERT INTO `facturadet` (`fdet_id`, `fdet_cantidad`, `fdet_total`, `fcab_id`, `prod_id`) VALUES
-(1, 1, '1250.99', 1, 1);
+  `pro_Id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -117,7 +110,8 @@ INSERT INTO `productos` (`prod_id`, `prod_descripcion`, `prod_caracteristica`, `
 (11, 'COMPUTADORA', 'ASUS ROG ZEPHYRUS S ULTRA SLIM GAMING LAPTOP, 15.6â€ 144HZ IPS TYPE FHD, GEFORCE RTX 2070, INTEL CORE I7-9750H, 16GB DDR4', '1900.00', 5, 'asus.jpg', 'NO'),
 (12, '', '', '0.00', 0, '', 'NO'),
 (13, '', '', '0.00', 0, '', 'NO'),
-(14, '', '', '0.00', 0, '', 'NO');
+(14, '', '', '0.00', 0, '', 'NO'),
+(15, '', '', '0.00', 0, '', 'NO');
 
 -- --------------------------------------------------------
 
@@ -220,7 +214,7 @@ ALTER TABLE `pedidos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `prod_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `sucursal`
