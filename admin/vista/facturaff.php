@@ -6,9 +6,10 @@
     <meta charset="utf-8" />
     <title>MI_CUENTA</title>
     <link href="" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="fun.js"></script>
 </head>
 
-<body background="../../../fuserr.jpg">
+<body background="../../../fuserr.jpg" onload="calcular()">
     <section>
         <?php
         session_start();
@@ -109,7 +110,7 @@
                     $iva = ($subt * 12) / 100;
                     echo "</br>";
                     $cont += 1;
-                    echo $cont;
+                    //echo $cont;
                     //$stock = $rl["prod_stock"];
                     //$stock2 = $stock-$rtl;
                     //$sql2 = "UPDATE  productos set prod_stock = '$stock';";
@@ -117,19 +118,23 @@
                     <br>
 
                     <input type="hidden" id="producto" name="producto" value="<?php echo $row["prod_id"]; ?>" />
-                    <input type="hidden" id="pro<?php echo $cont;?>" name="pro<?php echo $cont;?>" value="<?php echo $pro; ?>" />
+                    <input type="hidden" id="pro<?php echo $cont; ?>" name="pro<?php echo $cont; ?>" value="<?php echo $pro; ?>" />
 
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codio; ?>" />
 
-                    <input type="hidden" id="mail" name="mail" value="<?php echo $mail; ?>" />
+                    <input type="hidden" id="mail" name="mail.<?php echo $cont; ?>" value="<?php echo $mail; ?>" />
 
                     <input size=7 type="text" id="cantidad" name="cantidad" value="<?php echo $rlt3; ?>" disabled />
-                    <input type="hidden" id="cant<?php echo $cont;?>" name="cant<?php echo $cont;?>" value="<?php echo $rlt3; ?>" />
+                    <input type="hidden" id="cant<?php echo $cont; ?>" name="cant<?php echo $cont; ?>" value="<?php echo $rlt3; ?>" />
 
                     <input size=17 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
+
+
                     <input size=8 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
-                    <input size=5 type="text" id="valortotal" name="valortotal" value="<?php echo $importe; ?>" disabled />
-                    <input type="hidden" id="tot<?php echo $cont;?>" name="tot<?php echo $cont;?>" value="<?php echo $importe; ?>" />
+                    <input type="hidden" id="vuni<?php echo $cont; ?>" name="vuni<?php echo $cont; ?>" value="<?php echo $rlt2; ?>" />
+
+                    <input size=5 type="text" id="valortotal<?php echo $cont; ?>" name="valortotal<?php echo $cont; ?>" value="" disabled />
+                    <input type="hidden" id="tot<?php echo $cont; ?>" name="tot<?php echo $cont; ?>" value="<?php echo $importe; ?>" />
                 <?php
             }
         } else {
@@ -143,16 +148,16 @@
             <br>
             <input type="hidden" id="contador" name="contador" value="<?php echo $cont; ?>" />
             <label for="subto">SUBTOTAL</label>
-            <input size=5 type="text" id="subtotal" name="subtotal" value="<?php echo $subt; ?>" disabled />
-            <input type="hidden" id="subtotal" name="subtotal" value="<?php echo $subt; ?>"/>
+            <input size=5 type="text" id="subtotal" name="subtotal" value="" disabled />
+            <input type="hidden" id="subtotal" name="subtotal" value="<?php echo $subt; ?>" />
             <br>
             <label for="ivaa">IVA 12%</label>
-            <input size=5 type="text" id="iva" name="iva" value="<?php echo $iva; ?>" disabled />
-            <input type="hidden" id="iva" name="iva" value="<?php echo $iva; ?>"/>
+            <input size=5 type="text" id="iva" name="iva" value="" disabled />
+            <input type="hidden" id="iva" name="iva" value="<?php echo $iva; ?>" />
             <br>
             <label for="totpagar">TOTAL A PAGAR</label>
-            <input size=5 type="text" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>" disabled />
-            <input type="hidden" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>"/>
+            <input size=5 type="text" id="totalpagar" name="totalpagar" value="" disabled />
+            <input type="hidden" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>" />
             <br>
             <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
             <button type="button" class="btn btn-default"> <a href="index_usuario.php?cone='<?php echo $cone; ?>'">ATRAS</a></button>
