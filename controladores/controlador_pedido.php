@@ -30,7 +30,7 @@
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
         echo $mail;
-        header("Location:../public/vista/comprar.php?mail=$mail");
+        header("Location:../admin/vista/comprar.php?mail=$mail");
 
     } else {
         if ($conn->ermo == 1062) {
