@@ -99,7 +99,7 @@
                 <label for="correo">Correo electrónico: </label>
                 <input type="email" class="form-control input-sm" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
                 <br>
-                <button id="btnCambiarContraseña" class="btn btn-default" ><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal; ?>">CAMBIAR CONTRASEÑA</a> </button>
+                <button id="btnCambiarContraseña"><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal; ?>">CAMBIAR CONTRASEÑA</a> </button>
                 <br>
                 <br>
                 <input type="submit" class="btn btn-primary btn-sm"  id="GUARDAR" name="guardar" value="GUARDAR" />

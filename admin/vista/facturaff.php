@@ -7,9 +7,62 @@
     <title>MI_CUENTA</title>
     <link href="" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="fun.js"></script>
+    <link href="" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" type="text/css" href="../../librerias/bootstrap/css/bootstrap.css">
+    <script src="../../librerias/jquery-3.2.1.min.js"></script>
 </head>
 
+<style>
+    body,
+    html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+
+      .menu {
+        display: none;
+      }
+</style>
+
 <body background="../../../fuserr.jpg" onload="calcular()">
+
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+
+      <?php
+      //echo "<div class='w3-col s3'>";
+      //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
+      //echo " </div>";
+      include '../../config/conexionDB.php';
+      $sucursal = $_GET["sucursal"];
+      $ref = $_GET["mail"];
+      $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
+      $result2 = $conn->query($sql2);
+      $rl = mysqli_fetch_assoc($result2);
+      $rlt = $rl["usu_id"];
+      $rlt1 = $rl["usu_nombre"];
+      $rlt2 = $rl["usu_apellido"];
+      echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+      echo '<br>';
+      $conn->close();
+      ?>
+
+      <div class="w3-col s3">
+        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+      </div>
+
+      <div class="w3-col s3">
+        <a href="../../config/cerrarSesion.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
+      </div>
+
+    </div>
+  </div>
+
+    <br><br><br><br><br><br>
+
     <section>
 
         <?php
@@ -31,19 +84,6 @@
 
         //$producto =$_GET["producto"];
         ?>
-
-        <header>
-            <nav>
-                <ul>
-
-                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Atras</a>
-
-                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&direccion=<?php echo $direccion; ?>">Atras</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
 
         <form id="formulario01" method="POST" action="../../controladores/controlador_factura.php">
 
@@ -183,11 +223,34 @@
             <input size=5 type="text" id="totalpagar" name="totalpagar" value="" disabled />
             <input type="hidden" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>" />
             <br>
-            <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
-            <button type="button" class="btn btn-default"> <a href="index_usuario.php?cone='<?php echo $cone; ?>'">ATRAS</a></button>
+            <input class="btn btn-default"  type="submit" id="modificar" name="modificar" value="Comprar" />
+            <button type="button" class="btn btn-default"> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">ATRAS</a></button>
 
         </form>
     </section>
+
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+    <p>UPS Hipermedial © Todos los derechos reservados</a></p>
+</footer>
+
+  <script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("menu");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+      }
+      document.getElementById(menuName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+    }
+    document.getElementById("myLink").click();
+  </script>
+
 </body>
 
 </html>
