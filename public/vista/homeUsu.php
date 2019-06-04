@@ -58,54 +58,15 @@
       $rlt1 = $rl["usu_nombre"];
       $rlt2 = $rl["usu_apellido"];
       echo 'Username: ' . $rlt1 . ' ' . $rlt2;
-
-
       echo '<br>';
       $conn->close();
       ?>
-
-
-
-
-<<<<<<< HEAD
-=======
       <div class="w3-col s3">
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
       </div>
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
-      
-
-
-
-<<<<<<< HEAD
       <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="recoger.php">
       <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
       <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
-      
-      <label id="Descripcionproducto">SUCURSAL</label>
-      <SELECT id="selCombo" NAME="selCombo">
-        <?php include '../../config/conexionDB.php';
-        $sql4 = "SELECT * FROM sucursal WHERE suc_ciudad ='$sucursal' ;";
-
-        $result4 = $conn->query($sql4);
-        $cont = 0;
-        if ($result4->num_rows > 0) {
-          while ($row = $result4->fetch_assoc()) {
-            $var = $row["suc_nombre"];
-            $var2 = $row["suc_direccion"];
-            echo "<OPTION VALUE='" . $var2 . "'>" . $var2 . "</OPTION>";
-          }
-        }
-        $conn->close();
-        ?>
-      </SELECT>
-=======
-
 
 
       <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>&sucursal=<?php echo $sucursal; ?>">
@@ -133,32 +94,16 @@
           ?>
 
         </SELECT>
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
-
         <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
 
       </form>
-<<<<<<< HEAD
-=======
-
-<<<<<<< HEAD
-
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
       <div class="w3-col s3">
         <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
 
-<<<<<<< HEAD
       <div class="w3-col s3">
         <a href="../../admin/vista/comprar.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
       </div>
-=======
-
-
-=======
-      
->>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>

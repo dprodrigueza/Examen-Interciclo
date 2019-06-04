@@ -85,7 +85,7 @@
                     $sql5 = "UPDATE pedidos SET ped_estado='CONFIRMADO' WHERE cod_usuario='$codigo';";
                     if ($conn->query($sql5) == TRUE) {
                         echo "pedido actualizado atualizado";
-                        header("Location:../admin/vista/comprar.php?mail=$mail");
+                        header("Location:../admin/vista/comprar.php?mail=$mail&sucursal=$sucursal&selCombo=$direccion");
                     }
                 }
             }

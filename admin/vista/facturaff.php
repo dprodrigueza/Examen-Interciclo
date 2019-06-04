@@ -16,22 +16,21 @@
         $mail = $_GET["mail"];
         $sucursal = $_GET["sucursal"];
         $codio = $_GET["codio"];
-<<<<<<< HEAD
+
         $direccion = $_GET["selCombo"];
-=======
-        $direccion = $_GET["direccion"];
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
+
+      //  $direccion = $_GET["direccion"];
+
         //$producto =$_GET["producto"];
         ?>
 
         <header>
             <nav>
                 <ul>
-<<<<<<< HEAD
+
                     <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Atras</a>
-=======
+
                     <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal;?>&direccion=<?php echo $direccion;?>">Atras</a>
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
                     </li>
                 </ul>
             </nav>

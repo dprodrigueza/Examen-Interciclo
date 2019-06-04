@@ -10,15 +10,10 @@
 <body class="fondo">
     <?php
     session_start();
-<<<<<<< HEAD
     $mail = $_GET["mail"];
     $sucursal = $_GET["sucursal"];
-=======
-    $mail = $_POST["mail"];
-    $sucursal = $_POST["sucursal"];
     //$mail = $_GET["mail"];
     //$sucursal = $_GET["sucursal"];
->>>>>>> 7d976c38ae267d3fa7e45c38a9ad13815ba6f7c1
     //$codio = $_GET["codio"];
     //$producto =$_GET["producto"];
     ?>
