@@ -105,6 +105,7 @@
        
         <label>IMAGEN PERFIL:</label>
         <input id="imagen" name="imagen" size="30" type="file" />
+        <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
         <br>
         <label for="nombres">Nombre: </label>
         <input type="text" class="form-control input-sm" id="nombres" name="nombres" />

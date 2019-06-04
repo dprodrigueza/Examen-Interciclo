@@ -7,6 +7,7 @@
     $direccion = $_POST['direccion'];
     $mail = $_POST['correo'];
     $contrasena = $_POST['contra'];
+    $mail2 = $_POST['mail'];
 
     $nombre_img = $_FILES["imagen"]["name"];
     $tipo = $_FILES["imagen"]["type"];
@@ -47,7 +48,7 @@
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/index.php");
+    header("Location: ../vista/index.php?mail=$mail2");
 
     $conn->close();
     ?>
