@@ -8,6 +8,21 @@
 </head>
 
 <body>
+<?php
+        session_start();
+        $mail = $_GET["mail"];
+       
+        ?>
+
+        <header>
+            <nav>
+                <ul>
+                    <li> <a href="actualizarUsuario.php?mail=<?php echo "$mail"; ?>">Atras</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
 
     
     <?php

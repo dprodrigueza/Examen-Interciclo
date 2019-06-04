@@ -37,15 +37,16 @@
       include '../../config/conexionDB.php';
       $ref = $_GET["mail"];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
-        $result2 = $conn->query($sql2);
-        $rl = mysqli_fetch_assoc($result2);
-        $rlt = $rl["usu_id"];
-        $rlt1 = $rl["usu_nombre"];
-        $rlt2 = $rl["usu_apellido"];
-        echo 'Username: '. $rlt1 . ' '. $rlt2;
-        echo '<br>';
-        $conn->close();  
+      $result2 = $conn->query($sql2);
+      $rl = mysqli_fetch_assoc($result2);
+      $rlt = $rl["usu_id"];
+      $rlt1 = $rl["usu_nombre"];
+      $rlt2 = $rl["usu_apellido"];
+      echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+      echo '<br>';
+      $conn->close();
       ?>
+      
 
       <div class="w3-col s3">
         <a href="#" class="w3-button w3-block w3-black">INICIO</a>
@@ -56,19 +57,22 @@
       </div>
 
       <div class="w3-col s3">
-        <a href="actualizarUsuario.php?mail=<?php echo $_GET["mail"];; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
+        <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
 
       <div class="w3-col s3">
-        <a href="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
+        <a href="../../admin/vista/comprar.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
       </div>
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
       </div>
 
+      <div class="w3-col s3">
+        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+      </div>
 
-    </div>
+   </div>
   </div>
 
   <br><br><br><br>
@@ -110,10 +114,7 @@
         <a href="tel:+593984053639">0982865431</a>
       </div><br>
 
-      <!-- End Contact Section -->
     </div>
-
-    <!-- End page content -->
   </div>
 
   <!-- Footer -->
