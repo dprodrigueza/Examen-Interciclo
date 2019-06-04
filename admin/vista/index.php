@@ -116,6 +116,7 @@
     <th>....enviar...</th>
   </tr>
   <?php
+  $mail =$_GET['mail'];
   include '../../config/conexionDB.php';
   $sql = "SELECT * FROM facturacab where fac_estado='CONFIRMADO';";
   $result = $conn->query($sql);
@@ -132,9 +133,9 @@
       $crt = $rl["usu_mail"];
       echo "   <td>" . $rlt . "</td>";
       echo "   <td>" . $row['fcab_total'] . "</td>";
-      echo "   <td><a href='ver_factura.php?codigo=$codigo2&usuario=$codigo&mail=$crt'>VER PEDIDO</a></td>";
-      echo "   <td><a href='../../controladores/controlador_modificarfactura.php?codigo=$codigo2' >ENVIAR PEDIDO</a></td>";
-      echo "   <td><a href='../../controladores/cancelar_pedido.php?codigo=$codigo2' >CANCELAR PEDIDO</a></td>";
+      echo "   <td><a href='ver_factura.php?codigo=$codigo2&usuario=$codigo&mail=$crt&mail2=$mail'>VER PEDIDO</a></td>";
+      echo "   <td><a href='../../controladores/controlador_modificarfactura.php?codigo=$codigo2&mail=$mail' >ENVIAR PEDIDO</a></td>";
+      echo "   <td><a href='../../controladores/cancelar_pedido.php?codigo=$codigo2&mail=$mail' >CANCELAR PEDIDO</a></td>";
 
       // echo "   <td ><a  href='modificar_sucursal.php?codigo=" . $row['suc_id'] . "'>MODIFICAR<a/></td>";
       echo "</tr>";

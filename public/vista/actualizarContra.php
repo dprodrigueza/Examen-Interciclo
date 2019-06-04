@@ -20,13 +20,14 @@
 <?php
        
         $mail = $_GET["mail"];
+        $sucursal = $_GET["sucursal"];
        
         ?>
 
         <header>
             <nav>
                 <ul>
-                    <li> <a href="actualizarUsuario.php?mail=<?php echo "$mail"; ?>">Atras</a>
+                    <li> <a href="actualizarUsuario.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>">Atras</a>
                     </li>
                 </ul>
             </nav>
@@ -50,6 +51,7 @@
             ?>
 
             <form id="formularioUpdate" method="POST" action="../controladores/actualizapas.php?mail=<?php echo $row["usu_mail"]; ?>">
+            <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
 
                 <label for="contraNEW">Nueva Contraseña *: </label>
                 <input type="password" id="contrasNew" name="contrasNew" placeholder="Ingrese la nueva contraseña" />
