@@ -5,7 +5,8 @@
     $nombre = strtoupper($_POST['nombres']);
     $apellido = strtoupper($_POST['apellidos']);
     $direccion = $_POST['direccion'];
-    $mail = $_GET['mail'];
+    $mail = $_POST['mail'];
+    $sucursal = $_POST['sucursal'];
 
     $nombre_img = $_FILES["imagen"]["name"];
     $tipo = $_FILES["imagen"]["type"];
@@ -50,7 +51,7 @@
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/homeUsu.php?mail=$mail");
+    header("Location: ../vista/homeUsu.php?mail=$mail&sucursal=$sucursal");
 
     $conn->close();
     ?>

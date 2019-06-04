@@ -98,7 +98,7 @@
 
       </form>
       <div class="w3-col s3">
-        <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
+        <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
 
       <div class="w3-col s3">

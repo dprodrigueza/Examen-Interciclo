@@ -19,13 +19,14 @@
     <?php
 
     $mail = $_GET["mail"];
+    $sucursal = $_GET["sucursal"];
 
     ?>
 
     <header>
         <nav>
             <ul>
-                <li> <a href="homeUsu.php?mail=<?php echo "$mail"; ?>">Atras</a>
+                <li> <a href="homeUsu.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>">Atras</a>
                 </li>
             </ul>
         </nav>
@@ -49,6 +50,9 @@
 
             <form id="formularioUpdate" method="POST" enctype="multipart/form-data" action="../controladores/actualizarUsu.php?mail=<?php echo $row["usu_mail"]; ?>">
                 <img src="../../imagenes/<?php echo $row["usu_foto"]; ?>" width="80" height="80">
+                <input type="hidden" id="mail" name="mail" value="<?php echo $mail; ?>" />
+                <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
+
                 <label>IMAGEN PERFIL:</label>
                 <input id="imagen" name="imagen" size="30" type="file" />
                 <br>
