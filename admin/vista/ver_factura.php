@@ -15,13 +15,14 @@
         session_start();
         $mail = $_GET["mail"];
         $codio = $_GET["usuario"];
+        $mail2 = $_GET["mail2"];
         //$producto =$_GET["producto"];
         ?>
 
         <header>
             <nav>
                 <ul>
-                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>">Atras</a>
+                    <li> <a href="index.php?mail=<?php echo "$mail2"; ?>">Atras</a>
                     </li>
                 </ul>
             </nav>

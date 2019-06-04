@@ -12,6 +12,7 @@
 
     include '../config/conexionDB.php';
     $codigo = $_GET["codigo"];
+    $mail = $_GET["mail"];
     
     echo $codigo;
 
@@ -19,7 +20,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado el estado!!!<br>";
-        header("Location:../admin/vista/index.php?");
+        header("Location:../admin/vista/index.php?mail=$mail");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }

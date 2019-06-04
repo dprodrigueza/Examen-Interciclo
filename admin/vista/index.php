@@ -30,32 +30,22 @@
 </style>
 
 <body>
-<<<<<<< HEAD
+ HEAD
 
 
 	<?php
 	include '../../config/conexionDB.php'
 	?>
 	<h1>ADMIN</h1>
-	<h1>ADMIN</h1>
-	<a href="crearusuario.php">CREAR USUARIO</a>
-	<a href="crear_producto.html">CREAR PRODUCTO</a>
-	<a href="crear_sucursal.html">CREAR SUCURSAL</a>
-	<a href="listarUsuarios.php">VER USUARIOS</a>
-	<a href="listar_productos.php">VER PRODUCTOS</a>
-	<a href="listar_sucursal.php">VER SUCURSALES</a>
-	<a href="listar_facturas.php">VER PEDIDOS EN CAMINO</a>
-	<a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
-	<a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
+	
 </body>
 
-=======
   <?php
   session_start();
   if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
     header("Location: ../../login/login.php");
   }
->>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
+
 
 
   ?>
@@ -63,16 +53,7 @@
   include '../../config/conexionDB.php'
   ?>
   <h1>ADMIN</h1>
-  <h1>ADMIN</h1>
-  <a href="crearusuario.php">CREAR USUARIO</a>
-  <a href="crear_producto.html">CREAR PRODUCTO</a>
-  <a href="crear_sucursal.html">CREAR SUCURSAL</a>
-  <a href="listarUsuarios.php">VER USUARIOS</a>
-  <a href="listar_productos.php">VER PRODUCTOS</a>
-  <a href="listar_sucursal.php">VER SUCURSALES</a>
-  <a href="listar_facturas.php">VER PEDIDOS EN CAMINO</a>
-  <a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
-  <a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
+  
 </body>
 
 <div class="w3-top">
@@ -158,6 +139,7 @@
     <th>....enviar...</th>
   </tr>
   <?php
+  $mail =$_GET['mail'];
   include '../../config/conexionDB.php';
   $sql = "SELECT * FROM facturacab where fac_estado='CONFIRMADO';";
   $result = $conn->query($sql);
@@ -174,9 +156,9 @@
       $crt = $rl["usu_mail"];
       echo "   <td>" . $rlt . "</td>";
       echo "   <td>" . $row['fcab_total'] . "</td>";
-      echo "   <td><a href='ver_factura.php?codigo=$codigo2&usuario=$codigo&mail=$crt'>VER PEDIDO</a></td>";
-      echo "   <td><a href='../../controladores/controlador_modificarfactura.php?codigo=$codigo2' >ENVIAR PEDIDO</a></td>";
-      echo "   <td><a href='../../controladores/cancelar_pedido.php?codigo=$codigo2' >CANCELAR PEDIDO</a></td>";
+      echo "   <td><a href='ver_factura.php?codigo=$codigo2&usuario=$codigo&mail=$crt&mail2=$mail'>VER PEDIDO</a></td>";
+      echo "   <td><a href='../../controladores/controlador_modificarfactura.php?codigo=$codigo2&mail=$mail' >ENVIAR PEDIDO</a></td>";
+      echo "   <td><a href='../../controladores/cancelar_pedido.php?codigo=$codigo2&mail=$mail' >CANCELAR PEDIDO</a></td>";
 
       // echo "   <td ><a  href='modificar_sucursal.php?codigo=" . $row['suc_id'] . "'>MODIFICAR<a/></td>";
       echo "</tr>";

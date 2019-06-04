@@ -12,14 +12,14 @@
 
     include '../config/conexionDB.php';
     $codigo = $_GET["codigo"];
-    
+    $mail = $_GET["mail"];
     echo $codigo;
 
     $sql = "UPDATE facturacab SET fac_estado = 'FINALIZADO' WHERE fcab_id = '$codigo' ;";
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado el estado!!!<br>";
-        header("Location:../admin/vista/listar_facturas.php");
+        header("Location:../admin/vista/listar_facturas.php?mail=$mail");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }

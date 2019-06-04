@@ -127,18 +127,14 @@
                 echo ("<td>" . $row["usu_mail"] . "</td>");
                 echo ("<td>" . "<img src=../../imagenes/$row[usu_foto] width='80' height='80'>" . "</td>");
                 echo ("<td>" . $row["usu_rol"] . "</td>");
-<<<<<<< HEAD
+ 
 
 
                 echo ("<td> <a href = eliminar_usuarios.php?codio=" . $row["usu_id"] . "&adm=". $_GET['mail'] . ">ELIMINAR</a>" . " </td>");
                 echo ("<td> <a href=actualizarUsuario.php?codio=" . $row["usu_id"] . "&adm=". $_GET['mail'] . ">Modificar</a> </td>");
 
-=======
-                echo ("<td> <a href = ../controladores/eliminarUsu.php?codigo=" . $row["usu_id"] . ">ELIMINAR</a>" . " </td>");
-                echo ("<td> <a href=actualizarUsuario.php?mail=" . $row["usu_id"] .  ">Modificar</a> </td>");
-                echo ("<td> <a href = ../controladores/eliminarUsu.php?mail=" . $row["usu_mail"] . "&adm=". $_GET['mail'] . ">ELIMINAR</a>" . " </td>");
-                echo ("<td> <a href=actualizarUsuario.php?mail=" . $row["usu_mail"] . "&adm=". $_GET['mail'] . ">Modificar</a> </td>");
->>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
+
+
                 echo ("</tr>");
             }
         } else {

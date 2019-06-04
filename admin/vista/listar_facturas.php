@@ -103,6 +103,7 @@
             <th>....enviar...</th>
         </tr>
         <?php
+        $mail =$_GET['mail'];
         include '../../config/conexionDB.php';
         $sql = "SELECT * FROM facturacab where fac_estado='EN CAMINO' ";
         $result = $conn->query($sql);
@@ -118,7 +119,7 @@
                 $rlt = $rl["usu_nombre"];
                 echo "   <td>" . $rlt . "</td>";
                 echo "   <td>" . $row['fcab_total'] . "</td>";
-                echo "   <td><a href='../../controladores/controlador_modificarpedido.php?codigo=$codigo2' >FINALIZAR PEDIDO</a></td>";
+                echo "   <td><a href='../../controladores/controlador_modificarpedido.php?codigo=$codigo2&mail=$mail' >FINALIZAR PEDIDO</a></td>";
                 // echo "   <td ><a  href='modificar_sucursal.php?codigo=" . $row['suc_id'] . "'>MODIFICAR<a/></td>";
                 echo "</tr>";
             }
