@@ -164,11 +164,6 @@ $conn->close();
     document.getElementById("myLink").click();
   </script>
 
-
-
-
-
-
 </body>
 
 </html>
