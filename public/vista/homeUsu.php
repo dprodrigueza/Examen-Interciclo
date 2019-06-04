@@ -61,9 +61,7 @@
       echo '<br>';
       $conn->close();
       ?>
-      <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
-      </div>
+
       <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="recoger.php">
       <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
       <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
@@ -101,9 +99,7 @@
         <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
 
-      <div class="w3-col s3">
-        <a href="../../admin/vista/comprar.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
-      </div>
+
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>

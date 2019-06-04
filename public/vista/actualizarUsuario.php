@@ -38,6 +38,7 @@
 
 
     $mail = $_GET['mail'];
+    $sucursal = $_GET['sucursal'];
 
 
     $sql = "SELECT * FROM usuarios where usu_mail='$mail'";
@@ -68,7 +69,7 @@
                 <label for="correo">Correo electrónico: </label>
                 <input type="email" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
                 <br>
-                <button id="btnCambiarContraseña"><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>">CAMBIAR CONTRASEÑA</a> </button>
+                <button id="btnCambiarContraseña"><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal; ?>">CAMBIAR CONTRASEÑA</a> </button>
                 <br>
                 <br>
                 <input type="submit" id="GUARDAR" name="guardar" value="GUARDAR" />
