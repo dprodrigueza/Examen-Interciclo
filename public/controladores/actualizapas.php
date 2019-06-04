@@ -3,10 +3,12 @@ include('../../config/conexionDB.php');
 
 
 $password = $_POST['contrasNew'];
+$mail = $_GET['mail'];
 
 
 
-$sql = "UPDATE usuarios SET usu_contrasena = '$password' where usu_mail = '$_GET[mail]';";
+
+$sql = "UPDATE usuarios SET usu_constrasena = '$password' where usu_mail = '$mail';";
 echo $sql;
 $result = $conn->query($sql);
 

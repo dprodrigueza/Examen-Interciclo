@@ -47,7 +47,7 @@
       </div>
 
       <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+        <a href="actualizarUsuario.php?mail=<?php echo $_GET["mail"];; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
       <?php
 

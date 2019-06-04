@@ -54,6 +54,9 @@
       <div class="w3-col s3">
         <a href="../../login/login.php" class="w3-button w3-block w3-black">INICIAR SESION</a>
       </div>
+      <div class="w3-col s3">
+        <a href="verproductos.php" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
+      </div>
     </div>
   </div>
 
