@@ -34,7 +34,7 @@
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       //echo " </div>";
       include '../../config/conexionDB.php';
-      $ref = $_GET["mail"];
+      $ref = $_GET["adm"];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
         $result2 = $conn->query($sql2);
         $rl = mysqli_fetch_assoc($result2);
@@ -47,43 +47,43 @@
     ?>
 
    <div class="w3-col s3">
-    <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">INICIO</a>
+    <a href="index.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">INICIO</a>
    </div>
 
   <div class="w3-col s3">
-    <a href="crearusuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR USUARIO</a>
+    <a href="crearusuario.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">CREAR USUARIO</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listarUsuarios.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER USUARIO</a>
+    <a href="listarUsuarios.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">VER USUARIO</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="crear_producto.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
+    <a href="crear_producto.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="crear_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
+    <a href="crear_sucursal.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_productos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
+    <a href="listar_productos.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER SUCURSALES</a>
+    <a href="listar_sucursal.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">VER SUCURSALES</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_facturas.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
+    <a href="listar_facturas.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_pedidos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
+    <a href="listar_pedidos.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_cancelados.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CANCELADOS</a>
+    <a href="listar_cancelados.php?mail=<?php echo $_GET['adm']; ?>" class="w3-button w3-block w3-black">CANCELADOS</a>
   </div>
 
   <div class="w3-col s3">
@@ -110,7 +110,7 @@
         while ($row = $result->fetch_assoc()) {
             ?>
 
-            <form id="formularioUpdate" method="POST" action="../controladores/actualizapas.php?mail=<?php echo $row["usu_mail"]; ?>">
+            <form id="formularioUpdate" method="POST" action="../controladores/actualizapas.php?mail=<?php echo $row["usu_mail"] . '&adm=' . $_GET['adm'] ; ?>">
 
                 <label for="contraNEW">Nueva Contraseña *: </label>
                 <input type="password" class="form-control input-sm" id="contrasNew" name="contrasNew" placeholder="Ingrese la nueva contraseña" />
@@ -121,7 +121,7 @@
                 <br>
                 <br>
                 <input type="submit" class="btn btn-primary" id="btncontrasena" name="btncontrasena" value="CAMBIAR CONTRASEÑA" disabled />
-                <a href="listarUsuarios.php?mail=<?php echo $_GET['mail']; ?>" class="btn btn-default">Cancelar</a>
+                <a href="listarUsuarios.php?mail=<?php echo $_GET['adm']; ?>" class="btn btn-default">Cancelar</a>
             </form>
         <?php
     }
