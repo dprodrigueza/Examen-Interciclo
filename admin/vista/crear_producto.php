@@ -109,7 +109,7 @@
         <h1>Crear Producto</h1>
     </MARQUEE>
 
-    <form action="../../controladores/crear_producto.php" enctype="multipart/form-data" method="POST">
+    <form action="../../controladores/crear_producto.php?mail=<?php echo $ref; ?>" enctype="multipart/form-data" method="POST">
 
         <legend>Datos del Producto</legend>
 

@@ -13,6 +13,7 @@
 
 <body>
     <?php
+    $mail = $_GET["mail"];
     include '../config/conexionDB.php';
     $nombre = isset($_POST["nombreproducto"]) ? mb_strtoupper(trim($_POST["nombreproducto"]), 'UTF-8') : null;
     $descripcion = isset($_POST["descripcionproducto"]) ? mb_strtoupper(trim($_POST["descripcionproducto"]), 'UTF-8') : null;
@@ -38,7 +39,7 @@
             || ($_FILES["imagen"]["type"] == "image/png")
         ) {
             // Ruta donde se guardarán las imágenes que subamos
-            $directorio = $_SERVER['DOCUMENT_ROOT'] . '/xampp/copia- Examen-Interciclo/Examen-Interciclo/imagenes/';
+            $directorio = $_SERVER['DOCUMENT_ROOT'] . '/xampp/Examen-Interciclo/imagenes/';
             // Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
             move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . $nombre_img);
         } else {
@@ -55,7 +56,7 @@
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
-        header("Location:../admin/vista/listar_productos.php?");
+        header("Location:../admin/vista/listar_productos.php?mail=$mail");
 
     } else {
         if ($conn->ermo == 1062) {
