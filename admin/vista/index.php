@@ -46,9 +46,7 @@
 	<a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
 	<a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
 </body>
-=======
-<<<<<<< HEAD
-	
+
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
 

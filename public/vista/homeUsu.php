@@ -30,8 +30,7 @@
   <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
 
-<<<<<<< HEAD
-=======
+
       <div class="w3-col s3">
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
       </div>
@@ -39,7 +38,6 @@
       <div class="w3-col s3">
         <a href="actualizarUsuario.php?mail=<?php echo $_GET["mail"];; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
->>>>>>> ebd5fc9d9ef9e9fcd3b35754843acc8b39146b35
       <?php
       //echo "<div class='w3-col s3'>";
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
@@ -47,15 +45,16 @@
       include '../../config/conexionDB.php';
       $ref = $_GET["mail"];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
-        $result2 = $conn->query($sql2);
-        $rl = mysqli_fetch_assoc($result2);
-        $rlt = $rl["usu_id"];
-        $rlt1 = $rl["usu_nombre"];
-        $rlt2 = $rl["usu_apellido"];
-        echo 'Username: '. $rlt1 . ' '. $rlt2;
-        echo '<br>';
-        $conn->close();  
+      $result2 = $conn->query($sql2);
+      $rl = mysqli_fetch_assoc($result2);
+      $rlt = $rl["usu_id"];
+      $rlt1 = $rl["usu_nombre"];
+      $rlt2 = $rl["usu_apellido"];
+      echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+      echo '<br>';
+      $conn->close();
       ?>
+      
 
       <div class="w3-col s3">
         <a href="#" class="w3-button w3-block w3-black">INICIO</a>
@@ -65,16 +64,18 @@
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
       </div>
 
-     <div class="w3-col s3">
+      <div class="w3-col s3">
         <a href="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
       </div>
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
       </div>
+      <div class="w3-col s3">
+        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+      </div>
 
-
-    </div>
+   </div>
   </div>
 
   <br><br><br><br>
