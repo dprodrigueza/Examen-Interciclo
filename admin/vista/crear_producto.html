@@ -18,55 +18,57 @@
         height: 100%;
         font-family: "Inconsolata", sans-serif;
     }
-
-      .menu {
+    
+    .menu {
         display: none;
-      }
+    }
 </style>
 
 
 <body class="fondo">
 
-    <div class="w3-top"> 
-    <div class="w3-row w3-padding w3-black">
 
-   <div class="w3-col s3">
 
-    <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">INICIO</a>
-   </div>
+    <div class="w3-top">
+        <div class="w3-row w3-padding w3-black">
 
-  <div class="w3-col s3">
-    <a href="crear_sucursal.html" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
-  </div>
+            <div class="w3-col s3">
 
-  <div class="w3-col s3">
-    <a href="listar_productos.php" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
-  </div>
+                <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">INICIO</a>
+            </div>
 
-  <div class="w3-col s3">
-    <a href="listar_sucursal.php" class="w3-button w3-block w3-black">VER SUCURSALES</a>
-  </div>
+            <div class="w3-col s3">
+                <a href="crear_sucursal.html" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
+            </div>
 
-  <div class="w3-col s3">
-    <a href="listar_facturas.php" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
-  </div>
+            <div class="w3-col s3">
+                <a href="listar_productos.php" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
+            </div>
 
-  <div class="w3-col s3">
-    <a href="listar_pedidos.php" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
-  </div>
+            <div class="w3-col s3">
+                <a href="listar_sucursal.php" class="w3-button w3-block w3-black">VER SUCURSALES</a>
+            </div>
 
-  <div class="w3-col s3">
-    <a href="listar_cancelados.php" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
-  </div>
+            <div class="w3-col s3">
+                <a href="listar_facturas.php" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
+            </div>
 
-  <div class="w3-col s3">
-    <a href="../../config/cerrarSesion.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
-  </div>
+            <div class="w3-col s3">
+                <a href="listar_pedidos.php" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
+            </div>
 
-  </div>
-</div>
+            <div class="w3-col s3">
+                <a href="listar_cancelados.php" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
+            </div>
 
-<br><br><br><br><br>
+            <div class="w3-col s3">
+                <a href="../../config/cerrarSesion.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
+            </div>
+
+        </div>
+    </div>
+
+    <br><br><br><br><br>
 
     <MARQUEE>
         <h1>Crear Producto</h1>
@@ -100,27 +102,28 @@
         </div>
     </form>
 
-<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-    <p>UPS Hipermedial © Todos los derechos reservados</a></p>
-</footer>
+    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+        <p>UPS Hipermedial © Todos los derechos reservados</a>
+        </p>
+    </footer>
 
-  <script>
-    // Tabbed Menu
-    function openMenu(evt, menuName) {
-      var i, x, tablinks;
-      x = document.getElementsByClassName("menu");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
-      }
-      tablinks = document.getElementsByClassName("tablink");
-      for (i = 0; i < x.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
-      }
-      document.getElementById(menuName).style.display = "block";
-      evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-    }
-    document.getElementById("myLink").click();
-  </script>
+    <script>
+        // Tabbed Menu
+        function openMenu(evt, menuName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("menu");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+            }
+            document.getElementById(menuName).style.display = "block";
+            evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+        }
+        document.getElementById("myLink").click();
+    </script>
 
 </body>
 

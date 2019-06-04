@@ -26,6 +26,14 @@
 
 <body>
 
+  <?php
+  session_start();
+  if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+    header("Location: ../../login/login.php");
+  }
+
+  ?>
+
   <!-- Links (sit on top) -->
   <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
@@ -59,6 +67,13 @@
 
 
 
+<<<<<<< HEAD
+=======
+      <div class="w3-col s3">
+        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+      </div>
+
+>>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
       
 
 
@@ -96,6 +111,7 @@
 
       </form>
 
+<<<<<<< HEAD
 
       <div class="w3-col s3">
         <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
@@ -103,6 +119,9 @@
 
 
 
+=======
+      
+>>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
