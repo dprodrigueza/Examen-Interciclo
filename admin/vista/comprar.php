@@ -23,17 +23,31 @@
     </header>
 
     <h2>PRODUCTOS</h2>
+    <?php
+            $mail = $_GET["mail"];
+            
+            include '../../config/conexionDB.php';
+            $sql = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
+            
+            $result = $conn->query($sql);
+            $rl = mysqli_fetch_assoc($result);
+            $conn->close();
+            ?>
+                  <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
     <table style="width:100%" border>
         <tr>
+            
             <?php
             $mail = $_GET["mail"];
             //echo $mail;
             //echo '<br>';
             include '../../config/conexionDB.php';
             $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
+            
             $result2 = $conn->query($sql2);
             $rl = mysqli_fetch_assoc($result2);
             $rlt = $rl["usu_id"];
+            
 
             $rlt1 = $rl["usu_nombre"];
             $rlt2 = $rl["usu_apellido"];
@@ -52,7 +66,7 @@
                 echo 'Productos añadidos : ' . $cont;
                 echo '<br>';
             } else {
-                echo 'no vale consulta';
+                echo 'No Tiene Productos Añadidos';
             }
 
             $conn->close();

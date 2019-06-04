@@ -16,6 +16,7 @@
 	<a href="crearusuario.php">CREAR USUARIO</a>
 	<a href="crear_producto.html">CREAR PRODUCTO</a>
 	<a href="crear_sucursal.html">CREAR SUCURSAL</a>
+	<a href="listarUsuarios.php">VER USUARIOS</a>
 	<a href="listar_productos.php">VER PRODUCTOS</a>
 	<a href="listar_sucursal.php">VER SUCURSALES</a>
 	<a href="listar_facturas.php">VER PEDIDOS EN CAMINO</a>

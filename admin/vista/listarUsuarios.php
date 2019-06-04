@@ -26,7 +26,7 @@
         <?php
         include('../../config/conexionDB.php');
 
-        $sql = "SELECT * from usuarios where usu_del = 'N';";
+        $sql = "SELECT * from usuarios where usu_rol = 'USER';";
         $result = $conn->query($sql);
 
 
@@ -42,7 +42,7 @@
                 echo ("<td>" . $row["usu_mail"] . "</td>");
                 echo ("<td>" . "<img src=../../imagenes/$row[usu_foto] width='80' height='80'>" . "</td>");
                 echo ("<td>" . $row["usu_rol"] . "</td>");
-                echo ("<td> <a href = ../controladores/eliminarUsu.php?mail=" . $row["usu_mail"] . "&adm=". $_GET['mail'] . ">ELIMINAR</a>" . " </td>");
+                echo ("<td> <a href = ../controladores/eliminarUsu.php?codigo=" . $row["usu_id"] . ">ELIMINAR</a>" . " </td>");
                 echo ("<td> <a href=actualizarUsuario.php?mail=" . $row["usu_mail"] . "&adm=". $_GET['mail'] . ">Modificar</a> </td>");
                 echo ("</tr>");
             }
