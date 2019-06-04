@@ -6,7 +6,7 @@ $password = $_POST['contrasNew'];
 
 
 
-$sql = "UPDATE usuarios SET usu_contrasena = '$password' where usu_mail = '$_GET[mail]';";
+$sql = "UPDATE usuarios SET usu_constrasena = '$password' where usu_mail = '$_GET[mail]';";
 echo $sql;
 $result = $conn->query($sql);
 
