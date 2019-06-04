@@ -4,7 +4,11 @@
 
     $nombre = strtoupper($_POST['nombres']);
     $apellido = strtoupper($_POST['apellidos']);
-    $mail = $_GET['mail'];
+    $direccion = $_POST['direccion'];
+    $mail = $_GET['mail2'];
+    
+    $codio = $_GET['codio'];
+    echo $codio;
 
     $nombre_img = $_FILES["imagen"]["name"];
     $tipo = $_FILES["imagen"]["type"];
@@ -19,7 +23,7 @@
             || ($_FILES["imagen"]["type"] == "image/png")
         ) {
             // Ruta donde se guardarán las imágenes que subamos
-            $directorio = $_SERVER['DOCUMENT_ROOT'] . '/final/imagenes/';
+            $directorio = $_SERVER['DOCUMENT_ROOT'] . '/xampp/Examen-Interciclo/imagenes/';
             // Muevo la imagen desde el directorio temporal a nuestra ruta indicada anteriormente
             move_uploaded_file($_FILES['imagen']['tmp_name'], $directorio . $nombre_img);
         } else {
@@ -32,26 +36,24 @@
     }
 
 
-
-    if ($nombre_img != "") {
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' , usu_foto = '$nombre_img' where usu_mail = '$mail';";
+    if($nombre_img!=""){
+        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' , usu_foto = '$nombre_img' where usu_id = '$codio' ;";
         echo $sql;
         $result = $conn->query($sql);
-    } else {
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' where usu_mail = '$mail';";
+    }else{
+        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' where usu_id = '$codio' ;";
         echo $sql;
         $result = $conn->query($sql);
     }
 
-
-
+    
 
 
     if ($conn->query($sql) === TRUE) {
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/actualizarUsuario.php?mail=$mail&adm=$_GET[adm]");
+    header("Location: ../vista/index.php?mail=$mail");
 
     $conn->close();
     ?>

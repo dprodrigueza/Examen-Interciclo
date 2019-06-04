@@ -30,7 +30,7 @@
 </style>
 
 <body>
-<<<<<<< HEAD
+
 
 	<?php
 	include '../../config/conexionDB.php'
@@ -47,8 +47,7 @@
 	<a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
 	<a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
 </body>
-=======
->>>>>>> 25b4fa44a82ec80fa60b71fb2b37ea11de9d300d
+
 
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">

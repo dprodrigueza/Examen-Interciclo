@@ -11,6 +11,8 @@
     session_start();
     $mail = $_POST["mail"];
     $sucursal = $_POST["sucursal"];
+    //$mail = $_GET["mail"];
+    //$sucursal = $_GET["sucursal"];
     //$codio = $_GET["codio"];
     //$producto =$_GET["producto"];
     ?>

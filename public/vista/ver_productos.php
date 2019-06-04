@@ -44,7 +44,7 @@
                     
                     <br>
                     <label for='Imagen'>Imagen (*)</label>
-                    <img id="yt" src="../../imagenes/<?php echo $row["prod_foto"]; ?>" alt="" size="50"/>
+                    <img id="yt" src="../../imagenes/<?php echo $row["prod_foto"]; ?>" alt="" size="50" width="250" height="250"/>
                     <br>
                     <br>
                     <label for='cedula'>Descricpcion (*)</label>

@@ -32,6 +32,9 @@
       <div class="w3-col s3">
         <a href="#" class="w3-button w3-block w3-black">INICIO</a>
       </div>
+      <div class="w3-col s3">
+        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+      </div>
 
       <?php
       //echo "<div class='w3-col s3'>";
@@ -56,55 +59,50 @@
 
 
 
-      <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
-      </div>
-
-<<<<<<< HEAD
       
 
 
 
-      <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../../admin/vista/comprar.php">
-      <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
-      <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
-      
-      <label id="Descripcionproducto">SUCURSAL</label>
-      <SELECT id="selCombo" NAME="selCombo">
 
-        <?php include '../../config/conexionDB.php';
-        $sql4 = "SELECT * FROM sucursal WHERE suc_ciudad ='$sucursal' ;";
 
-        $result4 = $conn->query($sql4);
-        $cont = 0;
-        if ($result4->num_rows > 0) {
-          while ($row = $result4->fetch_assoc()) {
-            $var = $row["suc_nombre"];
-            $var2 = $row["suc_direccion"];
 
-            echo "<OPTION VALUE='" . $var2 . "'>" . $var2 . "</OPTION>";
+      <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>&sucursal=<?php echo $sucursal; ?>">
+        <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
+        <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
+
+        <label id="Descripcionproducto">SUCURSAL</label>
+        <SELECT id="selCombo" NAME="selCombo">
+
+          <?php include '../../config/conexionDB.php';
+          $sql4 = "SELECT * FROM sucursal WHERE suc_ciudad ='$sucursal' ;";
+
+          $result4 = $conn->query($sql4);
+          $cont = 0;
+          if ($result4->num_rows > 0) {
+            while ($row = $result4->fetch_assoc()) {
+              $var = $row["suc_nombre"];
+              $var2 = $row["suc_direccion"];
+
+              echo "<OPTION VALUE='" . $var2 . "'>" . $var2 . "</OPTION>";
+            }
           }
-        }
-        $conn->close();
+          $conn->close();
 
-        ?>
+          ?>
 
-      </SELECT>
+        </SELECT>
 
-      <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
+        <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
 
       </form>
 
-      
-=======
+
       <div class="w3-col s3">
         <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
       </div>
 
-      <div class="w3-col s3">
-        <a href="../../admin/vista/comprar.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
-      </div>
->>>>>>> 25b4fa44a82ec80fa60b71fb2b37ea11de9d300d
+
+
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
