@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>MODIFICAR</title>
+    <title>CrearProducto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
@@ -24,10 +24,11 @@
       }
 </style>
 
-<body>
 
-<div class="w3-top"> 
- <div class="w3-row w3-padding w3-black">
+<body class="fondo">
+
+    <div class="w3-top"> 
+    <div class="w3-row w3-padding w3-black">
 
     <?php
       //echo "<div class='w3-col s3'>";
@@ -83,50 +84,37 @@
 
 <br><br><br><br><br>
 
-    <h2>Modificar Sucursales</h2>
-    <?php
-    $codigo = $_GET["codigo"];
-    //  echo "$codigo";
-    include '../../config/conexionDB.php';
-    echo "</br>";
-    $sql = "SELECT * FROM sucursal WHERE suc_id= '$codigo' ";
-    $result = $conn->query($sql);
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            ?>
-            <form id="formulario01" method="POST" action="../../controladores/controlador_modificarsuc.php">
+    <MARQUEE>
+        <h1>Crear Producto</h1>
+    </MARQUEE>
 
-                <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
-                <br>
-                <label id="Nombresucursal">Descripcion producto</label>
-                <input type="text" id="nombresucursal" name="nombresucursal" value="<?php echo $row["suc_nombre"]; ?>" required placeholder="Ingrese los dos nombres ..." />
-                <br>
-                <label id="Direccionsucursal">Caracteristicas</label>
-                <input type="text" id="direccionsucursal" name="direccionsucursal" value="<?php echo $row["suc_direccion"]; ?>" required placeholder="Ingrese los dos apellidos ..." />
-                <br>
-                <label id="Ciudadsucursal">Ciudad Actual</label>
-                <input type="text" id="ciudadsucursal" name="ciudadsucursal" value="<?php echo $row["suc_ciudad"]; ?>" required placeholder="Ingrese los dos apellidos ..." />
-                <br>
-                <label id="Ciudad">NUEVA CIUDAD (*)</label>
-                <SELECT id="selCombo" NAME="selCombo">
-                    <OPTION VALUE=""></OPTION>
-                    <OPTION VALUE="cuenca">CUENCA</OPTION>
-                    <OPTION VALUE="guayaquil">GUAYAQUIL</OPTION>
-                    <OPTION VALUE="quito">QUITO</OPTION>
-                    <OPTION VALUE="loja">LOJA</OPTION>
-                </SELECT>
-                <br>
-                <div id="mdv">
-                    <input class="btn btn-primary" id="guargar" name="guardar" type="submit" value="MODIFICAR">&nbsp;
-                    <input class="btn btn-danger btn-sm" id="borrar" name="borrar" type="Reset" value="Borrar">
-                    <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="btn btn-default">Cancelar</a>
-                </div>
-            </form>
-        <?php
-    }
-}
-$conn->close();
-?>
+    <form action="../../controladores/crear_producto.php" enctype="multipart/form-data" method="POST">
+
+        <legend>Datos del Producto</legend>
+
+        <label id="Nombreproducto">Nombre</label>
+        <input type="text" class="form-control input-sm" name="nombreproducto" />
+
+        <br>
+        <label id="Descripcionproducto">Descripcion producto</label>
+        <input type="text" class="form-control input-sm" name="descripcionproducto" />
+        <br>
+
+        <label id="Cantidad">Cantidad</label>
+        <input type="text" class="form-control input-sm" name="cantidad" />
+        <br>
+        <label id="Precio">Precio</label>
+        <input type="text" class="form-control input-sm" name="precio" />
+        <br>
+        <label for="Imagen">Imagen:</label>
+        <input id="imagen" name="imagen" size="30" type="file" />
+        <br>
+        <div id="mdv">
+            <input class="btn btn-primary" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
+            <input class="btn btn-danger btn-sm" id="borrar" name="borrar" type="Reset" value="Borrar">
+            <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="btn btn-default">Cancelar</a>
+        </div>
+    </form>
 
 <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
     <p>UPS Hipermedial © Todos los derechos reservados</a></p>

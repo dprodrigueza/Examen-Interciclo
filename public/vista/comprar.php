@@ -4,13 +4,13 @@
 <head>
     <meta charset="utf-8" />
     <title>ListarProductos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">-->
 
 </head>
 
-<style>
+<!--<style>
   body,
   html {
     height: 100%;
@@ -21,41 +21,8 @@
     display: none;
   }
 
-</style>
-
-
-<body class="fondo">
-
-    <div class="w3-top">
-     <div class="w3-row w3-padding w3-black">
-        <div class="w3-col s3">
-            <a href="#" class="w3-button w3-block w3-black">INICIO</a>
-        </div>
-
-        <?php
-
-      include '../../config/conexionDB.php';
-      $ref = $_GET["mail"];
-      $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
-      $result2 = $conn->query($sql2);
-      $rl = mysqli_fetch_assoc($result2);
-      $rlt = $rl["usu_id"];
-      $rlt1 = $rl["usu_nombre"];
-      $rlt2 = $rl["usu_apellido"];
-      echo 'Username: '. $rlt1 . ' '. $rlt2;
-      echo '<br>';
-      $conn->close();
-     
-
-      echo "<div class='w3-col s3'>";
-      echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
-      echo " </div>";
-      ?>
-     </div>
-    </div>
-
-
-
+</style>-->
+<body>
     <h2>PRODUCTOS</h2>
     <table style="width:100%" border>
         <tr>

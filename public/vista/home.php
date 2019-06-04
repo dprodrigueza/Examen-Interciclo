@@ -15,13 +15,33 @@
   .bgimg {
     background-position: center;
     background-size: cover;
-    background-image: url("/w3images/coffeehouse.jpg");
+    background-image: url("../../imagenes/ima1.jpg");
     min-height: 75%;
   }
 
   .menu {
     display: none;
   }
+
+  /*.slider {
+    width: 95%;
+    margin: auto;
+    overflow: hidden;
+  }
+
+  .slider ul {
+    display: flex;
+    padding: 0;
+    width: 400%;
+    animation: cambio 15s infinite alternate linear;
+  }
+
+  .slider img {
+    width: 100%;
+    margin: auto;
+    display: block;
+  }*/
+
 </style>
 
 <body>
@@ -60,13 +80,11 @@
     </div>
   </div>
 
+  <br><br><br><br>
   <!-- Header with image -->
-  <header class="bgimg w3-display-container w3-grayscale-min" id="home">
+   <header class="bgimg w3-display-container w3-grayscale-min" id="home">
     <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
       <span class="w3-tag">Abierto desde 9am to 7pm</span>
-    </div>
-    <div class="w3-display-middle w3-center">
-      <span class="w3-text-white" style="font-size:90px">UPS<br>Computadoras</span>
     </div>
     <div class="w3-display-bottomright w3-center w3-padding-large">
       <span class="w3-text-white"> Tomas Ordoñes y Presidente Cordova </span>
@@ -142,7 +160,7 @@
 
   <!-- Footer -->
   <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-    <p>UPS Hipermedial<a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">© Todos los derechos reservados</a></p>
+    <p>UPS Hipermedial © Todos los derechos reservados</a></p>
   </footer>
 
   <script>
