@@ -12,6 +12,7 @@
 
     include '../config/conexionDB.php';
     $codigo = $_POST["codigo"];
+    $mail = $_POST["mail"];
 
     $descripcion = isset($_POST["descripcionproducto"]) ? mb_strtoupper(trim($_POST["descripcionproducto"]), 'UTF-8') : null;
     $caracteristica = isset($_POST["caracteristicas"]) ? mb_strtoupper(trim($_POST["caracteristicas"]), 'UTF-8') : null;
@@ -32,7 +33,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado los datos personales correctamemte!!!<br>";
-        header("Location:../admin/vista/listar_productos.php?");
+        header("Location:../admin/vista/listar_productos.php?mail=$mail");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }

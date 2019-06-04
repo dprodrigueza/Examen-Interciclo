@@ -108,6 +108,9 @@
       <form id="formulario01" method="POST" action="../../controladores/controlador_modificarsuc.php?mail="<?php echo $mail; ?>>
 
         <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
+
+        <input type="hidden" id="mail" name="mail" value="<?php echo $mail ?>" />
+
         <br>
         <label id="Nombresucursal">Descripcion producto</label>
         <input type="text" id="nombresucursal" name="nombresucursal" value="<?php echo $row["suc_nombre"]; ?>" required placeholder="Ingrese los dos nombres ..." />

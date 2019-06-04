@@ -12,6 +12,7 @@
 
     include '../config/conexionDB.php';
     $codigo = $_POST["codigo"];
+    $mail = $_POST["mail"];
 
     date_default_timezone_set("America/Guayaquil");
     $fecha = date('Y-m-d H:i:s', time());
@@ -22,7 +23,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha eliminado los datos personales correctamemte!!!<br>";
-        header("Location:../admin/vista/listar_productos.php?mail=$_GET[mail]");
+        header("Location:../admin/vista/listar_productos.php?mail=$mail");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }

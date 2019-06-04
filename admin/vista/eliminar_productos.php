@@ -24,6 +24,7 @@
     ?>
     <section id="secin">
         <?php
+        $mail = $_GET["mail"];
         $codigo = $_GET["codigo"];
         //  echo "$codigo";
         include '../../config/conexionDB.php';
@@ -43,6 +44,7 @@
                     </div>
                     <br>
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
+                    <input type="hidden" id="mail" name="mail" value="<?php echo $mail ?>" />
                     <br>
                     <label id="Descripcionproducto">Descripcion producto</label>
                     <input type="text" id="descripcionproducto" name="descripcionproducto" value="<?php echo $row["prod_descripcion"]; ?>" disabled />

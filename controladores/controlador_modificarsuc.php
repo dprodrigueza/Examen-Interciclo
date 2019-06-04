@@ -11,7 +11,7 @@
     //incluir conexión a la base de datos     
 
     include '../config/conexionDB.php';
-    $mail = $GET["mail"];
+    $mail = $_POST["mail"];
     $codigo = $_POST["codigo"];
     $nombre = isset($_POST["nombresucursal"]) ? mb_strtoupper(trim($_POST["nombresucursal"]), 'UTF-8') : null;
     $direccion = isset($_POST["direccionsucursal"]) ? mb_strtoupper(trim($_POST["direccionsucursal"]), 'UTF-8') : null;

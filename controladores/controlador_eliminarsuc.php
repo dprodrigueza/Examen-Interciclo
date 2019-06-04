@@ -11,6 +11,7 @@
     //incluir conexión a la base de datos     
 
     include '../config/conexionDB.php';
+    $mail = $_GET["mail"];
     $codigo = $_GET["codigo"];
     date_default_timezone_set("America/Guayaquil");
     $fecha = date('Y-m-d H:i:s', time());
@@ -20,7 +21,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado MISMA CIUDAD!!!<br>";
-        header("Location:../admin/vista/listar_sucursal.php?");
+        header("Location:../admin/vista/listar_sucursal.php?mail=$mail");
 
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";

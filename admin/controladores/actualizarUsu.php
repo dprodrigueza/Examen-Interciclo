@@ -53,7 +53,7 @@
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/index.php?mail=$mail");
+    header("Location: ../vista/listarUsuarios.php?mail=$mail");
 
     $conn->close();
     ?>

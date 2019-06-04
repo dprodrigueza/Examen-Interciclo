@@ -91,9 +91,14 @@
         ?>
 
 
-            <label for='cant'>CANTIDAD</label>
-            <label for='caracteristicas'>CARACTERISTICAS</label>
-            <label for="v_unitario">V. UNITARIO</label>
+            <label for='cant'>CANTIDAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+
+            <label for='caracteristicas' margin-left='5px' >CARACTERISTICAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <label for="v_unitario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;V. UNITARIO</label>
             <label for="valortotal">V. TOTAL</label>
             <?php
             // $mail = $_GET["mail"];
@@ -129,11 +134,11 @@
 
                     <input size=7 type="text" id="cantidad" name="cantidad" value="<?php echo $cantoooo; ?>" disabled />
 
-                    <input size=17 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
+                    <input size=100 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
 
-                    <input size=8 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
+                    <input size=10 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
 
-                    <input size=5 type="text" id="valortotal<?php echo $cont; ?>" name="valortotal<?php echo $cont; ?>" value="<?php echo $tttt; ?>" disabled />
+                    <input size=10 type="text" id="valortotal<?php echo $cont; ?>" name="valortotal<?php echo $cont; ?>" value="<?php echo $tttt; ?>" disabled />
 
                 <?php
             }
@@ -148,15 +153,15 @@
             <br>
            
             <label for="subto">SUBTOTAL</label>
-            <input size=5 type="text" id="subtotal" name="subtotal" value="<?php echo $rlt23; ?>" disabled />
+            <input size=10 type="text" id="subtotal" name="subtotal" value="<?php echo $rlt23; ?>" disabled />
           
             <br>
             <label for="ivaa">IVA 12%</label>
-            <input size=5 type="text" id="iva" name="iva" value="<?php echo $rlt24; ?>" disabled />
+            <input size=10 type="text" id="iva" name="iva" value="<?php echo $rlt24; ?>" disabled />
            
             <br>
             <label for="totpagar">TOTAL A PAGAR</label>
-            <input size=5 type="text" id="totalpagar" name="totalpagar" value="<?php echo $rlt25; ?>" disabled />
+            <input size=10 type="text" id="totalpagar" name="totalpagar" value="<?php echo $rlt25; ?>" disabled />
 
         </form>
     </section>
