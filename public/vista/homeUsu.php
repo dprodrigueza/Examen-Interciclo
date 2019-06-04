@@ -37,12 +37,6 @@
   <!-- Links (sit on top) -->
   <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
-      <div class="w3-col s3">
-        <a href="#" class="w3-button w3-block w3-black">INICIO</a>
-      </div>
-      <div class="w3-col s3">
-        
-      </div>
 
       <?php
       //echo "<div class='w3-col s3'>";
@@ -61,10 +55,19 @@
       echo '<br>';
       $conn->close();
       ?>
+
       <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
         <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
       </div>
+
+      <div class="w3-col s3">
+        <a href="#" class="w3-button w3-block w3-black">INICIO</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+      </div>
+
       <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="recoger.php">
       <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
       <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
@@ -99,12 +102,9 @@
         <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
 
       </form>
+      <br><br><br> 
       <div class="w3-col s3">
         <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
-      </div>
-
-      <div class="w3-col s3">
-        
       </div>
 
       <div class="w3-col s3">

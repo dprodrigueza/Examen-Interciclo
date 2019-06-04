@@ -6,8 +6,24 @@
     <meta charset="utf-8" />
     <title>MI_CUENTA</title>
     <link href="" rel="stylesheet" type="text/css" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" type="text/css" href="../../librerias/bootstrap/css/bootstrap.css">
+    <script src="../../librerias/jquery-3.2.1.min.js"></script>
 </head>
+
+<style>
+    body,
+    html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+
+      .menu {
+        display: none;
+      }
+</style>
 
 <body background="../../../fuserr.jpg">
     <section>
@@ -18,15 +34,6 @@
         $mail2 = $_GET["mail2"];
         //$producto =$_GET["producto"];
         ?>
-
-        <header>
-            <nav>
-                <ul>
-                    <li> <a href="index.php?mail=<?php echo "$mail2"; ?>">Atras</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
 
 
         <form id="formulario01" method="POST" action="../../controladores/controlador_factura.php">
@@ -56,21 +63,21 @@
                     ?>
                     <br>
                     <label for='nombres'>Cliente</label>
-                    <input align="center" type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
+                    <input align="center" type="text" class="form-control input-sm" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
                                                                                             echo "&nbsp;";
                                                                                             echo $row["usu_apellido"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='direccion'>Direccion</label>
-                    <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" disabled />
+                    <input type="text" id="direccion" name="direccion" class="form-control input-sm" value="<?php echo $row["usu_direccion"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='direccion'>Sucursal</label>
-                    <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" disabled />
+                    <input type="text" id="direccion" name="direccion" class="form-control input-sm" value="<?php echo $row["usu_direccion"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='fecha'>Fecha</label>
-                    <input type="text" id="fecha" name="fecha" value="<?php echo $rlt22; ?>" />
+                    <input type="text" id="fecha" name="fecha" class="form-control input-sm" value="<?php echo $rlt22; ?>" />
                     <br>
                     <br>
                 <?php
@@ -150,12 +157,36 @@
             <br>
             <label for="totpagar">TOTAL A PAGAR</label>
             <input size=5 type="text" id="totalpagar" name="totalpagar" value="<?php echo $rlt25; ?>" disabled />
-            
-            <br>
-            <button type="button" class="btn btn-default"> <a href="index_usuario.php?cone='<?php echo $cone; ?>'">ATRAS</a></button>
 
         </form>
     </section>
+
+    <div id="mdv">
+        <a href="index.php?mail=<?php echo "$mail2"; ?>" class="btn btn-default">Regresar</a>
+    </div>
+
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+    <p>UPS Hipermedial © Todos los derechos reservados</a></p>
+</footer>
+
+  <script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("menu");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+      }
+      document.getElementById(menuName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+    }
+    document.getElementById("myLink").click();
+  </script>
+
 </body>
 
 </html>
