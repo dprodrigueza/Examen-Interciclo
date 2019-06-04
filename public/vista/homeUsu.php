@@ -30,16 +30,6 @@
   <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
 
-<<<<<<< HEAD
-=======
-      <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
-      </div>
-
-      <div class="w3-col s3">
-        <a href="actualizarUsuario.php?mail=<?php echo $_GET["mail"];; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
-      </div>
->>>>>>> ebd5fc9d9ef9e9fcd3b35754843acc8b39146b35
       <?php
       //echo "<div class='w3-col s3'>";
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
@@ -65,7 +55,11 @@
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
       </div>
 
-     <div class="w3-col s3">
+      <div class="w3-col s3">
+        <a href="actualizarUsuario.php?mail=<?php echo $_GET["mail"];; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
+      </div>
+
+      <div class="w3-col s3">
         <a href="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
       </div>
 

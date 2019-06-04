@@ -23,7 +23,6 @@
       }
 </style>
 
-</head>
 
 <body class="fondo">
 
