@@ -30,31 +30,8 @@
 </style>
 
 <body>
- HEAD
 
 
-	<?php
-	include '../../config/conexionDB.php'
-	?>
-	<h1>ADMIN</h1>
-	
-</body>
-
-  <?php
-  session_start();
-  if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
-    header("Location: ../../login/login.php");
-  }
-
-
-
-  ?>
-  <?php
-  include '../../config/conexionDB.php'
-  ?>
-  <h1>ADMIN</h1>
-  
-</body>
 
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">

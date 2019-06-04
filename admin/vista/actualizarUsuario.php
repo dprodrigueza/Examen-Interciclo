@@ -104,7 +104,7 @@
 <br><br><br><br><br><br><br>
     <h2>Actualizar Usuario</h2>
     <?php
-        //session_start();
+        
         $codio = $_GET["codio"];
         $mail2 = $_GET["adm"];
        

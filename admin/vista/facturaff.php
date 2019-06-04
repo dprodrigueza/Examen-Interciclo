@@ -11,15 +11,23 @@
 
 <body background="../../../fuserr.jpg" onload="calcular()">
     <section>
+
         <?php
         session_start();
+        if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+            header("Location: ../../login/login.php");
+        }
+
+        ?>
+        <?php
+
         $mail = $_GET["mail"];
         $sucursal = $_GET["sucursal"];
         $codio = $_GET["codio"];
 
         $direccion = $_GET["selCombo"];
 
-      //  $direccion = $_GET["direccion"];
+        //  $direccion = $_GET["direccion"];
 
         //$producto =$_GET["producto"];
         ?>
@@ -30,7 +38,7 @@
 
                     <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Atras</a>
 
-                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal;?>&direccion=<?php echo $direccion;?>">Atras</a>
+                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&direccion=<?php echo $direccion; ?>">Atras</a>
                     </li>
                 </ul>
             </nav>
@@ -63,11 +71,11 @@
                     <label for='nombres'>Cliente</label>
                     <input align="center" type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
                                                                                             echo "&nbsp;";
-                                                                                            echo $row["usu_apellido"]; ?>" disabled />
+                                                                                            echo $row["usu_apellido"]; ?>" />
                     <br>
                     <br>
                     <label for='direccion'>Direccion</label>
-                    <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" disabled />
+                    <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
                     <br>
                     <br>
                     <label for='direccion'>Sucursal</label>

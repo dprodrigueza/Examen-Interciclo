@@ -111,7 +111,7 @@
         <?php
         include('../../config/conexionDB.php');
 
-        $sql = "SELECT * from usuarios where usu_rol = 'USER' and usu_eliminado='NO';";
+        $sql = "SELECT * from usuarios where usu_eliminado='NO';";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
 
@@ -122,13 +122,10 @@
                 echo ("<td>" . $row["usu_mail"] . "</td>");
                 echo ("<td>" . "<img src=../../imagenes/$row[usu_foto] width='80' height='80'>" . "</td>");
                 echo ("<td>" . $row["usu_rol"] . "</td>");
- 
 
 
                 echo ("<td> <a href = eliminar_usuarios.php?codio=" . $row["usu_id"] . "&adm=". $_GET['mail'] . ">ELIMINAR</a>" . " </td>");
                 echo ("<td> <a href=actualizarUsuario.php?codio=" . $row["usu_id"] . "&adm=". $_GET['mail'] . ">Modificar</a> </td>");
-
-
 
                 echo ("</tr>");
             }
