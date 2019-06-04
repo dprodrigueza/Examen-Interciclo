@@ -5,7 +5,8 @@
     $nombre = strtoupper($_POST['nombres']);
     $apellido = strtoupper($_POST['apellidos']);
     $direccion = $_POST['direccion'];
-    $mail = $_GET['mail'];
+    $mail = $_POST['correo'];
+    $contrasena = $_POST['contra'];
 
     $nombre_img = $_FILES["imagen"]["name"];
     $tipo = $_FILES["imagen"]["type"];
@@ -33,15 +34,11 @@
     }
 
 
-    if($nombre_img!=""){
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' , usu_foto = '$nombre_img' where usu_mail = '$mail';";
-        echo $sql;
+    
+        $sql = "INSERT INTO usuarios VALUES (0,'$nombre', '$apellido','$mail', '$contrasena','$direccion', 'USER','$nombre_img');";
+        //echo $sql;
         $result = $conn->query($sql);
-    }else{
-        $sql = "UPDATE usuarios SET usu_nombre = '$nombre' , usu_apellido = '$apellido' , usu_direccion='$direccion' where usu_mail = '$mail';";
-        echo $sql;
-        $result = $conn->query($sql);
-    }
+   
 
     
 
@@ -50,7 +47,7 @@
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/homeUsu.php?mail=$mail");
+    header("Location: ../vista/index.php?mail=$mail");
 
     $conn->close();
     ?>

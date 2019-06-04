@@ -30,6 +30,7 @@
 </style>
 
 <body>
+<<<<<<< HEAD
 	
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
