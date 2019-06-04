@@ -10,24 +10,30 @@
 
 <body background="../../../fuserr.jpg">
 
+    <?php
+    session_start();
+    if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
 
+    ?>
     <section>
-    
 
-    <header>
-        <nav>
-            <ul>
-                <li> <a href="verproductos.php">Atras</a> </li>
-            </ul>
-        </nav>
-    </header>
-       
+
+        <header>
+            <nav>
+                <ul>
+                    <li> <a href="verproductos.php">Atras</a> </li>
+                </ul>
+            </nav>
+        </header>
+
         <?php
-       
-        $producto =$_GET["producto"];
+
+        $producto = $_GET["producto"];
 
 
-        
+
         // echo $cone;
         include '../../config/conexionDB.php';
         echo "</br>";
@@ -43,23 +49,23 @@
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codio; ?>" />
                     <br>
                     <input type="hidden" id="mail" name="mail" value="<?php echo $mail; ?>" />
-                    
+
                     <br>
                     <label for='Imagen'>Imagen (*)</label>
-                    <img id="yt" src="../../imagenes/<?php echo $row["prod_foto"]; ?>" alt="" size="50"/>
+                    <img id="yt" src="../../imagenes/<?php echo $row["prod_foto"]; ?>" alt="" size="50" />
                     <br>
                     <br>
                     <label for='cedula'>Descricpcion (*)</label>
-                    <input  type="text" id="cedula" name="cedula" value="<?php echo $row["prod_descripcion"]; ?>" disabled/>
+                    <input type="text" id="cedula" name="cedula" value="<?php echo $row["prod_descripcion"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='nombres'>CARACTERISTICA (*)</label>
-                    <input size=100 type="text" id="nombres" name="nombres" value="<?php echo $row["prod_caracteristica"]; ?>" disabled/>
+                    <input size=100 type="text" id="nombres" name="nombres" value="<?php echo $row["prod_caracteristica"]; ?>" disabled />
                     <br>
                     <br>
 
                     <label for="apellidos">Precio (*)</label>
-                    <input type="text" id="apellidos" name="apellidos" value="<?php echo $row["prod_precio"]; ?>"disabled />
+                    <input type="text" id="apellidos" name="apellidos" value="<?php echo $row["prod_precio"]; ?>" disabled />
                     <br>
                     <br>
                     <div>

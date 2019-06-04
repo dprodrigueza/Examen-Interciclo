@@ -10,6 +10,7 @@
     <?php
     session_start();
     $_SESSION['isLogged'] = FALSE;
+    $_SESSION['isLoggedAdmin'] = FALSE;
     session_destroy();
     header("Location: ../public/vista/home.php");  ?>
     ?>

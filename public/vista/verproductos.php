@@ -7,7 +7,13 @@
 </head>
 
 <body class="fondo">
+    <?php
+    session_start();
+    if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
 
+    ?>
 
     <header>
         <nav>
@@ -20,7 +26,7 @@
     <h2>PRODUCTOS</h2>
     <table style="width:100%" border>
         <tr>
-           
+
 
 
             <th>Descripcion</th>

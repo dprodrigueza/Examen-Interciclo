@@ -1,7 +1,7 @@
 <?php
         include('../../config/conexionDB.php');
 
-        $sql = "UPDATE usuarios SET usu_del= 'Y' WHERE usu_mail= '$_GET[mail]';";
+        $sql = "UPDATE usuarios SET usu_del= 'Y ' WHERE usu_mail= '$_GET[mail]';";
         echo $sql;
         $result = $conn->query($sql);
 
