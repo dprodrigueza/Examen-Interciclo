@@ -111,7 +111,7 @@
         <?php
         include('../../config/conexionDB.php');
 
-        $sql = "SELECT * from usuarios where usu_eliminado='NO';";
+        $sql = "SELECT * from usuarios where usu_eliminado='NO' and usu_rol='USER';";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
 

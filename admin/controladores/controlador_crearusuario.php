@@ -36,7 +36,7 @@
 
 
     
-        $sql = "INSERT INTO usuarios VALUES (0,'$nombre', '$apellido','$mail', '$contrasena','$direccion', 'ADMIN','$nombre_img', 'N');";
+        $sql = "INSERT INTO usuarios VALUES (0,'$nombre', '$apellido','$mail', '$contrasena','$direccion', 'USER','$nombre_img', 'NO');";
         //echo $sql;
         $result = $conn->query($sql);
    
