@@ -28,9 +28,18 @@
                             <label>Password (*): </label> <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese su contraseña." class="form-control input-sm">
                             <span id="mensajePassword" class="error"></span>
                             <br />
+                            <br>
+                            <label id="Descripcionproducto">CIUDAD (*)</label>
+                            <SELECT id="selCombo" NAME="selCombo">
+                                <OPTION VALUE="cuenca">CUENCA</OPTION>
+                                <OPTION VALUE="guayaquil">GUAYAQUIL</OPTION>
+                                <OPTION VALUE="quito">QUITO</OPTION>
+                                <OPTION VALUE="loja">LOJA</OPTION>
+                            </SELECT>
+                            <br>
 
                             <!--<button type="submit" id="btnLogin"> INGRESAR </button>-->
-                          
+
                             <button type="submit" class="btn btn-primary btn-sm" id="btnLogin">Entrar</button>
 
                             <a href="crear.html" class="btn btn-danger btn-sm">Registrarse</a>

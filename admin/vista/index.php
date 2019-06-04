@@ -30,7 +30,7 @@
 </style>
 
 <body>
-<<<<<<< HEAD
+
 	<?php
 	include '../../config/conexionDB.php'
 	?>
