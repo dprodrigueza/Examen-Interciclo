@@ -50,33 +50,33 @@
         echo '<br>';
         $conn->close();
   ?>
-  
+
 	<div class="w3-col s3">
-    <a href="crear_producto.html?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
+    <a href="crear_producto.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="crear_sucursal.html" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
+    <a href="crear_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_productos.php" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
+    <a href="listar_productos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_sucursal.php" class="w3-button w3-block w3-black">VER SUCURSALES</a>
+    <a href="listar_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER SUCURSALES</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_facturas.php" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
+    <a href="listar_facturas.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_pedidos.php" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
+    <a href="listar_pedidos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_cancelados.php" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
+    <a href="listar_cancelados.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CANCELADOS</a>
   </div>
 
   <div class="w3-col s3">
