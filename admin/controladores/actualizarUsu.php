@@ -51,7 +51,7 @@
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/actualizarUsuario.php?mail=$mail");
+    header("Location: ../vista/actualizarUsuario.php?mail=$mail&adm=$_GET[adm]");
 
     $conn->close();
     ?>

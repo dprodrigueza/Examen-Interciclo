@@ -50,6 +50,18 @@
    </div>
 
   <div class="w3-col s3">
+    <a href="crearusuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR USUARIO</a>
+  </div>
+
+  <div class="w3-col s3">
+    <a href="listarUsuarios.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER USUARIO</a>
+  </div>
+
+  <div class="w3-col s3">
+    <a href="crear_producto.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
+  </div>
+  
+  <div class="w3-col s3">
     <a href="crear_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
   </div>
 
@@ -80,7 +92,7 @@
   </div>
 </div>
 
-<br><br><br><br><br>
+<br><br><br><br><br><br><br>
 
     <h2>PRODUCTOS</h2>
     <table style="width:100%" border>

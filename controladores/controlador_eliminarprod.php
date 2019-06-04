@@ -22,7 +22,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha eliminado los datos personales correctamemte!!!<br>";
-        header("Location:../admin/vista/listar_productos.php?");
+        header("Location:../admin/vista/listar_productos.php?mail=$_GET[mail]");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }

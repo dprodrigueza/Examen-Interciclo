@@ -30,6 +30,7 @@
 </style>
 
 <body>
+<<<<<<< HEAD
 
 	<?php
 	include '../../config/conexionDB.php'
@@ -46,6 +47,8 @@
 	<a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
 	<a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
 </body>
+=======
+>>>>>>> 25b4fa44a82ec80fa60b71fb2b37ea11de9d300d
 
 <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
@@ -66,6 +69,14 @@
         echo '<br>';
         $conn->close();
   ?>
+
+  <div class="w3-col s3">
+    <a href="crearusuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR USUARIO</a>
+  </div>
+
+  <div class="w3-col s3">
+    <a href="listarUsuarios.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER USUARIO</a>
+  </div>
 
 	<div class="w3-col s3">
     <a href="crear_producto.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
@@ -92,7 +103,7 @@
   </div>
 
   <div class="w3-col s3">
-    <a href="listar_cancelados.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CANCELADOS</a>
+    <a href="listar_cancelados.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">PEDIDOS CANCELADOS</a>
   </div>
 
   <div class="w3-col s3">
@@ -102,7 +113,7 @@
   </div>
 </div>
 
-<br><br><br><br>
+<br><br><br><br><br><br>
 <header class="bgimg w3-display-container w3-grayscale-min" id="home">
     <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
       <span class="w3-tag">Abierto desde 9am to 7pm</span>
@@ -114,7 +125,6 @@
 </header>
 
 <br><br><br><br><br>
->>>>>>> 044775643bc49ef22c52dc3cb07ca0a51cbf1bf5
 <table style="width:100%" border>
 	<tr>
 		<th>FECHA</th>

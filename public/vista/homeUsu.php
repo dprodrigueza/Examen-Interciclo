@@ -33,14 +33,6 @@
         <a href="#" class="w3-button w3-block w3-black">INICIO</a>
       </div>
 
-
-      <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
-      </div>
-
-      <div class="w3-col s3">
-        <a href="actualizarUsuario.php?mail=<?php echo $_GET["mail"];; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
-      </div>
       <?php
       //echo "<div class='w3-col s3'>";
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
@@ -68,6 +60,7 @@
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
       </div>
 
+<<<<<<< HEAD
       
 
 
@@ -103,10 +96,20 @@
       </form>
 
       
+=======
+      <div class="w3-col s3">
+        <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="../../admin/vista/comprar.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
+      </div>
+>>>>>>> 25b4fa44a82ec80fa60b71fb2b37ea11de9d300d
 
       <div class="w3-col s3">
         <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
       </div>
+
       <div class="w3-col s3">
         <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
       </div>
@@ -153,10 +156,7 @@
         <a href="tel:+593984053639">0982865431</a>
       </div><br>
 
-      <!-- End Contact Section -->
     </div>
-
-    <!-- End page content -->
   </div>
 
   <!-- Footer -->
