@@ -30,50 +30,8 @@
 </style>
 
 <body>
-<<<<<<< HEAD
 
 
-	<?php
-	include '../../config/conexionDB.php'
-	?>
-	<h1>ADMIN</h1>
-	<h1>ADMIN</h1>
-	<a href="crearusuario.php">CREAR USUARIO</a>
-	<a href="crear_producto.html">CREAR PRODUCTO</a>
-	<a href="crear_sucursal.html">CREAR SUCURSAL</a>
-	<a href="listarUsuarios.php">VER USUARIOS</a>
-	<a href="listar_productos.php">VER PRODUCTOS</a>
-	<a href="listar_sucursal.php">VER SUCURSALES</a>
-	<a href="listar_facturas.php">VER PEDIDOS EN CAMINO</a>
-	<a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
-	<a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
-</body>
-
-=======
-  <?php
-  session_start();
-  if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
-    header("Location: ../../login/login.php");
-  }
->>>>>>> 78d2bedd797f92b253858c499e8f400971839ccd
-
-
-  ?>
-  <?php
-  include '../../config/conexionDB.php'
-  ?>
-  <h1>ADMIN</h1>
-  <h1>ADMIN</h1>
-  <a href="crearusuario.php">CREAR USUARIO</a>
-  <a href="crear_producto.html">CREAR PRODUCTO</a>
-  <a href="crear_sucursal.html">CREAR SUCURSAL</a>
-  <a href="listarUsuarios.php">VER USUARIOS</a>
-  <a href="listar_productos.php">VER PRODUCTOS</a>
-  <a href="listar_sucursal.php">VER SUCURSALES</a>
-  <a href="listar_facturas.php">VER PEDIDOS EN CAMINO</a>
-  <a href="listar_pedidos.php">PEDIDOS FENALIZADOS</a>
-  <a href="listar_cancelados.php">PEDIDOS CANCELADOS</a>
-</body>
 
 <div class="w3-top">
   <div class="w3-row w3-padding w3-black">

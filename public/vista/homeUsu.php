@@ -41,7 +41,7 @@
         <a href="#" class="w3-button w3-block w3-black">INICIO</a>
       </div>
       <div class="w3-col s3">
-        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+        
       </div>
 
       <?php
@@ -63,6 +63,7 @@
       ?>
       <div class="w3-col s3">
         <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
       </div>
       <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="recoger.php">
       <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
@@ -94,6 +95,7 @@
           ?>
 
         </SELECT>
+        
         <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
 
       </form>
@@ -102,7 +104,7 @@
       </div>
 
       <div class="w3-col s3">
-        <a href="../../admin/vista/comprar.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">COMPRAR</a>
+        
       </div>
 
       <div class="w3-col s3">
@@ -110,7 +112,7 @@
       </div>
 
       <div class="w3-col s3">
-        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+        
       </div>
 
     </div>
