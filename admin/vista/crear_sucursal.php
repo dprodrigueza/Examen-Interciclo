@@ -2,129 +2,137 @@
 <html lang="es">
 
 <head>
-    <meta charset="utf-8" />
-    <title>CrearProducto</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
-    <link rel="stylesheet" type="text/css" href="../../librerias/bootstrap/css/bootstrap.css">
-    <script src="../../librerias/jquery-3.2.1.min.js"></script>
+  <meta charset="utf-8" />
+  <title>CrearProducto</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+  <link rel="stylesheet" type="text/css" href="../../librerias/bootstrap/css/bootstrap.css">
+  <script src="../../librerias/jquery-3.2.1.min.js"></script>
 </head>
 
 <style>
-    body,
-    html {
-        height: 100%;
-        font-family: "Inconsolata", sans-serif;
-    }
+  body,
+  html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+  }
 
-      .menu {
-        display: none;
-      }
+  .menu {
+    display: none;
+  }
 </style>
 
 
 <body class="fondo">
+  <?php
+  session_start();
+  if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
+    header("Location: ../../login/login.php");
+  }
 
-    <div class="w3-top"> 
+
+  ?>
+
+  <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
 
-    <?php
+      <?php
       //echo "<div class='w3-col s3'>";
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       //echo " </div>";
       include '../../config/conexionDB.php';
       $ref = $_GET["mail"];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
-        $result2 = $conn->query($sql2);
-        $rl = mysqli_fetch_assoc($result2);
-        $rlt = $rl["usu_id"];
-        $rlt1 = $rl["usu_nombre"];
-        $rlt2 = $rl["usu_apellido"];
-        echo 'Username: '. $rlt1 . ' '. $rlt2;
-        echo '<br>';
-        $conn->close();
-    ?>
+      $result2 = $conn->query($sql2);
+      $rl = mysqli_fetch_assoc($result2);
+      $rlt = $rl["usu_id"];
+      $rlt1 = $rl["usu_nombre"];
+      $rlt2 = $rl["usu_apellido"];
+      echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+      echo '<br>';
+      $conn->close();
+      ?>
 
-   <div class="w3-col s3">
-    <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">INICIO</a>
-   </div>
+      <div class="w3-col s3">
+        <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">INICIO</a>
+      </div>
 
-  <div class="w3-col s3">
-    <a href="crearusuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR USUARIO</a>
+      <div class="w3-col s3">
+        <a href="crearusuario.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR USUARIO</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="listarUsuarios.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER USUARIO</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="crear_producto.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="crear_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="listar_productos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="listar_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER SUCURSALES</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="listar_facturas.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="listar_pedidos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="listar_cancelados.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CANCELADOS</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="../../config/cerrarSesion.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
+      </div>
+
+    </div>
   </div>
 
-  <div class="w3-col s3">
-    <a href="listarUsuarios.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER USUARIO</a>
-  </div>
+  <br><br><br><br><br><br><br>
+  <header>
+    <MARQUEE>
+      <h1>Crear Sucursal</h1>
+    </MARQUEE>
+  </header>
+  <form action="../../controladores/crear_sucursal.php" enctype="multipart/form-data" method="POST">
 
-  <div class="w3-col s3">
-    <a href="crear_producto.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR PRODUCTO</a>
-  </div>
+    <label id="Nombresucursal">NOMBRE (*)</label>
+    <input type="text" class="form-control input-sm" name="nombresucursal" />
+    <br>
+    <label id="Direccionsucursal">DIRECCION (*)</label>
+    <input type="text" class="form-control input-sm" name="direccionsucursal" />
+    <br>
+    <label id="Descripcionproducto">CIUDAD (*)</label>
+    <SELECT id="selCombo" NAME="selCombo">
+      <OPTION VALUE="cuenca">CUENCA</OPTION>
+      <OPTION VALUE="guayaquil">GUAYAQUIL</OPTION>
+      <OPTION VALUE="quito">QUITO</OPTION>
+      <OPTION VALUE="loja">LOJA</OPTION>
+    </SELECT>
+    <br>
 
-  <div class="w3-col s3">
-    <a href="crear_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CREAR SUCURSAL</a>
-  </div>
+    <div id="mdv">
+      <input class="btn btn-primary" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
+      <input class="btn btn-danger btn-sm" id="borrar" name="borrar" type="Reset" value="Borrar">
+      <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="btn btn-default">Cancelar</a>
+    </div>
+  </form>
 
-  <div class="w3-col s3">
-    <a href="listar_productos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PRODUCTOS</a>
-  </div>
-
-  <div class="w3-col s3">
-    <a href="listar_sucursal.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER SUCURSALES</a>
-  </div>
-
-  <div class="w3-col s3">
-    <a href="listar_facturas.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">VER PEDIDOS EN CAMINO</a>
-  </div>
-
-  <div class="w3-col s3">
-    <a href="listar_pedidos.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">PEDIDOS FINALIZADOS</a>
-  </div>
-
-  <div class="w3-col s3">
-    <a href="listar_cancelados.php?mail=<?php echo $_GET['mail']; ?>" class="w3-button w3-block w3-black">CANCELADOS</a>
-  </div>
-
-  <div class="w3-col s3">
-    <a href="../../config/cerrarSesion.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
-  </div>
-
-  </div>
-</div>
-
-<br><br><br><br><br><br><br>
-    <header>
-        <MARQUEE>
-            <h1>Crear Sucursal</h1>
-        </MARQUEE>
-    </header>
-    <form action="../../controladores/crear_sucursal.php" enctype="multipart/form-data" method="POST">
-
-        <label id="Nombresucursal">NOMBRE (*)</label>
-        <input type="text" class="form-control input-sm" name="nombresucursal" />
-        <br>
-        <label id="Direccionsucursal">DIRECCION (*)</label>
-        <input type="text" class="form-control input-sm" name="direccionsucursal" />
-        <br>
-        <label id="Descripcionproducto">CIUDAD (*)</label>
-        <SELECT id="selCombo" NAME="selCombo" >
-            <OPTION VALUE="cuenca">CUENCA</OPTION>
-            <OPTION VALUE="guayaquil">GUAYAQUIL</OPTION>
-            <OPTION VALUE="quito">QUITO</OPTION>
-            <OPTION VALUE="loja">LOJA</OPTION>
-        </SELECT>
-        <br>
-        
-        <div id="mdv">
-            <input class="btn btn-primary" id="guargar" name="guardar" type="submit" value="Guardar">&nbsp;
-            <input class="btn btn-danger btn-sm" id="borrar" name="borrar" type="Reset" value="Borrar">
-            <a href="index.php?mail=<?php echo $_GET['mail']; ?>" class="btn btn-default">Cancelar</a>
-        </div>
-    </form>
-
-<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
     <p>UPS Hipermedial © Todos los derechos reservados</a></p>
-</footer>
+  </footer>
 
   <script>
     // Tabbed Menu

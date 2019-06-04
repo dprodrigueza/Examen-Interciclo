@@ -22,46 +22,53 @@
   }
 
 </style>-->
+
 <body>
+
+    <?php
+    session_start();
+    if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+    ?>
     <h2>PRODUCTOS</h2>
     <table style="width:100%" border>
         <tr>
-        <?php 
-            $mail =$_GET["mail"];
+            <?php
+            $mail = $_GET["mail"];
             echo $mail;
             echo '<br>';
 
-        include '../../config/conexionDB.php';       
-        $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt';";
-        $result3 = $conn->query($sql3);
+            include '../../config/conexionDB.php';
+            $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt';";
+            $result3 = $conn->query($sql3);
 
-        $cont = 0 ;
-        if ($result3->num_rows > 0) {
-        while ($row = $result3->fetch_assoc()) {
-        $cont += 1;
-        }
+            $cont = 0;
+            if ($result3->num_rows > 0) {
+                while ($row = $result3->fetch_assoc()) {
+                    $cont += 1;
+                }
 
-        echo '<br>';
-        echo 'Productos añadidos : '. $cont;
-        echo '<br>';
+                echo '<br>';
+                echo 'Productos añadidos : ' . $cont;
+                echo '<br>';
+            } else {
+                echo 'no vale consulta';
+            }
 
-        } else {
-            echo 'no vale consulta';
-    
-        }
-
-$conn->close();
- ?>
-        <br>
-        <a href="../factura.php?codio=<?php echo $rlt;?>" >Continuar Compra a factura</a>
-        <br>
-        <a href="vercarrito.php?codio=<?php echo $rlt;?>&mail=<?php echo $mail;?>" >Ver Productos añadidos al carrito</a>
-        <a href="../factura.php?codio=<?php echo $rlt;?>" >Continuar Compra</a>
-        <a href="vercarrito.php?codio=<?php echo $rlt;?>&mail=<?php echo $mail;?>" >Ver</a>
+            $conn->close();
+            ?>
+            <br>
+            <a href="../factura.php?codio=<?php echo $rlt; ?>">Continuar Compra a factura</a>
+            <br>
+            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Ver Productos añadidos al carrito</a>
+            <a href="../factura.php?codio=<?php echo $rlt; ?>">Continuar Compra</a>
+            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Ver</a>
 
             <th>Descripcion</th>
             <th>precio</th>
-           
+
             <th>imagen</th>
         </tr>
         <?php
@@ -71,12 +78,12 @@ $conn->close();
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-                
+
                 echo "   <td>" . $row['prod_caracteristica'] . "</td>";
                 echo "   <td>" . $row['prod_precio'] . "</td>";
-            
+
                 echo "   <td ><img  src='../../imagenes/" . $row['prod_foto'] . "' width='80px' height='80px'/></td>";
-                echo "   <td> <a href='../../controladores/controlador_pedido.php?mail=". $mail ."&codigo=". $rlt ."&producto=". $row['prod_id']."' >ANADIR CARRITO    </a>  </td>";
+                echo "   <td> <a href='../../controladores/controlador_pedido.php?mail=" . $mail . "&codigo=" . $rlt . "&producto=" . $row['prod_id'] . "' >ANADIR CARRITO    </a>  </td>";
 
                 echo "</tr>";
             }

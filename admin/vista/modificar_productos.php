@@ -12,6 +12,15 @@
 </head>
 
 <body class="fondo">
+
+    <?php
+    session_start();
+    if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+
+    ?>
     <section id="bota">
         <?php
         $codigo = $_GET["codigo"];

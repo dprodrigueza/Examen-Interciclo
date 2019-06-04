@@ -26,6 +26,14 @@
 
 <body>
 
+  <?php
+  session_start();
+  if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+    header("Location: ../../login/login.php");
+  }
+
+  ?>
+
   <!-- Links (sit on top) -->
   <div class="w3-top">
     <div class="w3-row w3-padding w3-black">
@@ -46,7 +54,7 @@
       echo '<br>';
       $conn->close();
       ?>
-      
+
 
       <div class="w3-col s3">
         <a href="#" class="w3-button w3-block w3-black">INICIO</a>
@@ -72,7 +80,7 @@
         <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
       </div>
 
-   </div>
+    </div>
   </div>
 
   <br><br><br><br>

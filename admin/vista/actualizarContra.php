@@ -26,6 +26,15 @@
 
 <body>
 
+<?php
+    session_start();
+    if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+
+    ?>
+
 <div class="w3-top"> 
     <div class="w3-row w3-padding w3-black">
 
