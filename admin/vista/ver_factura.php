@@ -63,21 +63,21 @@
                     ?>
                     <br>
                     <label for='nombres'>Cliente</label>
-                    <input align="center" type="text" class="form-control input-sm" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
+                    <input size=50 type="text" class="form-control input-sm" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
                                                                                             echo "&nbsp;";
                                                                                             echo $row["usu_apellido"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='direccion'>Direccion</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control input-sm" value="<?php echo $row["usu_direccion"]; ?>" disabled />
+                    <input size=50 type="text" id="direccion" name="direccion" class="form-control input-sm" value="<?php echo $row["usu_direccion"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='direccion'>Sucursal</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control input-sm" value="<?php echo $row["usu_direccion"]; ?>" disabled />
+                    <input size=50 type="text" id="direccion" name="direccion" class="form-control input-sm" value="<?php echo $row["usu_direccion"]; ?>" disabled />
                     <br>
                     <br>
                     <label for='fecha'>Fecha</label>
-                    <input type="text" id="fecha" name="fecha" class="form-control input-sm" value="<?php echo $rlt22; ?>" />
+                    <input size=50 type="text" id="fecha" name="fecha" class="form-control input-sm" value="<?php echo $rlt22; ?>" />
                     <br>
                     <br>
                 <?php
@@ -96,7 +96,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </label>
 
-            <label for='caracteristicas' margin-left='5px' >CARACTERISTICAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <label for='caracteristicas'>CARACTERISTICAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <label for="v_unitario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;V. UNITARIO</label>
             <label for="valortotal">V. TOTAL</label>

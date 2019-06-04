@@ -109,17 +109,17 @@
                     ?>
                     <br>
                     <label for='nombres'>Cliente</label>
-                    <input align="center" type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
+                    <input size=50 type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"];
                                                                                             echo "&nbsp;";
                                                                                             echo $row["usu_apellido"]; ?>" />
                     <br>
                     <br>
                     <label for='direccion'>Direccion</label>
-                    <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
+                    <input size=50 type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
                     <br>
                     <br>
                     <label for='direccion'>Sucursal</label>
-                    <input type="text" id="sucursal" name="sucursal" value="<?php echo $sucursal;
+                    <input size=50 type="text" id="sucursal" name="sucursal" value="<?php echo $sucursal;
                                                                             echo '-';
                                                                             echo $direccion; ?>" disabled />
                     <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
@@ -141,9 +141,14 @@
         ?>
 
 
-            <label for='cant'>CANTIDAD</label>
-            <label for='caracteristicas'>CARACTERISTICAS</label>
-            <label for="v_unitario">V. UNITARIO</label>
+<label for='cant'>CANTIDAD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </label>
+
+            <label for='caracteristicas'>CARACTERISTICAS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <label for="v_unitario">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;V. UNITARIO</label>
             <label for="valortotal">V. TOTAL</label>
             <?php
             $mail = $_GET["mail"];
@@ -190,13 +195,13 @@
                     <input size=7 type="text" id="cantidad" name="cantidad" value="<?php echo $rlt3; ?>" disabled />
                     <input type="hidden" id="cant<?php echo $cont; ?>" name="cant<?php echo $cont; ?>" value="<?php echo $rlt3; ?>" />
 
-                    <input size=17 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
+                    <input size=100 type="text" id="caracteristicas" name="caracteristicas" value="<?php echo $rlt; ?>" disabled />
 
 
-                    <input size=8 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
+                    <input size=10 type="text" id="valorunitario" name="valorunitario" value="<?php echo $rlt2 ?>" disabled />
                     <input type="hidden" id="vuni<?php echo $cont; ?>" name="vuni<?php echo $cont; ?>" value="<?php echo $rlt2; ?>" />
 
-                    <input size=5 type="text" id="valortotal<?php echo $cont; ?>" name="valortotal<?php echo $cont; ?>" value="" disabled />
+                    <input size=10 type="text" id="valortotal<?php echo $cont; ?>" name="valortotal<?php echo $cont; ?>" value="" disabled />
                     <input type="hidden" id="tot<?php echo $cont; ?>" name="tot<?php echo $cont; ?>" value="<?php echo $importe; ?>" />
                 <?php
             }
@@ -212,15 +217,15 @@
             <br>
             <input type="hidden" id="contador" name="contador" value="<?php echo $cont; ?>" />
             <label for="subto">SUBTOTAL</label>
-            <input size=5 type="text" id="subtotal" name="subtotal" value="" disabled />
+            <input size=10 type="text" id="subtotal" name="subtotal" value="" disabled />
             <input type="hidden" id="subtotal" name="subtotal" value="<?php echo $subt; ?>" />
             <br>
             <label for="ivaa">IVA 12%</label>
-            <input size=5 type="text" id="iva" name="iva" value="" disabled />
+            <input size=10 type="text" id="iva" name="iva" value="" disabled />
             <input type="hidden" id="iva" name="iva" value="<?php echo $iva; ?>" />
             <br>
             <label for="totpagar">TOTAL A PAGAR</label>
-            <input size=5 type="text" id="totalpagar" name="totalpagar" value="" disabled />
+            <input size=10 type="text" id="totalpagar" name="totalpagar" value="" disabled />
             <input type="hidden" id="totalpagar" name="totalpagar" value="<?php echo $total; ?>" />
             <br>
             <input class="btn btn-default"  type="submit" id="modificar" name="modificar" value="Comprar" />

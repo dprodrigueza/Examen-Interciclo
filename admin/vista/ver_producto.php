@@ -130,7 +130,7 @@
                     <br>
 
                     <div>
-                        <input class="btn btn-default" type="submit" id="modificar" name="modificar" value="Modificar" />
+                        <input class="btn btn-default" type="submit" id="modificar" name="modificar" value="Añadir" />
                         <button type="button" class="btn btn-default"> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio;?>&sucursal=<?php echo $sucursal;?>&selCombo=<?php echo $direccion;?>">ATRAS</a></button>
                     </div>
 
