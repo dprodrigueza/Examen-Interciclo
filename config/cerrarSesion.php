@@ -11,7 +11,7 @@
     session_start();
     $_SESSION['isLogged'] = FALSE;
     session_destroy();
-    header("Location: /Examen-Interciclo/public/vista/home.php");  ?>
+    header("Location: ../public/vista/home.php");  ?>
     ?>
 </body>
 
