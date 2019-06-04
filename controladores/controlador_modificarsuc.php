@@ -11,6 +11,7 @@
     //incluir conexión a la base de datos     
 
     include '../config/conexionDB.php';
+    $mail = $GET["mail"];
     $codigo = $_POST["codigo"];
     $nombre = isset($_POST["nombresucursal"]) ? mb_strtoupper(trim($_POST["nombresucursal"]), 'UTF-8') : null;
     $direccion = isset($_POST["direccionsucursal"]) ? mb_strtoupper(trim($_POST["direccionsucursal"]), 'UTF-8') : null;
@@ -27,7 +28,7 @@
 
         if ($conn->query($sql) === TRUE) {
             echo "Se ha actualizado MISMA CIUDAD!!!<br>";
-            header("Location:../admin/vista/listar_sucursal.php?");
+            header("Location:../admin/vista/listar_sucursal.php?mail=$mail");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
         }
@@ -40,7 +41,7 @@
 
         if ($conn->query($sql) === TRUE) {
             echo "Se ha actualizado OTRA CIUDAD!!!<br>";
-            header("Location:../admin/vista/listar_sucursal.php?");
+            header("Location:../admin/vista/listar_sucursal.php?mail=$mail");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
         }

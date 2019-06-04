@@ -106,7 +106,7 @@
       <h1>Crear Sucursal</h1>
     </MARQUEE>
   </header>
-  <form action="../../controladores/crear_sucursal.php" enctype="multipart/form-data" method="POST">
+  <form action="../../controladores/crear_sucursal.php?mail=<?php echo $ref; ?>" enctype="multipart/form-data" method="POST">
 
     <label id="Nombresucursal">NOMBRE (*)</label>
     <input type="text" class="form-control input-sm" name="nombresucursal" />

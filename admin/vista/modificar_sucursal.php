@@ -95,6 +95,7 @@
 
   <h2>Modificar Sucursales</h2>
   <?php
+  $mail = $_GET["mail"];
   $codigo = $_GET["codigo"];
   //  echo "$codigo";
   include '../../config/conexionDB.php';
@@ -104,7 +105,7 @@
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
       ?>
-      <form id="formulario01" method="POST" action="../../controladores/controlador_modificarsuc.php">
+      <form id="formulario01" method="POST" action="../../controladores/controlador_modificarsuc.php?mail="<?php echo $mail; ?>>
 
         <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
         <br>
