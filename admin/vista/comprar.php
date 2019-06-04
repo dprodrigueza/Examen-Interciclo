@@ -5,9 +5,61 @@
     <meta charset="utf-8" />
     <title>ListarProductos</title>
     <script type="text/javascript" src="bus.js"></script>
+    <link href="" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" type="text/css" href="../../librerias/bootstrap/css/bootstrap.css">
+    <script src="../../librerias/jquery-3.2.1.min.js"></script>
 </head>
 
+<style>
+    body,
+    html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+    }
+
+      .menu {
+        display: none;
+      }
+</style>
+
 <body class="fondo">
+
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+
+      <?php
+      //echo "<div class='w3-col s3'>";
+      //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
+      //echo " </div>";
+      include '../../config/conexionDB.php';
+      $sucursal = $_GET["sucursal"];
+      $ref = $_GET["mail"];
+      $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
+      $result2 = $conn->query($sql2);
+      $rl = mysqli_fetch_assoc($result2);
+      $rlt = $rl["usu_id"];
+      $rlt1 = $rl["usu_nombre"];
+      $rlt2 = $rl["usu_apellido"];
+      echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+      echo '<br>';
+      $conn->close();
+      ?>
+
+      <div class="w3-col s3">
+        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+      </div>
+
+      <div class="w3-col s3">
+        <a href="../../config/cerrarSesion.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
+      </div>
+
+    </div>
+  </div>
+
+    <br><br><br><br><br><br><br><br>
     <?php
     session_start();
     $mail = $_GET["mail"];
@@ -17,14 +69,6 @@
     //$codio = $_GET["codio"];
     //$producto =$_GET["producto"];
     ?>
-
-    <header>
-        <nav>
-            <ul>
-                <li> <a href="../../public/vista/homeUsu.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>">Atras</a> </li>
-            </ul>
-        </nav>
-    </header>
 
     <h2>PRODUCTOS</h2>
     <?php
@@ -38,7 +82,6 @@
     $rl = mysqli_fetch_assoc($result);
     $conn->close();
     ?>
-    <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
 
 
     <?php
@@ -57,8 +100,6 @@
 
     $rlt1 = $rl["usu_nombre"];
     $rlt2 = $rl["usu_apellido"];
-    echo 'Username: ' . $rlt1 . ' ' . $rlt2;
-    echo '<br>';
     echo 'Sucursal: ' . $sucursal;
     echo '<br>';
     echo  $direccion;
@@ -81,11 +122,9 @@
     $conn->close();
     ?>
     <br>
-    <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Continuar Compra a factura</a>
-    <br>
-    <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Ver carrito</a>
-    <br>
-    <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">MIS COMPRAS</a>
+    <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>" class="btn btn-default">Continuar Compra a factura</a>
+    <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>" class="btn btn-default">Ver carrito</a>
+    <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>" class="btn btn-default">MIS COMPRAS</a>
     <br>
 
 
@@ -123,6 +162,33 @@
             ?>
         </table>
     </section>
+
+    <div id="mdv">
+            <a href="../../public/vista/homeUsu.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>" class="btn btn-default">Atras</a> 
+    </div>
+
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+    <p>UPS Hipermedial © Todos los derechos reservados</a></p>
+</footer>
+
+  <script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("menu");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+      }
+      document.getElementById(menuName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+    }
+    document.getElementById("myLink").click();
+  </script>
+
 </body>
 
 </html>
