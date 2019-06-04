@@ -7,8 +7,22 @@
 </head>
 
 <body class="fondo">
-
+<?php
+    session_start();
+    $mail = $_GET["mail"];
+    $codio = $_GET["codio"];
+    $sucursal = $_GET["sucursal"];
+    //$producto =$_GET["producto"];
+    ?>
+    <header>
+        <nav>
+            <ul>
+                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>">Atras</a> </li>
+            </ul>
+        </nav>
+    </header>
     <h2>EN CAMINO</h2>
+
     <table style="width:100%" border>
         <tr>
             <th>FECHA</th>
@@ -18,6 +32,7 @@
         </tr>
         <?php
         $cod = $_GET["codio"];
+        $sucursal = $_GET["sucursal"];
         include '../../config/conexionDB.php';
         $sql = "SELECT * FROM facturacab where cod_id='$cod' AND fac_estado='CONFIRMADO';";
         $result = $conn->query($sql);

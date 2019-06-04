@@ -14,13 +14,14 @@
         //session_start();
         $mail = $_GET["mail"];
         $codio =$_GET["codigo"];
+        $sucursal = $_GET["sucursal"];
         //$producto =$_GET["producto"];
     ?>
 
     <header>
         <nav>
             <ul>
-                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio;?>">Atras</a> </li>
+                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio;?>&sucursal=<?php echo $sucursal;?>">Atras</a> </li>
             </ul>
         </nav>
     </header>
@@ -29,6 +30,7 @@
         $mail = $_GET["mail"];
         $codio =$_GET["codigo"];
         $producto =$_GET["producto"];
+        $sucursal = $_GET["sucursal"];
 
 
         
@@ -47,7 +49,9 @@
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codio; ?>" />
                     <br>
                     <input type="hidden" id="mail" name="mail" value="<?php echo $mail; ?>" />
+                    <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
                     
+                   
                     <br>
                     <label for='Imagen'>Imagen (*)</label>
                     <img id="yt" src="../../imagenes/<?php echo $row["prod_foto"]; ?>" alt="" size="50"/>

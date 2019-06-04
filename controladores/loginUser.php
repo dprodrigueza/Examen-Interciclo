@@ -9,6 +9,8 @@
 
     $email = isset($_POST["email"]) ? trim($_POST['email']) : null;
     $password = isset($_POST["contrasena"]) ? trim($_POST['contrasena']) : null;
+    $sucursal = $_POST["selCombo"];
+
 
         
     $sql = "SELECT * FROM usuarios WHERE usu_mail = '$email' AND usu_constrasena = ('$password');";
@@ -28,7 +30,7 @@
             header("Location: ../admin/vista/index.php?mail=".$email);
         }else if($rol["usu_rol"]== 'USER'){
             $_SESSION['isLogged'] = TRUE;
-            header("Location: ../public/vista/homeUsu.php?mail=".$email);
+            header("Location: ../public/vista/homeUsu.php?mail=".$email."&sucursal=".$sucursal);
         }
             
     }else{

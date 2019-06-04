@@ -7,9 +7,10 @@
 </head>
 
 <body class="fondo">
-<?php
+    <?php
     session_start();
-    $mail = $_GET["mail"];
+    $mail = $_POST["mail"];
+    $sucursal = $_POST["sucursal"];
     //$codio = $_GET["codio"];
     //$producto =$_GET["producto"];
     ?>
@@ -17,42 +18,48 @@
     <header>
         <nav>
             <ul>
-                <li> <a href="../../public/vista/homeUsu.php?mail=<?php echo "$mail"; ?>">Atras</a> </li>
+                <li> <a href="../../public/vista/homeUsu.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>">Atras</a> </li>
             </ul>
         </nav>
     </header>
 
     <h2>PRODUCTOS</h2>
     <?php
-            $mail = $_GET["mail"];
-            
-            include '../../config/conexionDB.php';
-            $sql = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
-            
-            $result = $conn->query($sql);
-            $rl = mysqli_fetch_assoc($result);
-            $conn->close();
-            ?>
-                  <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+    $mail = $_POST["mail"];
+
+
+    include '../../config/conexionDB.php';
+    $sql = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
+
+    $result = $conn->query($sql);
+    $rl = mysqli_fetch_assoc($result);
+    $conn->close();
+    ?>
+    <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
     <table style="width:100%" border>
         <tr>
-            
+
             <?php
-            $mail = $_GET["mail"];
+            $mail = $_POST["mail"];
+            $sucursal = $_POST["sucursal"];
+            $direccion = $_POST["selCombo"];
             //echo $mail;
             //echo '<br>';
             include '../../config/conexionDB.php';
             $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
-            
+
             $result2 = $conn->query($sql2);
             $rl = mysqli_fetch_assoc($result2);
             $rlt = $rl["usu_id"];
-            
+
 
             $rlt1 = $rl["usu_nombre"];
             $rlt2 = $rl["usu_apellido"];
             echo 'Username: ' . $rlt1 . ' ' . $rlt2;
             echo '<br>';
+            echo 'Sucursal: ' . $sucursal;
+            echo '<br>';
+            echo  $direccion;
 
             $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt' and ped_estado='CREADO';";
             $result3 = $conn->query($sql3);
@@ -72,11 +79,11 @@
             $conn->close();
             ?>
             <br>
-            <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Continuar Compra a factura</a>
+            <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&direccion=<?php echo $direccion; ?>">Continuar Compra a factura</a>
             <br>
-            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">Ver carrito</a>
+            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>">Ver carrito</a>
             <br>
-            <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>">MIS COMPRAS</a>
+            <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>">MIS COMPRAS</a>
             <br>
 
 
@@ -99,7 +106,7 @@
 
                 echo "   <td ><img  src='../../imagenes/" . $row['prod_foto'] . "' width='80px' height='80px'/></td>";
                 //echo "   <td> <a href='../../controladores/controlador_pedido.php?mail=". $mail ."&codigo=". $rlt ."&producto=". $row['prod_id']."' >ANADIR CARRITO    </a>  </td>";
-                echo "   <td> <a href='ver_producto.php?mail=" . $mail . "&codigo=" . $rlt . "&producto=" . $row['prod_id'] . "' >VER producto</a>  </td>";
+                echo "   <td> <a href='ver_producto.php?mail=" . $mail . "&codigo=" . $rlt . "&producto=" . $row['prod_id'] . "&sucursal=" . $sucursal . "' >VER producto</a>  </td>";
 
                 echo "</tr>";
             }

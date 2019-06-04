@@ -16,7 +16,8 @@
     include '../config/conexionDB.php';
     $cont = $_POST["contador"];
     $mail = $_POST["mail"];
-
+    $sucursal = $_POST["sucursal"];
+    $direccion = $_POST["direccion"];
     $codigo = isset($_POST["codigo"]) ? mb_strtoupper(trim($_POST["codigo"]), 'UTF-8') : null;
     $fecha = isset($_POST["fecha"]) ? mb_strtoupper(trim($_POST["fecha"]), 'UTF-8') : null;
     $sub = $_POST["subtotal"];
@@ -36,10 +37,15 @@
     echo "contador = " . $cont;
     echo "<br>";
 
+    $sql33    = "SELECT * FROM sucursal WHERE suc_ciudad = '$sucursal' and suc_direccion='$direccion';";
+    $result33 = $conn->query($sql33);
+    $rl33      = mysqli_fetch_assoc($result33);
+    $rlt33 = (int)$rl33["suc_id"];
 
 
 
-    $sql = "INSERT INTO facturacab VALUES(0,'$codigo','$fecha','$sub','$iva','$totalpagar','','CONFIRMADO')";
+
+    $sql = "INSERT INTO facturacab VALUES(0,'$codigo','$fecha','$sub','$iva','$totalpagar','$rlt33','CONFIRMADO')";
 
     if ($conn->query($sql) == TRUE) {
 

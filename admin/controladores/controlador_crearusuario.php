@@ -47,7 +47,7 @@
         echo ("Datos Actualizados correctamente.");
     }
 
-    header("Location: ../vista/index.php?mail=$mail");
+    header("Location: ../vista/index.php");
 
     $conn->close();
     ?>

@@ -17,14 +17,13 @@
     $nombre = isset($_POST["nombresucursal"]) ? mb_strtoupper(trim($_POST["nombresucursal"]), 'UTF-8') : null;
     $direccion = isset($_POST["direccionsucursal"]) ? mb_strtoupper(trim($_POST["direccionsucursal"]), 'UTF-8') : null;
     $ciudad = $_POST["selCombo"];
-   
-        echo "$ciudad";
+
+    echo "$ciudad";
     $sql = "INSERT INTO sucursal VALUES(0,'$nombre','$direccion','$ciudad','NO')";
 
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
         header("Location:../admin/vista/listar_sucursal.php?");
-
     } else {
         if ($conn->ermo == 1062) {
             echo "<p class='error'>La perosona con la cedula $cedula ya esta</p>";

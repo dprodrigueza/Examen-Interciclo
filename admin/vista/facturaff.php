@@ -14,6 +14,7 @@
         <?php
         session_start();
         $mail = $_GET["mail"];
+        $sucursal = $_GET["sucursal"];
         $codio = $_GET["codio"];
         //$producto =$_GET["producto"];
         ?>
@@ -21,7 +22,7 @@
         <header>
             <nav>
                 <ul>
-                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>">Atras</a>
+                    <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>">Atras</a>
                     </li>
                 </ul>
             </nav>
@@ -33,6 +34,8 @@
             <?php
             $mail = $_GET["mail"];
             $codio = $_GET["codio"];
+            $sucursal = $_GET["sucursal"];
+            $direccion = $_GET["direccion"];
             //$producto =$_GET["producto"];
 
 
@@ -40,7 +43,7 @@
             // echo $cone;
             include '../../config/conexionDB.php';
             date_default_timezone_set("America/Guayaquil");
-    $fecha = date('Y-m-d H:i:s', time());
+            $fecha = date('Y-m-d H:i:s', time());
             echo "</br>";
             $sql = "SELECT * FROM usuarios WHERE usu_id = '$codio' ";
 
@@ -60,7 +63,11 @@
                     <br>
                     <br>
                     <label for='direccion'>Sucursal</label>
-                    <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" disabled />
+                    <input type="text" id="sucursal" name="sucursal" value="<?php echo $sucursal;
+                                                                            echo '-';
+                                                                            echo $direccion; ?>" disabled />
+                    <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
+                    <input type="hidden" id="direccion" name="direccion" value="<?php echo $direccion; ?>" />
                     <br>
                     <br>
                     <label for='fecha'>Fecha</label>
