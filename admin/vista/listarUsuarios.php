@@ -113,12 +113,7 @@
 
         $sql = "SELECT * from usuarios where usu_rol = 'USER' and usu_eliminado='NO';";
         $result = $conn->query($sql);
-
-
-
-
         if ($result->num_rows > 0) {
-
 
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";

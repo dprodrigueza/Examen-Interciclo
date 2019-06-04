@@ -134,6 +134,8 @@
 <table style="width:100%" border>
   <tr>
     <th>FECHA</th>
+    <th>SUCURSAL</th>
+    <th>DIRECCION</th>
     <th>USUARIO</th>
     <th>TOTAL PEDIDO</th>
     <th>....enviar...</th>
@@ -149,10 +151,19 @@
       echo "   <td>" . $row["fcab_fecha"] . "</td>";
       $codigo = $row["cod_id"];
       $codigo2 = $row["fcab_id"];
+      $codigo3 = $row["suc_id"];
       $sql2    = "SELECT * FROM usuarios WHERE usu_id = '$codigo';";
       $result2 = $conn->query($sql2);
       $rl      = mysqli_fetch_assoc($result2);
       $rlt = $rl["usu_nombre"];
+
+      $sql3    = "SELECT * FROM sucursal WHERE suc_id = '$codigo3';";
+      $result3 = $conn->query($sql3);
+      $rl3      = mysqli_fetch_assoc($result3);
+      $rlt3 = $rl3["suc_nombre"];
+      $rlt4 = $rl3["suc_direccion"];
+      echo "   <td>" . $rlt3 . "</td>";
+      echo "   <td>" . $rlt4 . "</td>";
       $crt = $rl["usu_mail"];
       echo "   <td>" . $rlt . "</td>";
       echo "   <td>" . $row['fcab_total'] . "</td>";
