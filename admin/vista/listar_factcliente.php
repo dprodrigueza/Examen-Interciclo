@@ -12,12 +12,13 @@
     $mail = $_GET["mail"];
     $codio = $_GET["codio"];
     $sucursal = $_GET["sucursal"];
+    $direccion = $_GET["selCombo"];
     //$producto =$_GET["producto"];
     ?>
     <header>
         <nav>
             <ul>
-                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>">Atras</a> </li>
+                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Atras</a> </li>
             </ul>
         </nav>
     </header>
@@ -33,6 +34,9 @@
         <?php
         $cod = $_GET["codio"];
         $sucursal = $_GET["sucursal"];
+        $mail = $_GET["mail"];
+        $direccion = $_GET["selCombo"];
+        
         include '../../config/conexionDB.php';
         $sql = "SELECT * FROM facturacab where cod_id='$cod' AND fac_estado='CONFIRMADO';";
         $result = $conn->query($sql);
@@ -49,7 +53,7 @@
                 echo "   <td>" . $rlt . "</td>";
                 echo "   <td>" . $row['fcab_total'] . "</td>";
                 echo "   <td>" . $row['fac_estado'] . "</td>";
-                echo "   <td><a href='../../controladores/cancelar_pedcli.php?codigo=$codigo2&codi=$codigo' >CANCELAR PEDIDO</a></td>";
+                echo "   <td><a href='../../controladores/cancelar_pedcli.php?codigo=$codigo2&codi=$codigo&mail=$mail&sucursal=$sucursal&selCombo=$direccion' >CANCELAR PEDIDO</a></td>";
                 echo "</tr>";
             }
         } else {

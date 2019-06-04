@@ -13,13 +13,15 @@
     include '../config/conexionDB.php';
     $mail = $_GET['mail'];
     $codigo = $_GET["codigo"];
+    $direccion = $_GET["selCombo"];
+    $sucursal = $_GET["sucursal"];
     date_default_timezone_set("America/Guayaquil");
     $fecha = date('Y-m-d H:i:s', time());
     $sql = "DELETE FROM pedidos WHERE ped_id = $codigo ;";
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado MISMA CIUDAD!!!<br>";
-        header("Location:../admin/vista/vercarrito.php?mail=$mail&codio=$codigo");
+        header("Location:../admin/vista/vercarrito.php?mail=$mail&codio=$codigo&selCombo=$direccion&sucursal=$sucursal");
 
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";

@@ -23,6 +23,7 @@
     $producto = (int)$_POST['producto'];
     $cantidad = (int)$_POST['cantidad'];
     $sucursal = $_POST['sucursal'];
+    $direccion = $_POST['selCombo'];
 
 
 
@@ -31,7 +32,7 @@
     if ($conn->query($sql) == TRUE) {
         echo "<p>Se ha creado los datos</p>";
         echo $mail;
-        header("Location:../admin/vista/comprar.php?mail=$mail&sucursal=$sucursal");
+        header("Location:../admin/vista/comprar.php?mail=$mail&sucursal=$sucursal&selCombo=$direccion");
 
     } else {
         if ($conn->ermo == 1062) {

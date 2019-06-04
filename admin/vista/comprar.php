@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <title>ListarProductos</title>
+    <script type="text/javascript" src="bus.js"></script>
 </head>
 
 <body class="fondo">
     <?php
     session_start();
-    $mail = $_POST["mail"];
-    $sucursal = $_POST["sucursal"];
+    $mail = $_GET["mail"];
+    $sucursal = $_GET["sucursal"];
     //$codio = $_GET["codio"];
     //$producto =$_GET["producto"];
     ?>
@@ -25,7 +26,7 @@
 
     <h2>PRODUCTOS</h2>
     <?php
-    $mail = $_POST["mail"];
+    $mail = $_GET["mail"];
 
 
     include '../../config/conexionDB.php';
@@ -36,90 +37,90 @@
     $conn->close();
     ?>
     <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
-    <table style="width:100%" border>
-        <tr>
 
+
+    <?php
+    $mail = $_GET["mail"];
+    $sucursal = $_GET["sucursal"];
+    $direccion = $_GET["selCombo"];
+    //echo $mail;
+    //echo '<br>';
+    include '../../config/conexionDB.php';
+    $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
+
+    $result2 = $conn->query($sql2);
+    $rl = mysqli_fetch_assoc($result2);
+    $rlt = $rl["usu_id"];
+
+
+    $rlt1 = $rl["usu_nombre"];
+    $rlt2 = $rl["usu_apellido"];
+    echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+    echo '<br>';
+    echo 'Sucursal: ' . $sucursal;
+    echo '<br>';
+    echo  $direccion;
+
+    $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt' and ped_estado='CREADO';";
+    $result3 = $conn->query($sql3);
+
+    $cont = 0;
+    if ($result3->num_rows > 0) {
+        while ($row = $result3->fetch_assoc()) {
+            $cont += 1;
+        }
+        echo '<br>';
+        echo 'Productos añadidos : ' . $cont;
+        echo '<br>';
+    } else {
+        echo 'No Tiene Productos Añadidos';
+    }
+
+    $conn->close();
+    ?>
+    <br>
+    <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Continuar Compra a factura</a>
+    <br>
+    <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Ver carrito</a>
+    <br>
+    <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">MIS COMPRAS</a>
+    <br>
+
+
+    <input type="text" name="busqueda" id="busqueda" placeholder="Buscar.." />
+    <section id="datos">
+        <table style="width:100%" border>
+            <tr>
+                <th>Descripcion</th>
+                <th>precio</th>
+                <th>imagen</th>
+            </tr>
             <?php
-            $mail = $_POST["mail"];
-            $sucursal = $_POST["sucursal"];
-            $direccion = $_POST["selCombo"];
-            //echo $mail;
-            //echo '<br>';
             include '../../config/conexionDB.php';
-            $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
+            $sql = "SELECT * FROM productos WHERE prod_eliminado ='NO' OR prod_eliminado ='';";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>";
 
-            $result2 = $conn->query($sql2);
-            $rl = mysqli_fetch_assoc($result2);
-            $rlt = $rl["usu_id"];
+                    echo "   <td>" . $row['prod_caracteristica'] . "</td>";
+                    echo "   <td>" . $row['prod_precio'] . "</td>";
 
+                    echo "   <td ><img  src='../../imagenes/" . $row['prod_foto'] . "' width='80px' height='80px'/></td>";
+                    //echo "   <td> <a href='../../controladores/controlador_pedido.php?mail=". $mail ."&codigo=". $rlt ."&producto=". $row['prod_id']."' >ANADIR CARRITO    </a>  </td>";
+                    echo "   <td> <a href='ver_producto.php?mail=" . $mail . "&codigo=" . $rlt . "&producto=" . $row['prod_id'] . "&sucursal=" . $sucursal . "&selCombo=". $direccion. "' >VER producto</a>  </td>";
 
-            $rlt1 = $rl["usu_nombre"];
-            $rlt2 = $rl["usu_apellido"];
-            echo 'Username: ' . $rlt1 . ' ' . $rlt2;
-            echo '<br>';
-            echo 'Sucursal: ' . $sucursal;
-            echo '<br>';
-            echo  $direccion;
-
-            $sql3    = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt' and ped_estado='CREADO';";
-            $result3 = $conn->query($sql3);
-
-            $cont = 0;
-            if ($result3->num_rows > 0) {
-                while ($row = $result3->fetch_assoc()) {
-                    $cont += 1;
+                    echo "</tr>";
                 }
-                echo '<br>';
-                echo 'Productos añadidos : ' . $cont;
-                echo '<br>';
             } else {
-                echo 'No Tiene Productos Añadidos';
-            }
-
-            $conn->close();
-            ?>
-            <br>
-            <a href="facturaff.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>&direccion=<?php echo $direccion; ?>">Continuar Compra a factura</a>
-            <br>
-            <a href="vercarrito.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>">Ver carrito</a>
-            <br>
-            <a href="listar_factcliente.php?codio=<?php echo $rlt; ?>&mail=<?php echo $mail; ?>&sucursal=<?php echo $sucursal; ?>">MIS COMPRAS</a>
-            <br>
-
-
-
-            <th>Descripcion</th>
-            <th>precio</th>
-
-            <th>imagen</th>
-        </tr>
-        <?php
-        include '../../config/conexionDB.php';
-        $sql = "SELECT * FROM productos WHERE prod_eliminado ='NO' OR prod_eliminado ='';";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
-
-                echo "   <td>" . $row['prod_caracteristica'] . "</td>";
-                echo "   <td>" . $row['prod_precio'] . "</td>";
-
-                echo "   <td ><img  src='../../imagenes/" . $row['prod_foto'] . "' width='80px' height='80px'/></td>";
-                //echo "   <td> <a href='../../controladores/controlador_pedido.php?mail=". $mail ."&codigo=". $rlt ."&producto=". $row['prod_id']."' >ANADIR CARRITO    </a>  </td>";
-                echo "   <td> <a href='ver_producto.php?mail=" . $mail . "&codigo=" . $rlt . "&producto=" . $row['prod_id'] . "&sucursal=" . $sucursal . "' >VER producto</a>  </td>";
-
+                echo " <td colspan='6'> No existe Usuarios </td>";
                 echo "</tr>";
             }
-        } else {
-            echo "<tr>";
-            echo " <td colspan='6'> No existe Usuarios </td>";
-            echo "</tr>";
-        }
-
-        $conn->close();
-
-        ?>
-    </table>
+            $conn->close();
+            ?>
+        </table>
+    </section>
 </body>
 
 </html>

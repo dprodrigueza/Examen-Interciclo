@@ -15,13 +15,14 @@
         $mail = $_GET["mail"];
         $codio =$_GET["codigo"];
         $sucursal = $_GET["sucursal"];
+        $direccion = $_GET["selCombo"];
         //$producto =$_GET["producto"];
     ?>
 
     <header>
         <nav>
             <ul>
-                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio;?>&sucursal=<?php echo $sucursal;?>">Atras</a> </li>
+                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio;?>&sucursal=<?php echo $sucursal;?>&selCombo=<?php echo $direccion;?>">Atras</a> </li>
             </ul>
         </nav>
     </header>
@@ -31,6 +32,7 @@
         $codio =$_GET["codigo"];
         $producto =$_GET["producto"];
         $sucursal = $_GET["sucursal"];
+        $direccion = $_GET["selCombo"];
 
 
         
@@ -50,6 +52,7 @@
                     <br>
                     <input type="hidden" id="mail" name="mail" value="<?php echo $mail; ?>" />
                     <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
+                    <input type="hidden" id="selCombo" name="selCombo" value="<?php echo $direccion; ?>" />
                     
                    
                     <br>

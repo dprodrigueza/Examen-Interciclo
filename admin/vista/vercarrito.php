@@ -10,12 +10,13 @@
     $mail = $_GET["mail"];
     $codio = $_GET["codio"];
     $sucursal = $_GET["sucursal"];
+    $direccion = $_GET["selCombo"];
     //$producto =$_GET["producto"];
     ?>
     <header>
         <nav>
             <ul>
-                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>">Atras</a> </li>
+                <li> <a href="comprar.php?mail=<?php echo "$mail"; ?>&codigo=<?php echo $codio; ?>&sucursal=<?php echo $sucursal; ?>&selCombo=<?php echo $direccion; ?>">Atras</a> </li>
             </ul>
         </nav>
     </header>
@@ -25,6 +26,7 @@
             <?php
             $mail = $_GET["mail"];
             $sucursal = $_GET["sucursal"];
+            $direccion = $_GET["selCombo"];
             //echo $mail;
             include '../../config/conexionDB.php';
             $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$mail' ;";
@@ -56,6 +58,8 @@
         </tr>
         <?php
         include '../../config/conexionDB.php';
+        $direccion = $_GET["selCombo"];
+        $sucursal = $_GET["sucursal"];
         $sub = 0;
         $sql = "SELECT * FROM pedidos WHERE cod_usuario = '$rlt' and ped_estado = 'CREADO';";
         $result = $conn->query($sql);
@@ -73,7 +77,7 @@
                 echo "   <td>" . $rlt . "</td>";
                 echo "   <td ><img  src='../../imagenes/" . $rlt2 . "' width='80px' height='80px'/></td>";
                 echo "   <td>" . $can . "</td>";
-                echo "   <td> <a href='../../controladores/eliminar_carrito.php?codigo=" . $row['ped_id'] . "&mail=" . $mail . "' >eliminar    </a>  </td>";
+                echo "   <td> <a href='../../controladores/eliminar_carrito.php?codigo=" . $row['ped_id'] . "&mail=" . $mail . "&selCombo=". $direccion ."&sucursal=". $sucursal ."' >eliminar    </a>  </td>";
                 echo "</tr>";
             }
         } else {

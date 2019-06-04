@@ -13,6 +13,9 @@
     include '../config/conexionDB.php';
     $codigo = $_GET["codigo"];
     $cod = $_GET["codi"];
+    $mail = $_GET["mail"];
+    $sucursal = $_GET["sucursal"];
+    $direccion = $_GET["selCombo"];
     
     echo $codigo;
 
@@ -20,7 +23,7 @@
 
     if ($conn->query($sql) === TRUE) {
         echo "Se ha actualizado el estado!!!<br>";
-        header("Location:../admin/vista/listar_factcliente.php?codio=$cod");
+        header("Location:../admin/vista/listar_factcliente.php?codio=$cod&mail=$mail&sucursal=$sucursal&selCombo=$direccion");
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn) . "<br>";
     }
