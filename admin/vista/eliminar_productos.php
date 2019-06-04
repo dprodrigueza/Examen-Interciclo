@@ -25,7 +25,7 @@
             while ($row = $result->fetch_assoc()) {
                 ?>
 
-                <form id="formulario01" method="POST" action="../../controladores/controlador_eliminarprod.php">
+                <form id="formulario01" method="POST" action="../../controladores/controlador_eliminarprod.php?mail=<?php echo $_GET['mail'] ?>">
 
                     <label for="imagen">Imagen:</label>
                     <br>
