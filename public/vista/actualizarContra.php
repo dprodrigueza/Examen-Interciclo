@@ -8,8 +8,17 @@
 </head>
 
 <body>
+
 <?php
-        session_start();
+	session_start();
+	if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+		header("Location: ../../login/login.php");
+	}
+	
+    ?>
+    
+<?php
+       
         $mail = $_GET["mail"];
        
         ?>

@@ -8,20 +8,28 @@
 </head>
 
 <body>
-<?php
-        session_start();
-        $mail = $_GET["mail"];
-       
-        ?>
 
-        <header>
-            <nav>
-                <ul>
-                    <li> <a href="homeUsu.php?mail=<?php echo "$mail"; ?>">Atras</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+    <?php
+    session_start();
+    if (!isset($_SESSION['isLogged']) || $_SESSION['isLogged'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+    ?>
+    <?php
+
+    $mail = $_GET["mail"];
+
+    ?>
+
+    <header>
+        <nav>
+            <ul>
+                <li> <a href="homeUsu.php?mail=<?php echo "$mail"; ?>">Atras</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
 
     <?php

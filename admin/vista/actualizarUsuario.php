@@ -24,6 +24,15 @@
 </style>
 
 <body>
+
+<?php
+    session_start();
+    if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+
+    ?>
     
 <div class="w3-top"> 
     <div class="w3-row w3-padding w3-black">
@@ -95,13 +104,31 @@
 <br><br><br><br><br><br><br>
     <h2>Actualizar Usuario</h2>
     <?php
+        session_start();
+        $codio = $_GET["codio"];
+        $mail2 = $_GET["adm"];
+       
+        ?>
+
+        <header>
+            <nav>
+                <ul>
+                    <li> <a href="listarUsuarios.php?mail=<?php echo "$mail2"; ?>">Atras</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+    <?php
     include('../../config/conexionDB.php');
 
 
-    $mail = $_GET['mail'];
+    $codio = $_GET['codio'];
+    $mail2 = $_GET['adm'];
 
 
-    $sql = "SELECT * FROM usuarios where usu_mail='$mail'";
+    $sql = "SELECT * FROM usuarios where usu_id='$codio' and usu_eliminado = 'NO'";
 
     $result = $conn->query($sql);
 
@@ -109,28 +136,29 @@
         while ($row = $result->fetch_assoc()) {
             ?>
 
-            <form id="formularioUpdate" method="POST" enctype="multipart/form-data" action="../controladores/actualizarUsu.php?mail=<?php echo $row["adm"]; ?>">
+            <form id="formularioUpdate" method="POST" enctype="multipart/form-data" action="../controladores/actualizarUsu.php?codio=<?php echo $codio; ?>&mail2=<?php echo $mail2; ?>">
+
+            <?php echo $codio; ?>
                 <img src="../../imagenes/<?php echo $row["usu_foto"]; ?>" width="80" height="80">
                 <label>IMAGEN PERFIL:</label>
                 <input id="imagen" name="imagen" size="30" type="file" />
                 <br>
                 <label for="nombres">Nombre: </label>
-                <input type="text" class="form-control input-sm" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"]; ?>" />
+                <input type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"]; ?>" />
                 <br>
                 <label for="apellidos">Apelido: </label>
-                <input type="text" class="form-control input-sm" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
+                <input type="text" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
                 <br>
                 <label for="lbldireccion">Direccion: </label>
-                <input type="text" class="form-control input-sm" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
+                <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
                 <br>
                 <label for="correo">Correo electrónico: </label>
-                <input type="email" class="form-control input-sm" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
+                <input type="email" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
                 <br>
-                <button id="btnCambiarContraseña" class="btn btn-danger btn-sm" ><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>&adm=<?php echo $_GET['adm']; ?>">CAMBIAR CONTRASEÑA</a> </button>
+                <button id="btnCambiarContraseña"><a href="actualizarContra.php?mail=<?php echo $mail2; ?>&codio=<?php echo $codio; ?>">CAMBIAR CONTRASEÑA</a> </button>
                 <br>
                 <br>
-                <input type="submit" class="btn btn-primary" id="GUARDAR" name="guardar" value="GUARDAR" />
-                <a href="listarUsuarios.php?mail=<?php echo $_GET['adm']; ?>" class="btn btn-default">Volver</a>
+                <input type="submit" id="GUARDAR" name="guardar" value="GUARDAR" />
             </form>
         <?php
     }

@@ -26,6 +26,15 @@
 
 <body>
 
+<?php
+    session_start();
+    if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+
+    ?>
+
 <div class="w3-top"> 
     <div class="w3-row w3-padding w3-black">
 
@@ -34,7 +43,7 @@
       //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
       //echo " </div>";
       include '../../config/conexionDB.php';
-      $ref = $_GET["adm"];
+      $ref = $_GET['mail'];
       $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
         $result2 = $conn->query($sql2);
         $rl = mysqli_fetch_assoc($result2);
@@ -100,6 +109,7 @@
 
 
     $mail = $_GET['mail'];
+    $codio = $_GET['codio'];
 
 
     $sql = "SELECT * FROM usuarios where usu_mail='$mail'";
@@ -110,7 +120,7 @@
         while ($row = $result->fetch_assoc()) {
             ?>
 
-            <form id="formularioUpdate" method="POST" action="../controladores/actualizapas.php?mail=<?php echo $row["usu_mail"] . '&adm=' . $_GET['adm'] ; ?>">
+            <form id="formularioUpdate" method="POST" action="../controladores/actualizapas.php?codio=<?php echo $codio . '&adm=' . $mail ; ?>">
 
                 <label for="contraNEW">Nueva Contraseña *: </label>
                 <input type="password" class="form-control input-sm" id="contrasNew" name="contrasNew" placeholder="Ingrese la nueva contraseña" />

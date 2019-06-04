@@ -13,6 +13,15 @@
 </head>
 
 <body class="fondo">
+
+    <?php
+    session_start();
+    if (!isset($_SESSION['isLoggedAdmin']) || $_SESSION['isLoggedAdmin'] === FALSE) {
+        header("Location: ../../login/login.php");
+    }
+
+
+    ?>
     <section id="secin">
         <?php
         $codigo = $_GET["codigo"];
@@ -30,7 +39,7 @@
                     <label for="imagen">Imagen:</label>
                     <br>
                     <div>
-                    <img  width='80px' height='80px' src="../../imagenes/<?php echo $row["prod_foto"];?>" />
+                        <img width='80px' height='80px' src="../../imagenes/<?php echo $row["prod_foto"]; ?>" />
                     </div>
                     <br>
                     <input type="hidden" id="codigo" name="codigo" value="<?php echo $codigo ?>" />
