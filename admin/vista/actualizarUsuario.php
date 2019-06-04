@@ -110,16 +110,6 @@
        
         ?>
 
-        <header>
-            <nav>
-                <ul>
-                    <li> <a href="listarUsuarios.php?mail=<?php echo "$mail2"; ?>">Atras</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
-
     <?php
     include('../../config/conexionDB.php');
 
@@ -144,21 +134,22 @@
                 <input id="imagen" name="imagen" size="30" type="file" />
                 <br>
                 <label for="nombres">Nombre: </label>
-                <input type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"]; ?>" />
+                <input type="text" class="form-control input-sm" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"]; ?>" />
                 <br>
                 <label for="apellidos">Apelido: </label>
-                <input type="text" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
+                <input type="text" class="form-control input-sm" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
                 <br>
                 <label for="lbldireccion">Direccion: </label>
-                <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
+                <input type="text" class="form-control input-sm" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
                 <br>
                 <label for="correo">Correo electrónico: </label>
-                <input type="email" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
+                <input type="email" class="form-control input-sm" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
                 <br>
-                <button id="btnCambiarContraseña"><a href="actualizarContra.php?mail=<?php echo $mail2; ?>&codio=<?php echo $codio; ?>">CAMBIAR CONTRASEÑA</a> </button>
+                <button id="btnCambiarContraseña" ><a href="actualizarContra.php?mail=<?php echo $mail2; ?>&codio=<?php echo $codio; ?>">CAMBIAR CONTRASEÑA</a> </button>
                 <br>
                 <br>
-                <input type="submit" id="GUARDAR" name="guardar" value="GUARDAR" />
+                <input type="submit" class="btn btn-primary" id="GUARDAR" name="guardar" value="GUARDAR" />
+                <a href="listarUsuarios.php?mail=<?php echo $_GET['adm']; ?>" class="btn btn-default">Cancelar</a>
             </form>
         <?php
     }

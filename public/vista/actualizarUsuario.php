@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <title>Perfil.</title>
     <link href="../css/estilo.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" type="text/css" href="../../librerias/bootstrap/css/bootstrap.css">
+    <script src="../../librerias/jquery-3.2.1.min.js"></script>
 </head>
 
 <body>
@@ -16,22 +21,94 @@
     }
 
     ?>
+
+<div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+
+      <?php
+      //echo "<div class='w3-col s3'>";
+      //echo " <class='w3-button w3-block w3-black'> $_GET[mail]</>";
+      //echo " </div>";
+      include '../../config/conexionDB.php';
+      $sucursal = $_GET["sucursal"];
+      $ref = $_GET["mail"];
+      $sql2 = "SELECT * FROM usuarios WHERE usu_mail ='$ref' ;";
+      $result2 = $conn->query($sql2);
+      $rl = mysqli_fetch_assoc($result2);
+      $rlt = $rl["usu_id"];
+      $rlt1 = $rl["usu_nombre"];
+      $rlt2 = $rl["usu_apellido"];
+      echo 'Username: ' . $rlt1 . ' ' . $rlt2;
+      echo '<br>';
+      $conn->close();
+      ?>
+
+      <div class="w3-col s3">
+        <img src="../../imagenes/<?php echo $rl["usu_foto"]; ?>" width="80" height="80">
+      </div>
+
+      <div class="w3-col s3">
+        <a href="#" class="w3-button w3-block w3-black">INICIO</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="#contact" class="w3-button w3-block w3-black">CONTACTOS</a>
+      </div>
+
+      <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="recoger.php">
+      <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
+      <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
+
+
+      <form id="perfil" method="POST" onsubmit="return validarCamposObligatoriosLogin()" action="../../admin/vista/comprar.php?mail=<?php echo $ref; ?>&sucursal=<?php echo $sucursal; ?>">
+        <input type="hidden" id="mail" name="mail" value="<?php echo $ref; ?>" />
+        <input type="hidden" id="sucursal" name="sucursal" value="<?php echo $sucursal; ?>" />
+
+        <label id="Descripcionproducto">SUCURSAL</label>
+        <SELECT id="selCombo" NAME="selCombo">
+
+          <?php include '../../config/conexionDB.php';
+          $sql4 = "SELECT * FROM sucursal WHERE suc_ciudad ='$sucursal' ;";
+
+          $result4 = $conn->query($sql4);
+          $cont = 0;
+          if ($result4->num_rows > 0) {
+            while ($row = $result4->fetch_assoc()) {
+              $var = $row["suc_nombre"];
+              $var2 = $row["suc_direccion"];
+
+              echo "<OPTION VALUE='" . $var2 . "'>" . $var2 . "</OPTION>";
+            }
+          }
+          $conn->close();
+
+          ?>
+
+        </SELECT>
+        
+        <input class="btn" type="submit" id="modificar" name="modificar" value="Comprar" />
+
+      </form>
+      <br><br><br> 
+      <div class="w3-col s3">
+        <a href="actualizarUsuario.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal ?>" class="w3-button w3-block w3-black">MODIFICAR CUENTA</a>
+      </div>
+
+      <div class="w3-col s3">
+        <a href="../vista/home.php" class="w3-button w3-block w3-black">CERRAR SESION</a>
+      </div>
+
+    </div>
+  </div>
+
+  <br><br><br><br><br><br><br><br>
+
     <?php
 
     $mail = $_GET["mail"];
     $sucursal = $_GET["sucursal"];
 
     ?>
-
-    <header>
-        <nav>
-            <ul>
-                <li> <a href="homeUsu.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>">Atras</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-
 
     <?php
     include('../../config/conexionDB.php');
@@ -58,21 +135,22 @@
                 <input id="imagen" name="imagen" size="30" type="file" />
                 <br>
                 <label for="nombres">Nombre: </label>
-                <input type="text" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"]; ?>" />
+                <input type="text" class="form-control input-sm" id="nombres" name="nombres" value="<?php echo $row["usu_nombre"]; ?>" />
                 <br>
                 <label for="apellidos">Apelido: </label>
-                <input type="text" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
+                <input type="text" class="form-control input-sm" id="apellidos" name="apellidos" value="<?php echo $row["usu_apellido"]; ?>" />
                 <br>
                 <label for="lbldireccion">Direccion: </label>
-                <input type="text" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
+                <input type="text" class="form-control input-sm" id="direccion" name="direccion" value="<?php echo $row["usu_direccion"]; ?>" />
                 <br>
                 <label for="correo">Correo electrónico: </label>
-                <input type="email" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
+                <input type="email" class="form-control input-sm" id="correo" name="correo" disabled value="<?php echo $row["usu_mail"]; ?>" />
                 <br>
-                <button id="btnCambiarContraseña"><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal; ?>">CAMBIAR CONTRASEÑA</a> </button>
+                <button id="btnCambiarContraseña" class="btn btn-danger btn-sm" ><a href="actualizarContra.php?mail=<?php echo $_GET['mail']; ?>&sucursal=<?php echo $sucursal; ?>">CAMBIAR CONTRASEÑA</a> </button>
                 <br>
                 <br>
-                <input type="submit" id="GUARDAR" name="guardar" value="GUARDAR" />
+                <input type="submit" class="btn btn-primary btn-sm"  id="GUARDAR" name="guardar" value="GUARDAR" />
+                <a href="homeUsu.php?mail=<?php echo "$mail"; ?>&sucursal=<?php echo "$sucursal"; ?>" class="btn btn-default">Atras</a>
             </form>
         <?php
     }
@@ -82,3 +160,30 @@
 }
 $conn->close();
 ?>
+  <!-- Footer -->
+  <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+    <p>UPS Hipermedial © Todos los derechos reservados</a></p>
+  </footer>
+
+  <script>
+    // Tabbed Menu
+    function openMenu(evt, menuName) {
+      var i, x, tablinks;
+      x = document.getElementsByClassName("menu");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+      }
+      document.getElementById(menuName).style.display = "block";
+      evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+    }
+    document.getElementById("myLink").click();
+  </script>
+
+</body>
+
+</body>
+</html>
